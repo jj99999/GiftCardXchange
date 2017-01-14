@@ -20,11 +20,15 @@ var port = process.env.PORT || 3000;
 
 // Can we separate each route into a separate controller file and require them into the server?   That would make it easier to keep the length of the code manageable.
 // For example,  each controller below would control one of the routes --   AddCard, Buy, Sell, etc.
+
 //Controllers
 var mainControl = require('./controllers/mainControl.js');
-var spotifyControl = require('./controllers/spotifyControl.js');
-var profileControl = require('./controllers/profileControl.js');
-var seatgeekControl = require('./controllers/seatgeekControl.js');
+var auth = require ('./controllers/auth.js');
+var myAccount = require('./controllers/myAccount.js');
+var sellCard = require('./controllers/sellCard.js');
+var sellCard = require('./controllers/buyCard.js');
+var addCard = require('./controllers/addCard.js');
+var addCreditCard = = require('./controllers/addCreditCard.js');
 
 
 //Express settings
