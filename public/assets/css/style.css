@@ -5,6 +5,13 @@ body {
 }
 
 #header {
+	height:280px;
+	background-image:url("../images/cardchange-clear.png");
+	background-size: 100%;
+	background-repeat:no-repeat;
+}
+
+#header1 {
 	height:200px;
 	background-image:url("../images/cardchange-clear.png");
 	background-size: 100%;
@@ -12,15 +19,7 @@ body {
 }
 
 #row1 {
-	height:100px;
-}
-
-#row2 {
-	height:90px;
-}
-
-#row3 {
-	height:50px;
+	height:240px;
 }
 
 #bigx {
@@ -45,6 +44,7 @@ body {
 	border-color:red;
 	border-width:1px;
 	font-size:16px;
+	font-family:Georgia;
 }
 
 #passwordfield {
@@ -57,6 +57,7 @@ body {
 	border-color:red;
 	border-width:1px;
 	font-size:16px;
+	font-family:Georgia;
 }
 
 #loginbutton {
@@ -71,18 +72,75 @@ body {
 	border-color:white;
 	border-width:1px;
 	color:white;
+	font-family:Georgia;
+	font-weight:bold;
 }
 
 #create {
 	font-weight:bold;
 	color:red;
 	font-size:16px;
+	font-family:Georgia;
 }
 
 #notregistered{
 	font-weight:bold;
 	color:white;
 	font-size:16px;
+	font-family:Georgia;
 	margin-top:25px;
 	margin-left:-300px;
+}
+
+#row6 {
+	height:140px;
+}
+
+#row8 {
+	height:50px;
+}
+
+legend {
+	color:black;
+	font-family:Georgia;
+	font-weight:bold;
+	font-size:36px;
+}
+
+fieldset{
+	color:black;
+	font-family:Georgia;
+	font-weight:bold;
+	font-size:20px;
+}
+
+#firstname, #lastname, #email, #password {
+	border-style:solid;
+	border-color:red;
+	border-width:2px;
+	width:400px;
+}
+
+#photo1{
+	background-image:url("../images/giftcard.gif");
+	background-size: 100%;
+	background-repeat:no-repeat;
+	height:450px;
+	width:450px;
+	border-style:solid;
+	border-color:red;
+	border-width:2px;
+	margin-left:100px;
+	margin-top:50px;
+}
+
+#created {
+	background-color:red;
+	border-style:solid;
+	border-color:black;
+	border-width:2px;
+	color:white;
+	width:200px;
+	height:50px;
+	margin-top:-10px;
 }
