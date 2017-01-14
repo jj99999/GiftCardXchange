@@ -1,4 +1,3 @@
-// This is a shell server file I copied from a previous project.  I will clean it up later.
 
 //Dependencies
 var express = require('express');
@@ -13,12 +12,8 @@ var methodOverride = require('method-override');
 var request = require('request');
 var queryString = require('querystring');
 var mysql = require('mysql');
-// var models = require('./models');
-var port = process.env.PORT || 3000; 
+var PORT = process.env.PORT || 3000; 
 
-
-// Can we separate each route into a separate controller file and require them into the server?   That would make it easier to keep the length of the code manageable.
-// For example,  each controller below would control one of the routes --   AddCard, Buy, Sell, etc.
 
 //Controllers
 var mainControl = require('./controllers/mainControl.js');
@@ -76,12 +71,6 @@ app.use(function(err, res, next){
 })
 
 
-// This is some Sequelize code.  Need to cover this with Josh for database use.
-// models.sequelize.sync({force: true}).then(function(){
-// 	app.listen(port, function(){
-// 		console.log("Listening on port: "+port);
-// 	})
-// });
 
 app.listen(PORT, function () {
 	console.log('App listening on PORT ' + PORT);
