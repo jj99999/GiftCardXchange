@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-sessions": "^1.0.6",
+    "logger": "^0.0.1",
+    "mongoose": "^4.7.6",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  }
+}
