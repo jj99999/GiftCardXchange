@@ -1,0 +1,88 @@
+
+
+body {
+	background-image:url("../images/confetti.gif");
+}
+
+#header {
+	height:200px;
+	background-image:url("../images/cardchange-clear.png");
+	background-size: 100%;
+	background-repeat:no-repeat;
+}
+
+#row1 {
+	height:100px;
+}
+
+#row2 {
+	height:90px;
+}
+
+#row3 {
+	height:50px;
+}
+
+#bigx {
+	width:30%;
+	position: absolute;
+	left:27%;
+	top: -100px;
+}
+
+#topbar {
+	background-color:black;
+	height:80px;
+}
+
+#emailfield {
+	position: absolute;
+	left:68%;
+	top:25px;
+	width:200px;
+	height:30px;
+	border-style:solid;
+	border-color:red;
+	border-width:1px;
+	font-size:16px;
+}
+
+#passwordfield {
+	position: absolute;
+	left:80%;
+	top:25px;
+	width:200px;
+	height:30px;
+	border-style:solid;
+	border-color:red;
+	border-width:1px;
+	font-size:16px;
+}
+
+#loginbutton {
+	position:absolute;
+	left:92%;
+	top:25px;
+	height:30px;
+	width:100px;
+	font-size:16px;
+	background-color:red;
+	border-style:solid;
+	border-color:white;
+	border-width:1px;
+	color:white;
+}
+
+#create {
+	font-weight:bold;
+	color:red;
+	font-size:16px;
+}
+
+#notregistered{
+	font-weight:bold;
+	color:white;
+	font-size:16px;
+	margin-top:25px;
+	margin-left:-300px;
+}
