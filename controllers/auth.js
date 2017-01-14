@@ -6,7 +6,7 @@ var router = express.Router();
 router.get('/', function(req, res){
 	// insert  passport auth code here
 	
-	// res.sendFile('../public/index.html');
+	res.redirect('/signin');
 });
 
 module.exports = router; 
