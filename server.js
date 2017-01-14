@@ -3,7 +3,7 @@
 //Dependencies
 var express = require('express');
 var path = require('path');
-// CAN WE CHOOSE A FAV
+// CAN WE CHOOSE A FAVICON
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -12,9 +12,8 @@ var session = require('express-session');
 var methodOverride = require('method-override');
 var request = require('request');
 var queryString = require('querystring');
-var sequelize = require('sequelize');
 var mysql = require('mysql');
-var models = require('./models');
+// var models = require('./models');
 var port = process.env.PORT || 3000; 
 
 
@@ -28,7 +27,7 @@ var myAccount = require('./controllers/myAccount.js');
 var sellCard = require('./controllers/sellCard.js');
 var buyCard = require('./controllers/buyCard.js');
 var addCard = require('./controllers/addCard.js');
-var addCreditCard = = require('./controllers/addCreditCard.js');
+var addCreditCard = require('./controllers/addCreditCard.js');
 
 
 //Express settings
@@ -78,10 +77,14 @@ app.use(function(err, res, next){
 
 
 // This is some Sequelize code.  Need to cover this with Josh for database use.
-models.sequelize.sync({force: true}).then(function(){
-	app.listen(port, function(){
-		console.log("Listening on port: "+port);
-	})
+// models.sequelize.sync({force: true}).then(function(){
+// 	app.listen(port, function(){
+// 		console.log("Listening on port: "+port);
+// 	})
+// });
+
+app.listen(PORT, function () {
+	console.log('App listening on PORT ' + PORT);
 });
 
 module.exports = app; 
