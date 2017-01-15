@@ -12,6 +12,7 @@ var methodOverride = require('method-override');
 var request = require('request');
 var queryString = require('querystring');
 var mysql = require('mysql');
+var models = require('./models');
 var PORT = process.env.PORT || 3000; 
 
 
