@@ -1,13 +1,13 @@
 
-var requiem = document.createElement('audio');
-	       requiem.setAttribute('src', "assets/images/requiem.mp3");
+var tonto = document.createElement('audio');
+	       tonto.setAttribute('src', "assets/images/tonto.mp3");
 
 
 $(document).ready(function(){
 
 
-	requiem.play();
-	requiem.addEventListener('ended', function() {
+	tonto.play();
+	tonto.addEventListener('ended', function() {
    		this.currentTime = 0;
     	this.play();
 		}, false);

@@ -156,12 +156,12 @@ fieldset{
 	height:30px;
 }
 
-#panel, #addcard, #buycard, #alerts {
+#panel, #addcard, #buycard, #alerts, #searchresults {
 	background-color:black;
 	opacity:0.8;
 }
 
-#panelhead, #addcardhead, #addCardBtn, #buyCardBtn, #buycardhead, #alertshead {
+#panelhead, #addcardhead, #addCardBtn, #buyCardBtn, #buycardhead, #alertshead, #searchhead {
 	background-color:red;
 }
 
@@ -169,7 +169,7 @@ fieldset{
 	font-size:16px;
 }
 
-#row13{
+#row13, #row15{
 	height:50px;
 }
 
@@ -182,7 +182,7 @@ label{
 	font-weight:normal;
 }
 
-
 #addcard, #buycard, #alerts {
 	height:400px;
 }
+
