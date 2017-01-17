@@ -5,21 +5,21 @@ body {
 }
 
 #header {
-	height:280px;
-	background-image:url("../images/cardchange-clear.png");
+	height:350px;
+	background-image:url("../images/logo-clear.png");
 	background-size: 100%;
 	background-repeat:no-repeat;
 }
 
 #header1 {
-	height:200px;
-	background-image:url("../images/cardchange-clear.png");
+	height:350px;
+	background-image:url("../images/logo-clear.png");
 	background-size: 100%;
 	background-repeat:no-repeat;
 }
 
 #row1 {
-	height:240px;
+	height:170px;
 }
 
 #bigx {
@@ -93,12 +93,12 @@ body {
 }
 
 #row6 {
-	height:140px;
+	height:40px;
 }
 
-#row8 {
-	height:50px;
-}
+/*#row8 {
+	height:10px;
+}*/
 
 legend {
 	color:black;
@@ -143,4 +143,46 @@ fieldset{
 	width:200px;
 	height:50px;
 	margin-top:-10px;
+}
+
+#logo {
+	background-image:url("../images/logo-clear.png");
+	background-size: 100%;
+	background-repeat:no-repeat;
+	height:220px;
+}
+
+#row10 {
+	height:30px;
+}
+
+#panel, #addcard, #buycard, #alerts {
+	background-color:black;
+	opacity:0.8;
+}
+
+#panelhead, #addcardhead, #addCardBtn, #buyCardBtn, #buycardhead, #alertshead {
+	background-color:red;
+}
+
+#field1, #field2, #field3, #field4 {
+	font-size:16px;
+}
+
+#row13{
+	height:50px;
+}
+
+#row11a{
+	height:20px;
+}
+
+label{
+	font-size:16px;
+	font-weight:normal;
+}
+
+
+#addcard, #buycard, #alerts {
+	height:400px;
 }
