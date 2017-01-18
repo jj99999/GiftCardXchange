@@ -21,10 +21,7 @@ var mainControl = require('./controllers/mainControl.js');
 var createAccount = require('./controllers/createAccount.js');
 var auth = require ('./config/auth.js');
 var myAccount = require('./controllers/myAccount.js');
-var sellCard = require('./controllers/sellCard.js');
-var buyCard = require('./controllers/buyCard.js');
-var addCard = require('./controllers/addCard.js');
-var addCreditCard = require('./controllers/addCreditCard.js');
+
 
 
 //Express settings
@@ -50,11 +47,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', mainControl);
 app.use('/register', createAccount);
 app.use('/login', auth);
+// My Account route will be triggered at the tail end of the auth route.  The /myaccount route will load the React components
 app.use('/myaccount', myAccount);
-app.use('/sellcard', sellCard);
-app.use('/buycard', buyCard);
-app.use('/addcard', addCard);
-app.use('/addcreditcard', addCreditCard);
+
+
 
 
 //Forwards errors to the Error Handler
