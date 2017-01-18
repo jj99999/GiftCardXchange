@@ -14,7 +14,7 @@ var queryString = require('querystring');
 var mysql = require('mysql');
 var models = require('./models');
 var PORT = process.env.PORT || 3000; 
-
+require('./config/passport')(passport);
 
 //Controllers
 var mainControl = require('./controllers/mainControl.js');
