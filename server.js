@@ -19,7 +19,7 @@ var PORT = process.env.PORT || 3000;
 //Controllers
 var mainControl = require('./controllers/mainControl.js');
 var createAccount = require('./controllers/createAccount.js');
-var auth = require ('./controllers/auth.js');
+var auth = require ('./config/auth.js');
 var myAccount = require('./controllers/myAccount.js');
 var sellCard = require('./controllers/sellCard.js');
 var buyCard = require('./controllers/buyCard.js');
@@ -49,7 +49,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Controller Routing
 app.use('/', mainControl);
 app.use('/register', createAccount);
-app.use('/signin', auth);
+app.use('/login', auth);
 app.use('/myaccount', myAccount);
 app.use('/sellcard', sellCard);
 app.use('/buycard', buyCard);
