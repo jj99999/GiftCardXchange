@@ -21,7 +21,7 @@ var PORT = process.env.PORT || 3000;
 //Controllers
 var mainControl = require('./controllers/mainControl.js');
 var createAccount = require('./controllers/createAccount.js');
-var auth = require ('./config/passport.js');
+// var auth = require ('./config/passport.js');
 
 var myAccount = require('./controllers/myAccount.js');
 
@@ -33,7 +33,7 @@ var configDB = require('./config/database.js');
 // configuration ===============================================================
 mongoose.connect(configDB.url); // connect to our database
 
-// require('./config/passport')(passport); // pass passport for configuration
+require('./config/passport')(passport); // pass passport for configuration
 
 
 
@@ -72,7 +72,7 @@ require('./app/routes.js')(app, passport);
 //Controller Routing
 app.use('/', mainControl);
 app.use('/register', createAccount);
-app.use('/login', auth);
+// app.use('/login', auth);
 // My Account route will be triggered at the tail end of the auth route.  The /myaccount route will load the React components
 app.use('/myaccount', myAccount);
 
