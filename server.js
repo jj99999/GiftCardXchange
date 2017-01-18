@@ -8,19 +8,35 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var morgan = require('morgan');
 var methodOverride = require('method-override');
 var request = require('request');
 var queryString = require('querystring');
 var mysql = require('mysql');
-var models = require('./models');
+var flash = require('connect-flash');
+var mongoose = require('mongoose');
+var models = require('./app/models');
 var PORT = process.env.PORT || 3000; 
-require('./config/passport')(passport);
 
 //Controllers
 var mainControl = require('./controllers/mainControl.js');
 var createAccount = require('./controllers/createAccount.js');
-var auth = require ('./config/auth.js');
+var auth = require ('./config/passport.js');
+
 var myAccount = require('./controllers/myAccount.js');
+
+// passport setup
+var passport = require('passport');
+var passportLocal   = require('passport-local');
+var configDB = require('./config/database.js');
+
+// configuration ===============================================================
+mongoose.connect(configDB.url); // connect to our database
+
+require('./config/passport')(passport); // pass passport for configuration
+
+
+
 
 
 
@@ -36,11 +52,19 @@ app.use(cookieParser());
 
 // NEED TO STORE FAVICON  FILE HERE
 app.use(favicon(__dirname + '/public/images/favicon.ico'));
+
 app.use(logger('dev'));
+app.use(morgan('dev')); // log every request to the console
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// required for passport
+app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
 
 // Need to revise routes below.
 //Controller Routing
