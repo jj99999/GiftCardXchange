@@ -3,7 +3,11 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res){
-	res.redirect('/myaccount');
+	
+
+	res.sendFile('account1.html', { root: "public" });
+
+
 });
 
 module.exports = router; 
