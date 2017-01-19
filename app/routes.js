@@ -1,13 +1,20 @@
+var express = require('express');
 
+var app = express();
+
+var passport = require('passport');
+var passportLocal   = require('passport-local');
 
 module.exports = function(app, passport) {
 
     // =====================================
     // HOME PAGE (with login links) ========
     // =====================================
-    // app.get('/', function(req, res) {
-    //     res.render('index.js'); // load the index.js file
-    // });
+    app.get('/', function(req, res) {
+        // res.render('index.js'); // load the index.js file
+
+        res.sendFile('home.html', { root: "public" });
+    });
 
     // =====================================
     // LOGIN ===============================
@@ -16,7 +23,8 @@ module.exports = function(app, passport) {
     // app.get('/login', function(req, res) {
 
     //     // render the page and pass in any flash data if it exists
-    //     res.render('login.js', { message: req.flash('loginMessage') }); 
+    //     res.render('login.js', { message: req.flash('loginMessage') });
+
     // });
 
     // process the login form
@@ -26,11 +34,13 @@ module.exports = function(app, passport) {
     // SIGNUP ==============================
     // =====================================
     // show the signup form
-    // app.get('/register', function(req, res) {
+    app.get('/register', function(req, res) {
 
-    //     // render the page and pass in any flash data if it exists
-    //     res.render('signup.js', { message: req.flash('signupMessage') });
-    // });
+        // render the page and pass in any flash data if it exists
+        // res.render('signup.js', { message: req.flash('signupMessage') });
+
+        res.sendFile('register.html', { root: "public" });
+    });
 
     // process the signup form
     // app.post('/register', do all our passport stuff here);
@@ -43,9 +53,11 @@ module.exports = function(app, passport) {
     app.get('/myaccount', isLoggedIn, function(req, res) {
 
         // WE WILL HAVE TO RENDER THE REACT COMPONENTS HERE -- USE SAME ROUTING AS 
-        res.render('profile.js', {
-            user : req.user // get the user out of session and pass to template
-        });
+        // res.render('profile.js', {
+        //     user : req.user // get the user out of session and pass to template
+        // });
+
+        res.redirect('/myaccount');
     });
 
     // =====================================
