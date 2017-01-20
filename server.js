@@ -8,23 +8,36 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var morgan = require('morgan');
 var methodOverride = require('method-override');
 var request = require('request');
 var queryString = require('querystring');
 var mysql = require('mysql');
-var models = require('./models');
+var flash = require('connect-flash');
+var mongoose = require('mongoose');
+var models = require('./app/models');
 var PORT = process.env.PORT || 3000; 
 
-
 //Controllers
-var mainControl = require('./controllers/mainControl.js');
-var createAccount = require('./controllers/createAccount.js');
-var auth = require ('./controllers/auth.js');
+// var mainControl = require('./controllers/mainControl.js');
+// var createAccount = require('./controllers/createAccount.js');
+// var auth = require ('./config/passport.js');
+
 var myAccount = require('./controllers/myAccount.js');
-var sellCard = require('./controllers/sellCard.js');
-var buyCard = require('./controllers/buyCard.js');
-var addCard = require('./controllers/addCard.js');
-var addCreditCard = require('./controllers/addCreditCard.js');
+
+// passport setup
+var passport = require('passport');
+var passportLocal   = require('passport-local');
+var configDB = require('./config/database.js');
+
+// configuration ===============================================================
+mongoose.connect(configDB.url); // connect to our database
+
+require('./config/passport')(passport); // pass passport for configuration
+
+
+
+
 
 
 //Express settings
@@ -39,22 +52,31 @@ app.use(cookieParser());
 
 // NEED TO STORE FAVICON  FILE HERE
 app.use(favicon(__dirname + '/public/images/favicon.ico'));
+
 app.use(logger('dev'));
+app.use(morgan('dev')); // log every request to the console
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// required for passport
+app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
+
+require('./app/routes.js')(app, passport); 
+
 // Need to revise routes below.
 //Controller Routing
-app.use('/', mainControl);
-app.use('/register', createAccount);
-app.use('/signin', auth);
+// app.use('/', mainControl);
+// app.use('/register', createAccount);
+// app.use('/login', auth);
+// My Account route will be triggered at the tail end of the auth route.  The /myaccount route will load the React components
 app.use('/myaccount', myAccount);
-app.use('/sellcard', sellCard);
-app.use('/buycard', buyCard);
-app.use('/addcard', addCard);
-app.use('/addcreditcard', addCreditCard);
+
+
 
 
 //Forwards errors to the Error Handler
