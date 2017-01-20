@@ -5,16 +5,16 @@ body {
 }
 
 #header {
-	height:300px;
-	background-image:url("../images/gcxchange2.png");
+	height:500px;
+	background-image:url("../images/logo.png");
 	background-size: 100%;
 	background-repeat:no-repeat;
 }
 
 #header1 {
 	height:350px;
-	background-image:url("../images/gcxchange2.png");
-	background-size: 75%;
+	background-image:url("../images/logo.png");
+	background-size: 100%;
 	background-repeat:no-repeat;
 	margin-bottom:40px;
 }
@@ -42,10 +42,10 @@ body {
 	width:200px;
 	height:30px;
 	border-style:solid;
-	border-color:#1f3b72;
-	border-width:1px;
+	border-color:#5ea7cb;
+	border-width:2px;
 	font-size:16px;
-	font-family:Tekton Pro;
+	font-family:arial;
 }
 
 #passwordfield {
@@ -55,10 +55,10 @@ body {
 	width:200px;
 	height:30px;
 	border-style:solid;
-	border-color:#1f3b72;
-	border-width:1px;
+	border-color:#5ea7cb;
+	border-width:2px;
 	font-size:16px;
-	font-family:Tekton Pro;
+	font-family:arial;
 }
 
 #loginbutton {
@@ -73,44 +73,44 @@ body {
 	border-color:white;
 	border-width:1px;
 	color:white;
-	font-family:Tekton Pro;
+	font-family:arial;
 	font-weight:bold;
 }
 
 #create {
 	font-weight:bold;
-	color:#1f3b72;
-	font-size:16px;
-	font-family:Tekton Pro;
+	color:#5ea7cb;
+	font-size:20px;
+	font-family:arial;
 }
 
-#notregiste#1f3b72{
+#notregistered{
 	font-weight:bold;
 	color:white;
-	font-size:16px;
-	font-family:Tekton Pro;
+	font-size:20px;
+	font-family:arial;
 	margin-top:25px;
 	margin-left:-300px;
 }
 
 #row6 {
-	height:40px;
+	height:20px;
 }
 
 /*#row8 {
 	height:10px;
-}*/
-
+}
+*/
 legend {
 	color:black;
-	font-family:Tekton Pro;
+	font-family:arial;
 	font-weight:bold;
 	font-size:36px;
 }
 
 fieldset{
 	color:black;
-	font-family:Tekton Pro;
+	font-family:arial;
 	font-weight:bold;
 	font-size:20px;
 }
@@ -120,6 +120,7 @@ fieldset{
 	border-color:#1f3b72;
 	border-width:2px;
 	width:400px;
+	font-family:arial;
 }
 
 #photo1{
@@ -147,7 +148,7 @@ fieldset{
 }
 
 #logo {
-	background-image:url("../images/gcxchange2.png");
+	background-image:url("../images/logo.png");
 	background-size: 100%;
 	background-repeat:no-repeat;
 	height:300px;
@@ -172,12 +173,12 @@ fieldset{
 }
 
 #row13, #row15{
-	height:50px;
+	height:40px;
 }
 
-#row11a{
+/*#row11a{
 	height:20px;
-}
+}*/
 
 label{
 	font-size:16px;
@@ -186,4 +187,8 @@ label{
 
 #addcard, #buycard, #alerts {
 	height:400px;
+}
+
+#row12 {
+	margin-top:-30px;
 }
