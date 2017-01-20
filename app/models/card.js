@@ -2,15 +2,19 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var CardSchema = new Schema({
-  code: {
+  store: {
     type: String,
   },
-  brand: {
+  balance: {
   	type: String,
   },
-   toggle: {
-   state: Boolean,
+   code: {
+   type: String,
   },
+  avaliability: {
+   type: Boolean,
+  }
+
 });
 
 var Card = mongoose.model('Term', CardSchema);

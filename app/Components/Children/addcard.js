@@ -1,8 +1,12 @@
 // Include React 
 var React = require('react');
+var axios = require('axios');
+
 
 // This is the form component. 
 var AddCard = React.createClass({
+
+
 
   // Here we set a generic state associated with the text being searched for
   // React created
@@ -35,10 +39,15 @@ var AddCard = React.createClass({
 
     console.log("CLICK");
     console.log(this.state.term);
+
+    return axios.post({term: term})
+  .then(function(term){
+    return(turn);
+  }
     
     // Set the parent to have the search term
-    this.props.setTerm(this.state.term);
-
+    // this.props.setTerm(this.state.term);
+     
   },
 
   // Here we render the function
