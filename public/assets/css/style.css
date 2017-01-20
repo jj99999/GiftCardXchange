@@ -5,17 +5,18 @@ body {
 }
 
 #header {
-	height:450px;
-	background-image:url("../images/gcx-clear.png");
+	height:300px;
+	background-image:url("../images/gcxchange2.png");
 	background-size: 100%;
 	background-repeat:no-repeat;
 }
 
 #header1 {
 	height:350px;
-	background-image:url("../images/gcx-clear.png");
-	background-size: 100%;
+	background-image:url("../images/gcxchange2.png");
+	background-size: 75%;
 	background-repeat:no-repeat;
+	margin-bottom:40px;
 }
 
 #row1 {
@@ -41,10 +42,10 @@ body {
 	width:200px;
 	height:30px;
 	border-style:solid;
-	border-color:blue;
+	border-color:#1f3b72;
 	border-width:1px;
 	font-size:16px;
-	font-family:Arial;
+	font-family:Tekton Pro;
 }
 
 #passwordfield {
@@ -54,10 +55,10 @@ body {
 	width:200px;
 	height:30px;
 	border-style:solid;
-	border-color:blue;
+	border-color:#1f3b72;
 	border-width:1px;
 	font-size:16px;
-	font-family:Arial;
+	font-family:Tekton Pro;
 }
 
 #loginbutton {
@@ -67,27 +68,27 @@ body {
 	height:30px;
 	width:100px;
 	font-size:16px;
-	background-color:blue;
+	background-color:#1f3b72;
 	border-style:solid;
 	border-color:white;
 	border-width:1px;
 	color:white;
-	font-family:Arial;
+	font-family:Tekton Pro;
 	font-weight:bold;
 }
 
 #create {
 	font-weight:bold;
-	color:blue;
+	color:#1f3b72;
 	font-size:16px;
-	font-family:Arial;
+	font-family:Tekton Pro;
 }
 
-#notregistered{
+#notregiste#1f3b72{
 	font-weight:bold;
 	color:white;
 	font-size:16px;
-	font-family:Arial;
+	font-family:Tekton Pro;
 	margin-top:25px;
 	margin-left:-300px;
 }
@@ -102,21 +103,21 @@ body {
 
 legend {
 	color:black;
-	font-family:Arial;
+	font-family:Tekton Pro;
 	font-weight:bold;
 	font-size:36px;
 }
 
 fieldset{
 	color:black;
-	font-family:Arial;
+	font-family:Tekton Pro;
 	font-weight:bold;
 	font-size:20px;
 }
 
 #firstname, #lastname, #email, #password {
 	border-style:solid;
-	border-color:blue;
+	border-color:#1f3b72;
 	border-width:2px;
 	width:400px;
 }
@@ -128,14 +129,14 @@ fieldset{
 	height:450px;
 	width:450px;
 	border-style:solid;
-	border-color:blue;
+	border-color:#1f3b72;
 	border-width:2px;
 	margin-left:100px;
 	margin-top:50px;
 }
 
 #created {
-	background-color:blue;
+	background-color:#1f3b72;
 	border-style:solid;
 	border-color:black;
 	border-width:2px;
@@ -146,10 +147,11 @@ fieldset{
 }
 
 #logo {
-	background-image:url("../images/gcx-clear.png");
+	background-image:url("../images/gcxchange2.png");
 	background-size: 100%;
 	background-repeat:no-repeat;
-	height:250px;
+	height:300px;
+	margin-bottom:50px;
 }
 
 #row10 {
@@ -162,7 +164,7 @@ fieldset{
 }
 
 #panelhead, #addcardhead, #addCardBtn, #buyCardBtn, #buycardhead, #alertshead, #searchhead {
-	background-color:blue;
+	background-color:#1f3b72;
 }
 
 #field1, #field2, #field3, #field4 {
@@ -185,4 +187,3 @@ label{
 #addcard, #buycard, #alerts {
 	height:400px;
 }
-
