@@ -2,7 +2,6 @@
 //Dependencies
 var express = require('express');
 var path = require('path');
-// CAN WE CHOOSE A FAVICON
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -18,12 +17,6 @@ var mongoose = require('mongoose');
 var models = require('./app/models');
 var PORT = process.env.PORT || 3000; 
 
-//Controllers
-// var mainControl = require('./controllers/mainControl.js');
-// var createAccount = require('./controllers/createAccount.js');
-// var auth = require ('./config/passport.js');
-
-var myAccount = require('./controllers/myAccount.js');
 
 // passport setup
 var passport = require('passport');
@@ -61,39 +54,36 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // required for passport
-app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+app.use(session({ secret: 'ilovescotchscotchyscotchscotch',
+	name: 'GX_cookie',
+	// store: sessionStore,
+	proxy: true,
+	resave: true,
+	saveUninitialized: true
+	 })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
+// require app routes
 require('./app/routes.js')(app, passport); 
-
-// Need to revise routes below.
-//Controller Routing
-// app.use('/', mainControl);
-// app.use('/register', createAccount);
-// app.use('/login', auth);
-// My Account route will be triggered at the tail end of the auth route.  The /myaccount route will load the React components
-app.use('/myaccount', myAccount);
-
-
 
 
 //Forwards errors to the Error Handler
-app.use(function(req, res, next){
-	var err = new Error("Not found.");
-	err.status = 404; 
-	next(err); 
-});
+// app.use(function(req, res, next){
+// 	var err = new Error("Not found.");
+// 	err.status = 404; 
+// 	next(err); 
+// });
 
-//Error Handler
-app.use(function(err, res, next){
-	res.status(err.status || 500);
-	res.render('error', {
-		message: err.message,
-		error: (app.get('env') === 'development') ? err : {}
-	})
-})
+// //Error Handler
+// app.use(function(err, res, next){
+// 	res.status(err.status || 500);
+// 	res.render('error', {
+// 		message: err.message,
+// 		error: (app.get('env') === 'development') ? err : {}
+// 	})
+// })
 
 
 

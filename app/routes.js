@@ -5,6 +5,8 @@ var app = express();
 var passport = require('passport');
 var passportLocal   = require('passport-local');
 
+// var passport = require ('./config/passport.js');
+
 module.exports = function(app, passport) {
 
     // =====================================
@@ -27,8 +29,8 @@ module.exports = function(app, passport) {
 
     // });
 
-    // process the login form
-    // app.post('/login', do all our passport stuff here);
+    // // process the login form
+    // app.post('/login');
 
     // =====================================
     // SIGNUP ==============================
@@ -43,7 +45,7 @@ module.exports = function(app, passport) {
     });
 
     // process the signup form
-    // app.post('/register', do all our passport stuff here);
+    // app.post('/register');
 
     // =====================================
     // PROFILE SECTION =====================
@@ -57,7 +59,7 @@ module.exports = function(app, passport) {
         //     user : req.user // get the user out of session and pass to template
         // });
 
-        res.redirect('/myaccount');
+        res.sendFile('account1.html', { root: "public" });
     });
 
     // =====================================
@@ -67,20 +69,34 @@ module.exports = function(app, passport) {
         req.logout();
         res.redirect('/');
     });
+
+
+
+
+ app.post('/register', 
+
+
+    // function (req, res) {
+    // console.log("blah");
+    // console.log(req.body);
+    //  // body...
+    // }
+
+    passport.authenticate('local-signup', {
+
+        successRedirect : '/myaccount', // redirect to the secure profile section
+        failureRedirect : '/', // redirect back to the signup page if there is an error
+        failureFlash : true // allow flash messages
+    }
+
+    ));
+
+ // app.post('/login', passport.authenticate('local-login', {
+ //        successRedirect : '/myaccount', // redirect to the secure profile section
+ //        failureRedirect : '/login', // redirect back to the signup page if there is an error
+ //        failureFlash : true // allow flash messages
+ //    }));
 };
-
- app.post('/register', passport.authenticate('local-signup', {
-        successRedirect : '/myaccount', // redirect to the secure profile section
-        failureRedirect : '/register', // redirect back to the signup page if there is an error
-        failureFlash : true // allow flash messages
-    }));
-
- app.post('/login', passport.authenticate('local-login', {
-        successRedirect : '/myaccount', // redirect to the secure profile section
-        failureRedirect : '/login', // redirect back to the signup page if there is an error
-        failureFlash : true // allow flash messages
-    }));
-
 
 
 // route middleware to make sure a user is logged in
