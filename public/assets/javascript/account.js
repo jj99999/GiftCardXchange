@@ -6,11 +6,11 @@ var requiem = document.createElement('audio');
 $(document).ready(function(){
 
 
-	requiem.play();
-	requiem.addEventListener('ended', function() {
-   		this.currentTime = 0;
-    	this.play();
-		}, false);
+	// requiem.play();
+	// requiem.addEventListener('ended', function() {
+ //   		this.currentTime = 0;
+ //    	this.play();
+	// 	}, false);
 
 
 });
