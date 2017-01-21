@@ -13,7 +13,7 @@ var Inventory = React.createClass({
     // Get the latest history.
 
 return axios.get({term: term}).then(function(term){
-              console.log(term);
+              console.log(term.id);
               return(term)
        });
 

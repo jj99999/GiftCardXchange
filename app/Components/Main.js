@@ -1,5 +1,8 @@
 var React = require("react");
 var createFragment = require('react-addons-create-fragment');
+var Inventory = require("./Children/Inventory");
+var AddCard = require("./Children/AddCard");
+var SearchCard = require("./Children/SearchCard");
 // Here we include all of the sub-components
 // var Form = require("./children/Form");
 // var Results = require("./children/Results");
@@ -57,10 +60,11 @@ var Main = React.createClass({
     return (
       <div className="container" id="screen2">
             <div className="row">
-             
-              
-        </div>
-    </div>
+             <div className="col-md-12">
+          
+            </div>
+           </div>
+      </div>
   
            
 
