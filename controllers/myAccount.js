@@ -1,9 +1,0 @@
-var models = require('../app/models');
-var express = require('express');
-var router = express.Router();
-
-router.get('/', function(req, res){
-	res.redirect('/myaccount');
-});
-
-module.exports = router; 

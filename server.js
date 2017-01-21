@@ -44,7 +44,7 @@ app.use(cookieParser());
 
 
 // NEED TO STORE FAVICON  FILE HERE
-app.use(favicon(__dirname + '/public/images/favicon.ico'));
+// app.use(favicon(__dirname + '/public/images/favicon.ico'));
 
 app.use(logger('dev'));
 app.use(morgan('dev')); // log every request to the console
