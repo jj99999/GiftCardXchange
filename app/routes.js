@@ -29,8 +29,8 @@ module.exports = function(app, passport) {
 
     // });
 
-    // // process the login form
-    // app.post('/login');
+    // process the login form
+    app.post('/login');
 
     // =====================================
     // SIGNUP ==============================
@@ -59,7 +59,7 @@ module.exports = function(app, passport) {
         //     user : req.user // get the user out of session and pass to template
         // });
 
-        res.sendFile('account1.html', { root: "public" });
+        res.sendFile('account.html', { root: "public" });
     });
 
     // =====================================
