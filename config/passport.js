@@ -1,5 +1,5 @@
 // config/passport.js
-
+var passport = require('passport');
 // load all the things we need
 var LocalStrategy   = require('passport-local').Strategy;
 
@@ -35,6 +35,8 @@ module.exports = function(passport) {
 
     passport.use('local-signup', new LocalStrategy({
         // by default, local strategy uses username and password, we will override with email
+        firstField: 'first',
+        lastField: 'last',
         usernameField : 'email',
         passwordField : 'password',
         passReqToCallback : true // allows us to pass back the entire request to the callback
@@ -111,4 +113,3 @@ module.exports = function(passport) {
 
     }));
 
-};

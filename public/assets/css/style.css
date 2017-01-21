@@ -5,17 +5,18 @@ body {
 }
 
 #header {
-	height:350px;
-	background-image:url("../images/logo-clear.png");
+	height:500px;
+	background-image:url("../images/logo.png");
 	background-size: 100%;
 	background-repeat:no-repeat;
 }
 
 #header1 {
 	height:350px;
-	background-image:url("../images/logo-clear.png");
+	background-image:url("../images/logo.png");
 	background-size: 100%;
 	background-repeat:no-repeat;
+	margin-bottom:40px;
 }
 
 #row1 {
@@ -41,10 +42,10 @@ body {
 	width:200px;
 	height:30px;
 	border-style:solid;
-	border-color:red;
-	border-width:1px;
+	border-color:#5ea7cb;
+	border-width:2px;
 	font-size:16px;
-	font-family:Georgia;
+	font-family:arial;
 }
 
 #passwordfield {
@@ -54,10 +55,10 @@ body {
 	width:200px;
 	height:30px;
 	border-style:solid;
-	border-color:red;
-	border-width:1px;
+	border-color:#5ea7cb;
+	border-width:2px;
 	font-size:16px;
-	font-family:Georgia;
+	font-family:arial;
 }
 
 #loginbutton {
@@ -67,58 +68,59 @@ body {
 	height:30px;
 	width:100px;
 	font-size:16px;
-	background-color:red;
+	background-color:#1f3b72;
 	border-style:solid;
 	border-color:white;
 	border-width:1px;
 	color:white;
-	font-family:Georgia;
+	font-family:arial;
 	font-weight:bold;
 }
 
 #create {
 	font-weight:bold;
-	color:red;
-	font-size:16px;
-	font-family:Georgia;
+	color:#5ea7cb;
+	font-size:20px;
+	font-family:arial;
 }
 
 #notregistered{
 	font-weight:bold;
 	color:white;
-	font-size:16px;
-	font-family:Georgia;
+	font-size:20px;
+	font-family:arial;
 	margin-top:25px;
 	margin-left:-300px;
 }
 
 #row6 {
-	height:40px;
+	height:20px;
 }
 
 /*#row8 {
 	height:10px;
-}*/
-
+}
+*/
 legend {
 	color:black;
-	font-family:Georgia;
+	font-family:arial;
 	font-weight:bold;
 	font-size:36px;
 }
 
 fieldset{
 	color:black;
-	font-family:Georgia;
+	font-family:arial;
 	font-weight:bold;
 	font-size:20px;
 }
 
 #firstname, #lastname, #email, #password {
 	border-style:solid;
-	border-color:red;
+	border-color:#1f3b72;
 	border-width:2px;
 	width:400px;
+	font-family:arial;
 }
 
 #photo1{
@@ -128,14 +130,14 @@ fieldset{
 	height:450px;
 	width:450px;
 	border-style:solid;
-	border-color:red;
+	border-color:#1f3b72;
 	border-width:2px;
 	margin-left:100px;
 	margin-top:50px;
 }
 
 #created {
-	background-color:red;
+	background-color:#1f3b72;
 	border-style:solid;
 	border-color:black;
 	border-width:2px;
@@ -146,10 +148,11 @@ fieldset{
 }
 
 #logo {
-	background-image:url("../images/logo-clear.png");
+	background-image:url("../images/logo.png");
 	background-size: 100%;
 	background-repeat:no-repeat;
-	height:220px;
+	height:300px;
+	margin-bottom:50px;
 }
 
 #row10 {
@@ -162,7 +165,7 @@ fieldset{
 }
 
 #panelhead, #addcardhead, #addCardBtn, #buyCardBtn, #buycardhead, #alertshead, #searchhead {
-	background-color:red;
+	background-color:#1f3b72;
 }
 
 #field1, #field2, #field3, #field4 {
@@ -170,12 +173,12 @@ fieldset{
 }
 
 #row13, #row15{
-	height:50px;
+	height:40px;
 }
 
-#row11a{
+/*#row11a{
 	height:20px;
-}
+}*/
 
 label{
 	font-size:16px;
@@ -186,3 +189,6 @@ label{
 	height:400px;
 }
 
+#row12 {
+	margin-top:-30px;
+}
