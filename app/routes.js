@@ -5,7 +5,7 @@ var app = express();
 var passport = require('passport');
 var passportLocal   = require('passport-local');
 
-// var passport = require ('./config/passport.js');
+var passport = require ('../config/passport.js');
 
 module.exports = function(app, passport) {
 
@@ -13,7 +13,6 @@ module.exports = function(app, passport) {
     // HOME PAGE (with login links) ========
     // =====================================
     app.get('/', function(req, res) {
-        // res.render('index.js'); // load the index.js file
 
         res.sendFile('home.html', { root: "public" });
     });
@@ -21,14 +20,6 @@ module.exports = function(app, passport) {
     // =====================================
     // LOGIN ===============================
     // =====================================
-    // show the login form
-    // app.get('/login', function(req, res) {
-
-    //     // render the page and pass in any flash data if it exists
-    //     res.render('login.js', { message: req.flash('loginMessage') });
-
-    // });
-
     // process the login form
     app.post('/login', passport.authenticate('local-login', {
         successRedirect : '/myaccount', // redirect to the secure profile section
@@ -48,8 +39,13 @@ module.exports = function(app, passport) {
         res.sendFile('register.html', { root: "public" });
     });
 
-    // process the signup form
-    // app.post('/register');
+    app.post('/register', 
+        passport.authenticate('local-signup', {
+        successRedirect : '/myaccount', // redirect to the secure profile section
+        failureRedirect : '/', // redirect back to the signup page if there is an error
+        failureFlash : true // allow flash messages
+        }
+    ));
 
     // =====================================
     // PROFILE SECTION =====================
@@ -64,7 +60,9 @@ module.exports = function(app, passport) {
         // });
 
         res.sendFile('account.html', { root: "public" });
+        // console.log(user.body);
     });
+
 
     // =====================================
     // LOGOUT ==============================
@@ -74,32 +72,6 @@ module.exports = function(app, passport) {
         res.redirect('/');
     });
 
-
-
-
- app.post('/register', 
-
-
-    // function (req, res) {
-    // console.log("blah");
-    // console.log(req.body);
-    //  // body...
-    // }
-
-    passport.authenticate('local-signup', {
-
-        successRedirect : '/myaccount', // redirect to the secure profile section
-        failureRedirect : '/', // redirect back to the signup page if there is an error
-        failureFlash : true // allow flash messages
-    }
-
-    ));
-
- // app.post('/login', passport.authenticate('local-login', {
- //        successRedirect : '/myaccount', // redirect to the secure profile section
- //        failureRedirect : '/login', // redirect back to the signup page if there is an error
- //        failureFlash : true // allow flash messages
- //    }));
 };
 
 
