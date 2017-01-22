@@ -6,19 +6,21 @@ var axios = require('axios');
 // This is the form component. 
 var AddCard = React.createClass({
 
+  var newCard            = new Card();
 
 
   // Here we set a generic state associated with the text being searched for
   // React created
   getInitialState: function(){
     return {
-      term: ""
+      cardOwnerEmail : "",
+      storeName : "",
+      cardBalance : "",
+      redeemCode : "",
+      tradeAvailability : false
     }
   },
 
-  setTerm: function(term){
-    this.setState({searchTerm: term});
-  }
 
   // This function will respond to the user input 
   // Custom (developer created)
@@ -40,15 +42,18 @@ var AddCard = React.createClass({
     console.log("CLICK");
     console.log(this.state.term);
 
-    return axios.post({term: term})
-  .then(function(term){
-    return(turn);
-  }
-    
-    // Set the parent to have the search term
-    // this.props.setTerm(this.state.term);
-     
-  },
+    return axios.post({
+      var newCard            = new Card();
+      // newCard.cardOwnerEmail  = currentUserEmail;
+      newCard.storeName       = storeNameInput;
+      newCard.cardBalance     = cardBalanceInput;
+      newCard.redeemCode      = redeemCodeInput;
+      newCard.tradeAvailability = false;
+      })
+  // .then(function(term){
+  //   return(turn);
+  };
+
 
   // Here we render the function
   render: function(){
@@ -90,7 +95,9 @@ var AddCard = React.createClass({
 
 
     )
+  
   }
+  
 });
 
 // Export the component back for use in other files
