@@ -9,16 +9,43 @@ var Inventory = React.createClass({
   // Here we set a generic state associated with the text being searched for
   // React created
 
-  componentDidMount: function() {
-    // Get the latest history.
+//   componentDidMount: function() {
+//     // Get the latest history.
 
-return axios.get({term: term}).then(function(term){
-              console.log(term.id);
-              return(term)
-       });
+// return axios.get({term: term}).then(function(term){
+//               console.log(term.id);
+//               return(term)
+//        });
 
+//   },
+componentDidMount:function(){
+  console.log("this is cards inside inventory.js", this.props.cards);
+},
+renderCards: function(){
+    return this.props.cards.map(function(card, i){
+        return(
+      
+          <li className="container"  key={i}>
+
+
+            <div className="card">
+             
+             <p>{card.StoreName}</p>
+            
+             </div>
+          </li>
+          )
+
+    });
   },
+renderContainer:function(){
+    return(
+      <ul>
+        {this.renderCards()}
+      </ul>
 
+      )
+  },
   
   
   // Here we render the function
@@ -35,25 +62,15 @@ return axios.get({term: term}).then(function(term){
           </div>
         </div>
         <div className="panel-body" id="panelbody">
-          <table className="table table-hover" id='carddetails'>
-            <thead>
-              <tr>
-                <th id="field1">Store Name</th>
-
-                <th id="field2">Card Balance</th>
-                <th id="field3">Redemption Code</th>
-                <th id="field4">Available for Sale</th>
-              </tr>
-            </thead>
-            <tbody>
-
-            </tbody>
-          </table>
+    
+                {this.renderContainer()};
+             
         </div>
       </div> 
 
     )
   }
+
 });
 
 // Export the component back for use in other files

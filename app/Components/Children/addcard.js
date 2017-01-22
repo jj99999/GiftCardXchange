@@ -18,7 +18,7 @@ var AddCard = React.createClass({
 
   setTerm: function(term){
     this.setState({searchTerm: term});
-  }
+  },
 
   // This function will respond to the user input 
   // Custom (developer created)
@@ -40,10 +40,10 @@ var AddCard = React.createClass({
     console.log("CLICK");
     console.log(this.state.term);
 
-    return axios.post({term: term})
-  .then(function(term){
-    return(turn);
-  }
+  //   return axios.post({term: term})
+  // .then(function(term){
+  //   return(turn);
+  // })
     
     // Set the parent to have the search term
     // this.props.setTerm(this.state.term);
