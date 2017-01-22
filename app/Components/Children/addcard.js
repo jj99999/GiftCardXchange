@@ -6,15 +6,14 @@ var axios = require('axios');
 // This is the form component. 
 var AddCard = React.createClass({
 
-
-
-  // Here we set a generic state associated with the text being searched for
-  // React created
-  getInitialState: function(){
-    return {
-      term: ""
-    }
-  },
+  // getInitialState: function(){
+  //   return {
+  //     storeName      storeNameInput;
+  //       newCard.cardBalance     = cardBalanceInput;
+  //       newCard.redeemCode      = redeemCodeInput;
+  //       newCard.tradeAvailability
+  //   }
+  // },
 
   setTerm: function(term){
     this.setState({searchTerm: term});
@@ -40,6 +39,18 @@ var AddCard = React.createClass({
     console.log("CLICK");
     console.log(this.state.term);
 
+  // When a user submits...
+  handleSubmit: function(event) {
+    // preventing the form from trying to submit itself
+    event.preventDefault();
+    // Set the parent to have the search term
+    this.props.setTerm(this.state.term);
+
+    // Clearing the input field after submitting
+    this.setState({ term: "" });
+  },
+
+
   //   return axios.post({term: term})
   // .then(function(term){
   //   return(turn);
@@ -62,21 +73,43 @@ var AddCard = React.createClass({
 
               </div>
               <div className="panel-body" id="addcardbody">
-              <form>
+              <form onSubmit={this.handleSubmit}>
                  <div className="form-group">
-                      <label for="">Store Name</label>
-                      <input type="text" className="form-control" id="storeNameInput" placeholder="Lesbian Pottery" onChange={this.handleChange}></input>
-                      </div>
+                    <label for="">Store Name</label>
+                    <input
+                      type="text"
+                      value={this.state.storeNameInput}
+                      className="form-control"
+                      id="storeNameInput"
+                      onChange={this.handleChange}
+                      required
+                    />
+                  </div>
 
                   <div className="form-group">
                       <label for="">Card Balance</label>
-                      <input type="text" className="form-control" id="redeemCodeInput" placeholder="1234567898765432"  onChange={this.handleChange}></input>
-                      </div>
+                      <input
+                      type="text"
+                      value={this.state.cardBalanceInput}
+                      className="form-control"
+                      id="cardBalanceInput"
+                      onChange={this.handleChange}
+                      required
+                    /> 
+                  </div>
 
                   <div className="form-group">
                       <label for="">Redemption Code</label>
-                      <input type="text" className="form-control" id="redeemCodeInput" placeholder="1234567898765432" onChange={this.handleChange}></input>
-                      </div>
+                      <input
+                      type="text"
+                      value={this.state.redeemCodeInput}
+                      className="form-control"
+                      id="redeemCodeInput"
+                      onChange={this.handleChange}
+                      required
+                    /> 
+                  </div>
+                 <br></br>
                  <button type="submit" className="btn btn-primary" id="addCardBtn" onClick={this.handleClick}>Add Card</button>
  
 
