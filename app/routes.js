@@ -25,7 +25,10 @@ module.exports = function(app, passport) {
         successRedirect : '/myaccount', // redirect to the secure profile section
         failureRedirect : '/', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
-    }));
+        }));
+
+        // var currentUserName = req.user.email;
+        // console.log("The current user is "+currentUserName);
 
     // =====================================
     // SIGNUP ==============================

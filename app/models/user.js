@@ -5,33 +5,33 @@ var bcrypt   = require('bcrypt-nodejs');
 var userSchema = mongoose.Schema({
 
     local: {
-        first: {
-        	type: String,
-        	trim: true,
-        	required: false
+      first: {
+        type: String,
+    	  trim: true,
+    	  required: false
 			},
-		last: {
-			type: String,
-			trim: true,
-			required: false
+		  last: {
+			  type: String,
+			  trim: true,
+			  required: false
 			},
-		email: {
+		  email: {
 		    type: String,
     		unique: true,
     		match: [/.+\@.+\..+/, "Please enter a valid e-mail address"]
   			},
-	  password: {
-    	type: String,
-    	trim: true,
-    	required: "Password is Required",
-    	validate: [
+	    password: {
+    	  type: String,
+    	  trim: true,
+    	  required: "Password is Required",
+    	  validate: [
       		function(input) {
         	return input.length >= 6;
       		},
       		"Password should be longer."
     		]
   		},
-	}
+	  }
 });
 
 // methods ======================
