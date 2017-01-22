@@ -7,6 +7,8 @@ var passportLocal   = require('passport-local');
 
 var passport = require ('../config/passport.js');
 
+var addcard = require ('../app/Components/Children/addcard-draft.js');
+
 module.exports = function(app, passport) {
 
     // =====================================
@@ -27,8 +29,7 @@ module.exports = function(app, passport) {
         failureFlash : true // allow flash messages
         }));
 
-        // var currentUserName = req.user.email;
-        // console.log("The current user is "+currentUserName);
+
 
     // =====================================
     // SIGNUP ==============================
@@ -63,7 +64,6 @@ module.exports = function(app, passport) {
         // });
 
         res.sendFile('account.html', { root: "public" });
-        // console.log(user.body);
     });
 
 
@@ -77,14 +77,26 @@ module.exports = function(app, passport) {
 
 };
 
+    // =====================================
+    // ADDING A GIFT CARD TO USER'S INVENTORY
+    // =====================================
+    // process the ADD-CARD form
+    // app.post('/addcard', 
+    //     addcard.addNewCard({
+    // }));
 
-// route middleware to make sure a user is logged in
+
+
+
+// // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
 
     // if user is authenticated in the session, carry on 
     if (req.isAuthenticated())
         return next();
+        // var currentUserName = req.user.email;
+        // console.log("The current user is "+currentUserName);
 
     // if they aren't redirect them to the home page
     res.redirect('/');
-}
+};
