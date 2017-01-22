@@ -17,26 +17,25 @@ var mongoose = require('mongoose');
 var models = require('./app/models');
 var PORT = process.env.PORT || 3000; 
 
-
 // passport setup
 var passport = require('passport');
 var passportLocal   = require('passport-local');
 var configDB = require('./config/database.js');
 
-// configuration ===============================================================
+// database configuration ===============================================================
 mongoose.connect(configDB.url); // connect to our database
 
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("connected to "+JSON.stringify(configDB));
+});
+
 require('./config/passport')(passport); // pass passport for configuration
-
-
-
-
-
 
 //Express settings
 //=========================================//
 var app = express();
-
 app.use(methodOverride('_method'));
 // do we need to set an auth cookie on this line?
 // app.use(session({secret: 'spotify', cookie: {maxAge: 60000}}));

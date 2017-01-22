@@ -73,5 +73,5 @@ renderContainer:function(){
 
 });
 
-// Export the component back for use in other files
+
 module.exports = Inventory;

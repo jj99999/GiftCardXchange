@@ -20,14 +20,7 @@ body {
 }
 
 #row1 {
-	height:170px;
-}
-
-#bigx {
-	width:30%;
-	position: absolute;
-	left:27%;
-	top: -100px;
+	height:120px;
 }
 
 #topbar {
@@ -97,10 +90,6 @@ body {
 	height:20px;
 }
 
-/*#row8 {
-	height:10px;
-}
-*/
 legend {
 	color:black;
 	font-family:arial;
@@ -115,7 +104,7 @@ fieldset{
 	font-size:20px;
 }
 
-#firstname, #lastname, #email, #password {
+#first, #last, #email, #password {
 	border-style:solid;
 	border-color:#1f3b72;
 	border-width:2px;
@@ -176,10 +165,6 @@ fieldset{
 	height:40px;
 }
 
-/*#row11a{
-	height:20px;
-}*/
-
 label{
 	font-size:16px;
 	font-weight:normal;
@@ -191,4 +176,54 @@ label{
 
 #row12 {
 	margin-top:-30px;
+}
+
+
+#card1, #card2, #card3, #card4, #card5, #card6, #card7, #card8, #card9, #card10, #card11, #card12, #card13, #card14, #card15, #card16, #card17, #card18, #card19, #card20 {
+	width:100%;
+	border-style:solid;
+	border-color:black;
+	border-width:1px;
+	margin-bottom:25px;
+}
+
+h1 {
+	color:white;
+	font-size:50px;
+	text-align: center;
+	font-family:Arial;
+}
+
+#testimonial1, #testimonial2 {
+	width:100%;
+}
+
+#testimonials{
+	height:570px;
+	background-color:black;
+	opacity:0.8;
+}
+
+#space1{
+	height:30px;
+}
+
+#aboutus1{
+	background-color:black;
+	opacity:0.8;
+	padding:10px;
+	padding-bottom:15px;
+	text-align: justify;
+	margin-top:-20px;
+	margin-bottom:50px;
+	line-height: 1.5;
+}
+
+h3{
+	font-size:20px;
+	font-family:Arial;
+}
+
+#about {
+	width:100%;
 }

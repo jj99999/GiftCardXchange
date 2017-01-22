@@ -6,16 +6,16 @@ var CardSchema = new Schema({
     type: String,
   },
   balance: {
-  	type: String,
+  	type: Number,
   },
    code: {
    type: String,
   },
-  avaliability: {
+  availability: {
    type: Boolean,
   }
 
 });
 
-var Card = mongoose.model('Term', CardSchema);
+var Card = mongoose.model('Card', CardSchema);
 module.exports = Card;

@@ -69,7 +69,7 @@ var AddCard = React.createClass({
                       </div>
 
                   <div className="form-group">
-                      <label for="">Redemption Code</label>
+                      <label for="">Card Balance</label>
                       <input type="text" className="form-control" id="redeemCodeInput" placeholder="1234567898765432"  onChange={this.handleChange}></input>
                       </div>
 
