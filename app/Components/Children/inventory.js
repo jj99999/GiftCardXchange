@@ -56,5 +56,5 @@ return axios.get({term: term}).then(function(term){
   }
 });
 
-// Export the component back for use in other files
+
 module.exports = Inventory;
