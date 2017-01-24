@@ -87,16 +87,14 @@ module.exports = function(app, passport) {
 
 
 
-
-// // route middleware to make sure a user is logged in
+module.exports = {
+// route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
 
     // if user is authenticated in the session, carry on 
     if (req.isAuthenticated())
         return next();
-        // var currentUserName = req.user.email;
-        // console.log("The current user is "+currentUserName);
 
     // if they aren't redirect them to the home page
     res.redirect('/');
-};
+}};
