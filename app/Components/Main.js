@@ -4,6 +4,8 @@ var Inventory = require("./Children/Inventory");
 var AddCard = require("./Children/AddCard");
 var SearchCard = require("./Children/SearchCard");
 
+
+
 // Helper Function
 var helpers = require("./utils/helpers");
 
@@ -61,10 +63,10 @@ getInitialState: function(){
   //   },
   componentDidMount: function(){
     console.log("this is the state of cards", this.state.cards);
-
-
-  console.log('HERE is passport stuff');
-  passport: require('../../config/passport.js')
+   
+   // helpers.getPassPort();
+   console.log("USER:")
+   helpers.routes.isLoggedIn();
    
   },
   // Here we describe this component's render method
