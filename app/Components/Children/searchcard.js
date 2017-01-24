@@ -13,7 +13,7 @@ var SearchCard  = React.createClass({
 
   setTerm: function(term){
     this.setState({searchTerm: term});
-  }
+  },
 
   // This function will respond to the user input 
   // Custom (developer created)

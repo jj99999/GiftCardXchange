@@ -6,6 +6,8 @@ var LocalStrategy   = require('passport-local').Strategy;
 // load up the user model
 var User            = require('../app/models/user');
 
+var currentUserEmail = "";
+
 // expose this function to our app using module.exports
 module.exports = function(passport) {
 
@@ -109,6 +111,9 @@ module.exports = function(passport) {
             if (!user.validPassword(password))
                 return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
 
+            currentUserEmail = user.local.email;
+            console.log("The current user is "+currentUserEmail);
+            
             // all is well, return successful user
 
             var currentUserEmail = user.local.email;
