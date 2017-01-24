@@ -39,6 +39,8 @@ var AddCard = React.createClass({
     console.log("CLICK");
     console.log(this.state.term);
 
+  },
+
   // When a user submits...
   handleSubmit: function(event) {
     // preventing the form from trying to submit itself
@@ -48,7 +50,21 @@ var AddCard = React.createClass({
 
     // Clearing the input field after submitting
     this.setState({ term: "" });
-  },
+
+    console.log("Posted to MONGODB")
+
+  //   return axios.post({
+  //     var newCard   = new Card();
+  //     // newCard.cardOwnerEmail  = currentUserEmail;
+  //     newCard.storeName       = storeNameInput;
+  //     newCard.cardBalance     = cardBalanceInput;
+  //     newCard.redeemCode      = redeemCodeInput;
+  //     newCard.tradeAvailability = false;
+  //     })
+  // .then(function(term){
+  //   return(turn);
+  
+  // },
 
 
   //   return axios.post({term: term})
@@ -58,8 +74,8 @@ var AddCard = React.createClass({
     
     // Set the parent to have the search term
     // this.props.setTerm(this.state.term);
-     
-  },
+     },
+  
 
   // Here we render the function
   render: function(){
@@ -75,10 +91,11 @@ var AddCard = React.createClass({
               <div className="panel-body" id="addcardbody">
               <form onSubmit={this.handleSubmit}>
                  <div className="form-group">
-                    <label for="">Store Name</label>
+                    <label htmlFor="">Store Name</label>
                     <input
                       type="text"
-                      value={this.state.storeNameInput}
+                      placeholder="Store Name"
+                      // value={this.state.StoreName}
                       className="form-control"
                       id="storeNameInput"
                       onChange={this.handleChange}
@@ -87,10 +104,11 @@ var AddCard = React.createClass({
                   </div>
 
                   <div className="form-group">
-                      <label for="">Card Balance</label>
+                      <label htmlFor="">Card Balance</label>
                       <input
                       type="text"
-                      value={this.state.cardBalanceInput}
+                      placeholder="Balance"
+                      // value={this.state.CardBalance}
                       className="form-control"
                       id="cardBalanceInput"
                       onChange={this.handleChange}
@@ -99,10 +117,10 @@ var AddCard = React.createClass({
                   </div>
 
                   <div className="form-group">
-                      <label for="">Redemption Code</label>
+                      <label htmlFor="">Redemption Code</label>
                       <input
                       type="text"
-                      value={this.state.redeemCodeInput}
+                      placeholder="Redemption"
                       className="form-control"
                       id="redeemCodeInput"
                       onChange={this.handleChange}
