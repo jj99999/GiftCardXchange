@@ -6,76 +6,109 @@ var axios = require('axios');
 // This is the form component. 
 var AddCard = React.createClass({
 
-  // getInitialState: function(){
-  //   return {
-  //     storeName      storeNameInput;
-  //       newCard.cardBalance     = cardBalanceInput;
-  //       newCard.redeemCode      = redeemCodeInput;
-  //       newCard.tradeAvailability
-  //   }
-  // },
+// <<<<<<< cards
+//   var newCard            = new Card();
 
-  setTerm: function(term){
-    this.setState({searchTerm: term});
-  },
 
-  // This function will respond to the user input 
-  // Custom (developer created)
-  handleChange: function(event){
+//   // Here we set a generic state associated with the text being searched for
+//   // React created
+//   getInitialState: function(){
+//     return {
+//       cardOwnerEmail : "",
+//       storeName : "",
+//       cardBalance : "",
+//       redeemCode : "",
+//       tradeAvailability : false
+//     }
+//   },
 
-      // Here we create syntax to capture any change in text to the query terms (pre-search).
-      // See this Stack Overflow answer for more details: 
-      // http://stackoverflow.com/questions/21029999/react-js-identifying-different-inputs-with-one-onchange-handler
-      var newState = {};
-      newState[event.target.id] = event.target.value;
-      this.setState(newState);
+// =======
+//   // getInitialState: function(){
+//   //   return {
+//   //     storeName      storeNameInput;
+//   //       newCard.cardBalance     = cardBalanceInput;
+//   //       newCard.redeemCode      = redeemCodeInput;
+//   //       newCard.tradeAvailability
+//   //   }
+//   // },
 
-  },
+//   setTerm: function(term){
+//     this.setState({searchTerm: term});
+//   },
+// >>>>>>> master
 
-  // When a user submits... 
-  // Custom (developer created)
-  handleClick: function(){
+//   // This function will respond to the user input 
+//   // Custom (developer created)
+//   handleChange: function(event){
 
-    console.log("CLICK");
-    console.log(this.state.term);
+//       // Here we create syntax to capture any change in text to the query terms (pre-search).
+//       // See this Stack Overflow answer for more details: 
+//       // http://stackoverflow.com/questions/21029999/react-js-identifying-different-inputs-with-one-onchange-handler
+//       var newState = {};
+//       newState[event.target.id] = event.target.value;
+//       this.setState(newState);
 
-  },
+//   },
 
-  // When a user submits...
-  handleSubmit: function(event) {
-    // preventing the form from trying to submit itself
-    event.preventDefault();
-    // Set the parent to have the search term
-    this.props.setTerm(this.state.term);
+//   // When a user submits... 
+//   // Custom (developer created)
+//   handleClick: function(){
 
-    // Clearing the input field after submitting
-    this.setState({ term: "" });
+//     console.log("CLICK");
+//     console.log(this.state.term);
 
-    console.log("Posted to MONGODB")
+// <<<<<<< cards
+//     return axios.post({
+//       var newCard            = new Card();
+//       // newCard.cardOwnerEmail  = currentUserEmail;
+//       newCard.storeName       = storeNameInput;
+//       newCard.cardBalance     = cardBalanceInput;
+//       newCard.redeemCode      = redeemCodeInput;
+//       newCard.tradeAvailability = false;
+//       })
+//   // .then(function(term){
+//   //   return(turn);
+//   };
 
-  //   return axios.post({
-  //     var newCard   = new Card();
-  //     // newCard.cardOwnerEmail  = currentUserEmail;
-  //     newCard.storeName       = storeNameInput;
-  //     newCard.cardBalance     = cardBalanceInput;
-  //     newCard.redeemCode      = redeemCodeInput;
-  //     newCard.tradeAvailability = false;
-  //     })
-  // .then(function(term){
-  //   return(turn);
+// =======
+//   },
+
+//   // When a user submits...
+//   handleSubmit: function(event) {
+//     // preventing the form from trying to submit itself
+//     event.preventDefault();
+//     // Set the parent to have the search term
+//     this.props.setTerm(this.state.term);
+
+//     // Clearing the input field after submitting
+//     this.setState({ term: "" });
+
+//     console.log("Posted to MONGODB")
+
+//   //   return axios.post({
+//   //     var newCard   = new Card();
+//   //     // newCard.cardOwnerEmail  = currentUserEmail;
+//   //     newCard.storeName       = storeNameInput;
+//   //     newCard.cardBalance     = cardBalanceInput;
+//   //     newCard.redeemCode      = redeemCodeInput;
+//   //     newCard.tradeAvailability = false;
+//   //     })
+//   // .then(function(term){
+//   //   return(turn);
   
-  // },
+//   // },
 
 
-  //   return axios.post({term: term})
-  // .then(function(term){
-  //   return(turn);
-  // })
+//   //   return axios.post({term: term})
+//   // .then(function(term){
+//   //   return(turn);
+//   // })
     
-    // Set the parent to have the search term
-    // this.props.setTerm(this.state.term);
-     },
+//     // Set the parent to have the search term
+//     // this.props.setTerm(this.state.term);
+//      },
   
+// >>>>>>> master
 
   // Here we render the function
   render: function(){
@@ -141,7 +174,9 @@ var AddCard = React.createClass({
 
 
     )
+  
   }
+  
 });
 
 // Export the component back for use in other files

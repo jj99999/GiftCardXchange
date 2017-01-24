@@ -115,6 +115,11 @@ module.exports = function(passport) {
             console.log("The current user is "+currentUserEmail);
             
             // all is well, return successful user
+
+            var currentUserEmail = user.local.email;
+            console.log("The current user is "+currentUserEmail);
+            // all is well, return successful user
+
             return done(null, user);
         });
 
