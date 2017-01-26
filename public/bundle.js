@@ -21500,10 +21500,10 @@
 	var createFragment = __webpack_require__(179);
 	var Inventory = __webpack_require__(181);
 	var AddCard = __webpack_require__(207);
-	var SearchCard = __webpack_require__(210);
+	var SearchCard = __webpack_require__(211);
 
 	// Helper Function
-	var helpers = __webpack_require__(211);
+	var helpers = __webpack_require__(210);
 
 	// This is the main component
 	var Main = React.createClass({
@@ -21595,12 +21595,13 @@
 	        React.createElement(
 	          "div",
 	          { className: "col-md-4" },
-	          React.createElement(AddCard, { email: "{{ email }}" })
+	          React.createElement(AddCard, null)
 	        ),
 	        React.createElement("div", { className: "col-md-4" })
 	      )
 	    );
 	  }
+
 	});
 
 	// Export the component back for use in other files
@@ -23277,16 +23278,27 @@
 	var axios = __webpack_require__(182);
 	var cookie = __webpack_require__(208);
 
+	var helpers = __webpack_require__(210);
+
 	// This is the form component. 
 	var AddCard = React.createClass({
 	  displayName: 'AddCard',
 
 
 	  componentDidMount: function componentDidMount() {
-	    var email = cookie.load('email');
-	    console.log(email);
-	    console.log("ADDCARD AXIOS EMAIL");
-	    console.log(this.props);
+
+	    // var email = cookie.load('email')
+	    // console.log(email)
+
+	    // console.log("HERE IS AXIOS EMAIL FROM ADDCARD");
+	    //   console.log(this.props);
+
+	    helpers.getUser().then(function (response) {
+	      // this.setState({email: response.data});
+	      var email = response;
+	      console.log("HERE IS AXIOS EMAIL FROM ADDCARD");
+	      console.log(email);
+	    }.bind(this));
 	  },
 
 	  // getInitialState: function(){
@@ -23812,6 +23824,41 @@
 /* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	var _reactCookie = __webpack_require__(208);
+
+	var _reactCookie2 = _interopRequireDefault(_reactCookie);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// Include the axios package for performing HTTP requests (promise based alternative to request)
+	var axios = __webpack_require__(182);
+
+	var email;
+
+
+	var helper = {
+
+		getUser: function getUser() {
+			return axios.get("/login").then(function (response) {
+				console.log("HERE IS AXIOS EMAIL FROM HELPERS");
+				email = response.data;
+				console.log(email);
+				_reactCookie2.default.save('email', email);
+				return email;
+			});
+		}
+
+	};
+
+	// We export the helpers function 
+	module.exports = helper;
+
+/***/ },
+/* 211 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
 
 	var React = __webpack_require__(1);
@@ -23914,41 +23961,6 @@
 
 	// Export the component back for use in other files
 	module.exports = SearchCard;
-
-/***/ },
-/* 211 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _reactCookie = __webpack_require__(208);
-
-	var _reactCookie2 = _interopRequireDefault(_reactCookie);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	// Include the axios package for performing HTTP requests (promise based alternative to request)
-	var axios = __webpack_require__(182);
-
-	var email;
-
-
-	var helper = {
-
-		getUser: function getUser() {
-			return axios.get("/login").then(function (response) {
-				console.log("HERE IS AXIOS EMAIL FROM HELPERS");
-				email = response.data;
-				console.log(email);
-				_reactCookie2.default.save('email', email);
-				return email;
-			});
-		}
-
-	};
-
-	// We export the helpers function 
-	module.exports = helper;
 
 /***/ }
 /******/ ]);

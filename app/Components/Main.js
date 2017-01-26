@@ -94,7 +94,7 @@ getInitialState: function(){
 
            </div>
            <div className="col-md-4">
-           <AddCard email="{{ email }}"  />
+           <AddCard />
     
            </div>
            <div className="col-md-4">
@@ -103,10 +103,15 @@ getInitialState: function(){
 
            </div>
       </div>
+
+
   
 
     );
+
   }
+
+
 });
 
 // Export the component back for use in other files
