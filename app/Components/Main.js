@@ -65,6 +65,7 @@ getInitialState: function(){
   componentDidMount: function(){
     console.log("this is the state of cards", this.state.cards);
    
+   helpers.getUser();
    
   },
   // Here we describe this component's render method
