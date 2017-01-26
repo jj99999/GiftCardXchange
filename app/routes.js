@@ -7,6 +7,8 @@ var passportLocal   = require('passport-local');
 
 var passport = require ('../config/passport.js');
 
+var currentUserEmail = "";
+
 module.exports = function(app, passport) {
 
     // =====================================
@@ -21,14 +23,18 @@ module.exports = function(app, passport) {
     // LOGIN ===============================
     // =====================================
     // process the login form
+
+
+    app.get('/login', function(req, res){
+
+        res.send(JSON.stringify(req.user.local.email));
+
+    });
     app.post('/login', passport.authenticate('local-login', {
         successRedirect : '/myaccount', // redirect to the secure profile section
         failureRedirect : '/', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
         }));
-
-        // var currentUserName = req.user.email;
-        // console.log("The current user is "+currentUserName);
 
     // =====================================
     // SIGNUP ==============================
@@ -57,13 +63,13 @@ module.exports = function(app, passport) {
     // we will use route middleware to verify this (the isLoggedIn function)
     app.get('/myaccount', isLoggedIn, function(req, res) {
 
-        // WE WILL HAVE TO RENDER THE REACT COMPONENTS HERE -- USE SAME ROUTING AS 
-        // res.render('profile.js', {
-        //     user : req.user // get the user out of session and pass to template
-        // });
+        currentUserEmail = req.user.local.email;
+
+        console.log("Current user is "+currentUserEmail);
+
 
         res.sendFile('account.html', { root: "public" });
-        // console.log(user.body);
+
     });
 
 

@@ -1,19 +1,12 @@
 // Include the axios package for performing HTTP requests (promise based alternative to request)
 var axios = require('axios');
-var routes = require ('../../config/routes.js');
 
 var helper = {
 
-	
-
-        routes.isLoggedIn(req, res){
-          
-          console.log(req);
-          console.log(res);
-        }
-
         
 };
+
+
 
 
 // We export the helpers function 
