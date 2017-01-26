@@ -18,34 +18,34 @@ var Inventory = React.createClass({
 //        });
 
 //   },
-// componentDidMount:function(){
-//   console.log("this is cards inside inventory.js", this.props.cards);
-// },
-// renderCards: function(){
-//     return this.props.cards.map(function(card, i){
-//         return(
+componentDidMount:function(){
+  console.log("this is cards inside inventory.js", this.props.cards);
+},
+renderCards: function(){
+    return this.props.cards.map(function(card, i){
+        return(
       
-//           <li className="container"  key={i}>
+          <li className="container"  key={i}>
 
 
-//             <div className="card">
+            <div className="card">
              
-//              <p>{card.StoreName}</p>
+             <p>{card.StoreName}</p>
             
-//              </div>
-//           </li>
-//           )
+             </div>
+          </li>
+          )
 
-//     });
-//   },
-// renderContainer:function(){
-//     return(
-//       <ul>
-//         {this.renderCards()}
-//       </ul>
+    });
+  },
+renderContainer:function(){
+    return(
+      <ul>
+        {this.renderCards()}
+      </ul>
 
-//       )
-//   },
+      )
+  },
   
   
   // Here we render the function
@@ -63,7 +63,7 @@ var Inventory = React.createClass({
         </div>
         <div className="panel-body" id="panelbody">
     
-               
+               {this.renderContainer()};
              
         </div>
       </div> 

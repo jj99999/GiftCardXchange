@@ -12,40 +12,48 @@ var helpers = require("./utils/helpers");
 // This is the main component
 var Main = React.createClass({
 getInitialState: function(){
-    return {
-    
-    cards: [{
-    "StoreName": "Walmart",
-    "CardBalance": "$100",
-    "RedemptionCode": "123456789",
-    "RemoveCard": "Blah"
-  }, 
- {
-    "StoreName": "Lesbian Pottert",
-    "CardBalance": "$200",
-    "RedemptionCode": "987654321",
-    "RemoveCard": "Blah"
-  }, 
- {
-    "StoreName": "Home Depot",
-    "CardBalance": "$100",
-    "RedemptionCode": "337879657",
-    "RemoveCard": "Blah"
-  }, 
- {
-    "StoreName": "Apple",
-    "CardBalance": "$50",
-    "RedemptionCode": "657890234",
-    "RemoveCard": "Blah"
-  }, 
-  {
-    "StoreName": "StarBucks",
-    "CardBalance": "$150",
-    "RedemptionCode": "9318790562",
-    "RemoveCard": "Blah"
-  }] 
-    }
+
+
+    return { email:""};
   },
+
+setEmail: function(email){
+  this.setState({email: email });
+},
+ //    return {
+    
+ //    cards: [{
+ //    "StoreName": "Walmart",
+ //    "CardBalance": "$100",
+ //    "RedemptionCode": "123456789",
+ //    "RemoveCard": "Blah"
+ //  }, 
+ // {
+ //    "StoreName": "Lesbian Pottert",
+ //    "CardBalance": "$200",
+ //    "RedemptionCode": "987654321",
+ //    "RemoveCard": "Blah"
+ //  }, 
+ // {
+ //    "StoreName": "Home Depot",
+ //    "CardBalance": "$100",
+ //    "RedemptionCode": "337879657",
+ //    "RemoveCard": "Blah"
+ //  }, 
+ // {
+ //    "StoreName": "Apple",
+ //    "CardBalance": "$50",
+ //    "RedemptionCode": "657890234",
+ //    "RemoveCard": "Blah"
+ //  }, 
+ //  {
+ //    "StoreName": "StarBucks",
+ //    "CardBalance": "$150",
+ //    "RedemptionCode": "9318790562",
+ //    "RemoveCard": "Blah"
+ //  }] 
+ //    }
+  
   // Here we set a generic state associated with the number of clicks
   // getInitialState: function() {
   //   return { searchTerm: "", results: [] };
@@ -63,9 +71,14 @@ getInitialState: function(){
 
   //   },
   componentDidMount: function(){
-    console.log("this is the state of cards", this.state.cards);
+    // console.log("this is the state of cards", this.state.cards);
    
-   helpers.getUser();
+
+   helpers.getUser().then(function(response){
+    this.setState({email: response})
+     console.log("PARENT AXIOS");
+     console.log(response);
+   }.bind(this));
    
   },
   // Here we describe this component's render method
@@ -83,7 +96,7 @@ getInitialState: function(){
 
            </div>
            <div className="col-md-4">
-           <AddCard add/>
+           <AddCard add={this.setEmail} />
     
            </div>
            <div className="col-md-4">

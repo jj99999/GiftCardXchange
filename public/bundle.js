@@ -21757,46 +21757,57 @@
 	var createFragment = __webpack_require__(184);
 	var Inventory = __webpack_require__(186);
 	var AddCard = __webpack_require__(212);
-	var SearchCard = __webpack_require__(213);
+	var SearchCard = __webpack_require__(216);
 
 	// Helper Function
-	var helpers = __webpack_require__(214);
+	var helpers = __webpack_require__(217);
 
 	// This is the main component
 	var Main = React.createClass({
 	  displayName: "Main",
 
 	  getInitialState: function getInitialState() {
-	    return {
 
-	      cards: [{
-	        "StoreName": "Walmart",
-	        "CardBalance": "$100",
-	        "RedemptionCode": "123456789",
-	        "RemoveCard": "Blah"
-	      }, {
-	        "StoreName": "Lesbian Pottert",
-	        "CardBalance": "$200",
-	        "RedemptionCode": "987654321",
-	        "RemoveCard": "Blah"
-	      }, {
-	        "StoreName": "Home Depot",
-	        "CardBalance": "$100",
-	        "RedemptionCode": "337879657",
-	        "RemoveCard": "Blah"
-	      }, {
-	        "StoreName": "Apple",
-	        "CardBalance": "$50",
-	        "RedemptionCode": "657890234",
-	        "RemoveCard": "Blah"
-	      }, {
-	        "StoreName": "StarBucks",
-	        "CardBalance": "$150",
-	        "RedemptionCode": "9318790562",
-	        "RemoveCard": "Blah"
-	      }]
-	    };
+	    return { email: "" };
 	  },
+
+	  setEmail: function setEmail(email) {
+	    this.setState({ email: email });
+	  },
+	  //    return {
+
+	  //    cards: [{
+	  //    "StoreName": "Walmart",
+	  //    "CardBalance": "$100",
+	  //    "RedemptionCode": "123456789",
+	  //    "RemoveCard": "Blah"
+	  //  }, 
+	  // {
+	  //    "StoreName": "Lesbian Pottert",
+	  //    "CardBalance": "$200",
+	  //    "RedemptionCode": "987654321",
+	  //    "RemoveCard": "Blah"
+	  //  }, 
+	  // {
+	  //    "StoreName": "Home Depot",
+	  //    "CardBalance": "$100",
+	  //    "RedemptionCode": "337879657",
+	  //    "RemoveCard": "Blah"
+	  //  }, 
+	  // {
+	  //    "StoreName": "Apple",
+	  //    "CardBalance": "$50",
+	  //    "RedemptionCode": "657890234",
+	  //    "RemoveCard": "Blah"
+	  //  }, 
+	  //  {
+	  //    "StoreName": "StarBucks",
+	  //    "CardBalance": "$150",
+	  //    "RedemptionCode": "9318790562",
+	  //    "RemoveCard": "Blah"
+	  //  }] 
+	  //    }
+
 	  // Here we set a generic state associated with the number of clicks
 	  // getInitialState: function() {
 	  //   return { searchTerm: "", results: [] };
@@ -21813,9 +21824,14 @@
 
 	  //   },
 	  componentDidMount: function componentDidMount() {
-	    console.log("this is the state of cards", this.state.cards);
+	    // console.log("this is the state of cards", this.state.cards);
 
-	    helpers.getUser();
+
+	    helpers.getUser().then(function (response) {
+	      this.setState({ email: response });
+	      console.log("PARENT AXIOS");
+	      console.log(response);
+	    }.bind(this));
 	  },
 	  // Here we describe this component's render method
 	  render: function render() {
@@ -21838,7 +21854,7 @@
 	        React.createElement(
 	          "div",
 	          { className: "col-md-4" },
-	          React.createElement(AddCard, { add: true })
+	          React.createElement(AddCard, { add: this.setEmail })
 	        ),
 	        React.createElement("div", { className: "col-md-4" })
 	      )
@@ -21955,33 +21971,35 @@
 	  //        });
 
 	  //   },
-	  componentDidMount: function componentDidMount() {
-	    console.log("this is cards inside inventory.js", this.props.cards);
-	  },
-	  renderCards: function renderCards() {
-	    return this.props.cards.map(function (card, i) {
-	      return React.createElement(
-	        'li',
-	        { className: 'container', key: i },
-	        React.createElement(
-	          'div',
-	          { className: 'card' },
-	          React.createElement(
-	            'p',
-	            null,
-	            card.StoreName
-	          )
-	        )
-	      );
-	    });
-	  },
-	  renderContainer: function renderContainer() {
-	    return React.createElement(
-	      'ul',
-	      null,
-	      this.renderCards()
-	    );
-	  },
+	  // componentDidMount:function(){
+	  //   console.log("this is cards inside inventory.js", this.props.cards);
+	  // },
+	  // renderCards: function(){
+	  //     return this.props.cards.map(function(card, i){
+	  //         return(
+
+	  //           <li className="container"  key={i}>
+
+
+	  //             <div className="card">
+
+	  //              <p>{card.StoreName}</p>
+
+	  //              </div>
+	  //           </li>
+	  //           )
+
+	  //     });
+	  //   },
+	  // renderContainer:function(){
+	  //     return(
+	  //       <ul>
+	  //         {this.renderCards()}
+	  //       </ul>
+
+	  //       )
+	  //   },
+
 
 	  // Here we render the function
 	  render: function render() {
@@ -22010,12 +22028,7 @@
 	          )
 	        )
 	      ),
-	      React.createElement(
-	        'div',
-	        { className: 'panel-body', id: 'panelbody' },
-	        this.renderContainer(),
-	        ';'
-	      )
+	      React.createElement('div', { className: 'panel-body', id: 'panelbody' })
 	    );
 	  }
 
@@ -23521,11 +23534,19 @@
 	// Include React 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(187);
+	var cookie = __webpack_require__(213);
 
 	// This is the form component. 
 	var AddCard = React.createClass({
 	  displayName: 'AddCard',
 
+
+	  componentDidMount: function componentDidMount() {
+	    var email = cookie.load('email');
+	    console.log(email);
+	    console.log("ADDCARD AXIOS EMAIL");
+	    console.log(this.props);
+	  },
 
 	  // getInitialState: function(){
 	  //   return {
@@ -23535,10 +23556,8 @@
 	  //       newCard.tradeAvailability
 	  //   }
 	  // },
-
-	  setTerm: function setTerm(term) {
-	    this.setState({ searchTerm: term });
-	  },
+	  // console.log("ADDCARD AXIOS EMAIL");
+	  // console.log({this.props.add(this.state.setEmail)})
 
 	  // This function will respond to the user input 
 	  // Custom (developer created)
@@ -23571,6 +23590,8 @@
 	    this.setState({ term: "" });
 
 	    console.log("Posted to MONGODB");
+
+	    // return axios.post("/addcard").then(function())
 
 	    //   return axios.post({
 	    //     var newCard   = new Card();
@@ -23692,6 +23713,460 @@
 /* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+	exports.load = load;
+	exports.select = select;
+	exports.save = save;
+	exports.remove = remove;
+	exports.setRawCookie = setRawCookie;
+	exports.plugToRequest = plugToRequest;
+
+	var _cookie = __webpack_require__(214);
+
+	var _cookie2 = _interopRequireDefault(_cookie);
+
+	var _objectAssign = __webpack_require__(215);
+
+	var _objectAssign2 = _interopRequireDefault(_objectAssign);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var IS_NODE = typeof document === 'undefined' || process && process.env && process.env.NODE_ENV === 'test';
+	var _rawCookie = {};
+	var _res = undefined;
+
+	function _isResWritable() {
+	  return _res && !_res.headersSent;
+	}
+
+	function load(name, doNotParse) {
+	  var cookies = IS_NODE ? _rawCookie : _cookie2.default.parse(document.cookie);
+	  var cookieVal = cookies && cookies[name];
+
+	  if (typeof doNotParse === 'undefined') {
+	    doNotParse = !cookieVal || cookieVal[0] !== '{' && cookieVal[0] !== '[';
+	  }
+
+	  if (!doNotParse) {
+	    try {
+	      cookieVal = JSON.parse(cookieVal);
+	    } catch (e) {
+	      // Not serialized object
+	    }
+	  }
+
+	  return cookieVal;
+	}
+
+	function select(regex) {
+	  var cookies = IS_NODE ? _rawCookie : _cookie2.default.parse(document.cookie);
+
+	  if (!cookies) {
+	    return {};
+	  }
+
+	  if (!regex) {
+	    return cookies;
+	  }
+
+	  return Object.keys(cookies).reduce(function (accumulator, name) {
+	    if (!regex.test(name)) {
+	      return accumulator;
+	    }
+
+	    var newCookie = {};
+	    newCookie[name] = cookies[name];
+	    return (0, _objectAssign2.default)({}, accumulator, newCookie);
+	  }, {});
+	}
+
+	function save(name, val, opt) {
+	  _rawCookie[name] = val;
+
+	  // allow you to work with cookies as objects.
+	  if ((typeof val === 'undefined' ? 'undefined' : _typeof(val)) === 'object') {
+	    _rawCookie[name] = JSON.stringify(val);
+	  }
+
+	  // Cookies only work in the browser
+	  if (!IS_NODE) {
+	    document.cookie = _cookie2.default.serialize(name, _rawCookie[name], opt);
+	  }
+
+	  if (_isResWritable() && _res.cookie) {
+	    _res.cookie(name, val, opt);
+	  }
+	}
+
+	function remove(name, opt) {
+	  delete _rawCookie[name];
+
+	  if (typeof opt === 'undefined') {
+	    opt = {};
+	  } else if (typeof opt === 'string') {
+	    // Will be deprecated in future versions
+	    opt = { path: opt };
+	  } else {
+	    // Prevent mutation of opt below
+	    opt = (0, _objectAssign2.default)({}, opt);
+	  }
+
+	  if (typeof document !== 'undefined') {
+	    opt.expires = new Date(1970, 1, 1, 0, 0, 1);
+	    opt.maxAge = 0;
+	    document.cookie = _cookie2.default.serialize(name, '', opt);
+	  }
+
+	  if (_isResWritable() && _res.clearCookie) {
+	    _res.clearCookie(name, opt);
+	  }
+	}
+
+	function setRawCookie(rawCookie) {
+	  if (rawCookie) {
+	    _rawCookie = _cookie2.default.parse(rawCookie);
+	  } else {
+	    _rawCookie = {};
+	  }
+	}
+
+	function plugToRequest(req, res) {
+	  if (req.cookie) {
+	    _rawCookie = req.cookie;
+	  } else if (req.cookies) {
+	    _rawCookie = req.cookies;
+	  } else if (req.headers && req.headers.cookie) {
+	    setRawCookie(req.headers.cookie);
+	  } else {
+	    _rawCookie = {};
+	  }
+
+	  _res = res;
+
+	  return function unplug() {
+	    _res = null;
+	    _rawCookie = {};
+	  };
+	}
+
+	exports.default = {
+	  setRawCookie: setRawCookie,
+	  load: load,
+	  select: select,
+	  save: save,
+	  remove: remove,
+	  plugToRequest: plugToRequest
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 214 */
+/***/ function(module, exports) {
+
+	/*!
+	 * cookie
+	 * Copyright(c) 2012-2014 Roman Shtylman
+	 * Copyright(c) 2015 Douglas Christopher Wilson
+	 * MIT Licensed
+	 */
+
+	'use strict';
+
+	/**
+	 * Module exports.
+	 * @public
+	 */
+
+	exports.parse = parse;
+	exports.serialize = serialize;
+
+	/**
+	 * Module variables.
+	 * @private
+	 */
+
+	var decode = decodeURIComponent;
+	var encode = encodeURIComponent;
+	var pairSplitRegExp = /; */;
+
+	/**
+	 * RegExp to match field-content in RFC 7230 sec 3.2
+	 *
+	 * field-content = field-vchar [ 1*( SP / HTAB ) field-vchar ]
+	 * field-vchar   = VCHAR / obs-text
+	 * obs-text      = %x80-FF
+	 */
+
+	var fieldContentRegExp = /^[\u0009\u0020-\u007e\u0080-\u00ff]+$/;
+
+	/**
+	 * Parse a cookie header.
+	 *
+	 * Parse the given cookie header string into an object
+	 * The object has the various cookies as keys(names) => values
+	 *
+	 * @param {string} str
+	 * @param {object} [options]
+	 * @return {object}
+	 * @public
+	 */
+
+	function parse(str, options) {
+	  if (typeof str !== 'string') {
+	    throw new TypeError('argument str must be a string');
+	  }
+
+	  var obj = {}
+	  var opt = options || {};
+	  var pairs = str.split(pairSplitRegExp);
+	  var dec = opt.decode || decode;
+
+	  for (var i = 0; i < pairs.length; i++) {
+	    var pair = pairs[i];
+	    var eq_idx = pair.indexOf('=');
+
+	    // skip things that don't look like key=value
+	    if (eq_idx < 0) {
+	      continue;
+	    }
+
+	    var key = pair.substr(0, eq_idx).trim()
+	    var val = pair.substr(++eq_idx, pair.length).trim();
+
+	    // quoted values
+	    if ('"' == val[0]) {
+	      val = val.slice(1, -1);
+	    }
+
+	    // only assign once
+	    if (undefined == obj[key]) {
+	      obj[key] = tryDecode(val, dec);
+	    }
+	  }
+
+	  return obj;
+	}
+
+	/**
+	 * Serialize data into a cookie header.
+	 *
+	 * Serialize the a name value pair into a cookie string suitable for
+	 * http headers. An optional options object specified cookie parameters.
+	 *
+	 * serialize('foo', 'bar', { httpOnly: true })
+	 *   => "foo=bar; httpOnly"
+	 *
+	 * @param {string} name
+	 * @param {string} val
+	 * @param {object} [options]
+	 * @return {string}
+	 * @public
+	 */
+
+	function serialize(name, val, options) {
+	  var opt = options || {};
+	  var enc = opt.encode || encode;
+
+	  if (typeof enc !== 'function') {
+	    throw new TypeError('option encode is invalid');
+	  }
+
+	  if (!fieldContentRegExp.test(name)) {
+	    throw new TypeError('argument name is invalid');
+	  }
+
+	  var value = enc(val);
+
+	  if (value && !fieldContentRegExp.test(value)) {
+	    throw new TypeError('argument val is invalid');
+	  }
+
+	  var str = name + '=' + value;
+
+	  if (null != opt.maxAge) {
+	    var maxAge = opt.maxAge - 0;
+	    if (isNaN(maxAge)) throw new Error('maxAge should be a Number');
+	    str += '; Max-Age=' + Math.floor(maxAge);
+	  }
+
+	  if (opt.domain) {
+	    if (!fieldContentRegExp.test(opt.domain)) {
+	      throw new TypeError('option domain is invalid');
+	    }
+
+	    str += '; Domain=' + opt.domain;
+	  }
+
+	  if (opt.path) {
+	    if (!fieldContentRegExp.test(opt.path)) {
+	      throw new TypeError('option path is invalid');
+	    }
+
+	    str += '; Path=' + opt.path;
+	  }
+
+	  if (opt.expires) {
+	    if (typeof opt.expires.toUTCString !== 'function') {
+	      throw new TypeError('option expires is invalid');
+	    }
+
+	    str += '; Expires=' + opt.expires.toUTCString();
+	  }
+
+	  if (opt.httpOnly) {
+	    str += '; HttpOnly';
+	  }
+
+	  if (opt.secure) {
+	    str += '; Secure';
+	  }
+
+	  if (opt.sameSite) {
+	    var sameSite = typeof opt.sameSite === 'string'
+	      ? opt.sameSite.toLowerCase() : opt.sameSite;
+
+	    switch (sameSite) {
+	      case true:
+	        str += '; SameSite=Strict';
+	        break;
+	      case 'lax':
+	        str += '; SameSite=Lax';
+	        break;
+	      case 'strict':
+	        str += '; SameSite=Strict';
+	        break;
+	      default:
+	        throw new TypeError('option sameSite is invalid');
+	    }
+	  }
+
+	  return str;
+	}
+
+	/**
+	 * Try decoding a string using a decoding function.
+	 *
+	 * @param {string} str
+	 * @param {function} decode
+	 * @private
+	 */
+
+	function tryDecode(str, decode) {
+	  try {
+	    return decode(str);
+	  } catch (e) {
+	    return str;
+	  }
+	}
+
+
+/***/ },
+/* 215 */
+/***/ function(module, exports) {
+
+	/*
+	object-assign
+	(c) Sindre Sorhus
+	@license MIT
+	*/
+
+	'use strict';
+	/* eslint-disable no-unused-vars */
+	var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+	var hasOwnProperty = Object.prototype.hasOwnProperty;
+	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+	function toObject(val) {
+		if (val === null || val === undefined) {
+			throw new TypeError('Object.assign cannot be called with null or undefined');
+		}
+
+		return Object(val);
+	}
+
+	function shouldUseNative() {
+		try {
+			if (!Object.assign) {
+				return false;
+			}
+
+			// Detect buggy property enumeration order in older V8 versions.
+
+			// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+			var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
+			test1[5] = 'de';
+			if (Object.getOwnPropertyNames(test1)[0] === '5') {
+				return false;
+			}
+
+			// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+			var test2 = {};
+			for (var i = 0; i < 10; i++) {
+				test2['_' + String.fromCharCode(i)] = i;
+			}
+			var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+				return test2[n];
+			});
+			if (order2.join('') !== '0123456789') {
+				return false;
+			}
+
+			// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+			var test3 = {};
+			'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+				test3[letter] = letter;
+			});
+			if (Object.keys(Object.assign({}, test3)).join('') !==
+					'abcdefghijklmnopqrst') {
+				return false;
+			}
+
+			return true;
+		} catch (err) {
+			// We don't expect any of the above to throw, but better to be safe.
+			return false;
+		}
+	}
+
+	module.exports = shouldUseNative() ? Object.assign : function (target, source) {
+		var from;
+		var to = toObject(target);
+		var symbols;
+
+		for (var s = 1; s < arguments.length; s++) {
+			from = Object(arguments[s]);
+
+			for (var key in from) {
+				if (hasOwnProperty.call(from, key)) {
+					to[key] = from[key];
+				}
+			}
+
+			if (getOwnPropertySymbols) {
+				symbols = getOwnPropertySymbols(from);
+				for (var i = 0; i < symbols.length; i++) {
+					if (propIsEnumerable.call(from, symbols[i])) {
+						to[symbols[i]] = from[symbols[i]];
+					}
+				}
+			}
+		}
+
+		return to;
+	};
+
+
+/***/ },
+/* 216 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
 
 	var React = __webpack_require__(1);
@@ -23796,15 +24271,22 @@
 	module.exports = SearchCard;
 
 /***/ },
-/* 214 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
+
+	var _reactCookie = __webpack_require__(213);
+
+	var _reactCookie2 = _interopRequireDefault(_reactCookie);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// Include the axios package for performing HTTP requests (promise based alternative to request)
 	var axios = __webpack_require__(187);
 
 	var email;
+
 
 	var helper = {
 
@@ -23813,6 +24295,8 @@
 				console.log("HERE IS AXIOS EMAIL");
 				email = response;
 				console.log(email);
+				_reactCookie2.default.save('email', email);
+				return email;
 			});
 		}
 
