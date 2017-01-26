@@ -2,15 +2,17 @@
 var axios = require('axios');
 
 var email;
+import cookie from 'react-cookie'
 
 var helper = {
-
         
 getUser: function(){
 	return axios.get("/login").then(function(response){
 		console.log("HERE IS AXIOS EMAIL");
-	   email = response;
+	   	email = response;
 		console.log(email);
+		cookie.save('email', email)
+		return email
 	})
 
 }

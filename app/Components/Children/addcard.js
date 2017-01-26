@@ -1,10 +1,19 @@
 // Include React 
 var React = require('react');
 var axios = require('axios');
-
+var cookie = require('react-cookie');
 
 // This is the form component. 
 var AddCard = React.createClass({
+
+  componentDidMount: function(){
+    var email = cookie.load('email')
+    console.log(email)
+console.log("ADDCARD AXIOS EMAIL");
+  console.log(this.props);
+
+
+  },
 
   // getInitialState: function(){
   //   return {
@@ -14,10 +23,8 @@ var AddCard = React.createClass({
   //       newCard.tradeAvailability
   //   }
   // },
-
-  setTerm: function(term){
-    this.setState({searchTerm: term});
-  },
+  // console.log("ADDCARD AXIOS EMAIL");
+  // console.log({this.props.add(this.state.setEmail)})
 
   // This function will respond to the user input 
   // Custom (developer created)
@@ -53,6 +60,8 @@ var AddCard = React.createClass({
 
     console.log("Posted to MONGODB")
 
+    // return axios.post("/addcard").then(function())
+
   //   return axios.post({
   //     var newCard   = new Card();
   //     // newCard.cardOwnerEmail  = currentUserEmail;
@@ -81,6 +90,8 @@ var AddCard = React.createClass({
   render: function(){
 
     return(
+  
+
 
         <div className="panel panel-primary" id="addcard">
               <div className="panel-heading" id="addcardhead">
