@@ -83,6 +83,15 @@ require('./app/routes.js')(app, passport);
 // 		error: (app.get('env') === 'development') ? err : {}
 // 	})
 // })
+app.get('/myaccount', function(){
+	// app.post('/data', function () {
+		console.log("Hey, this is working.");
+	// });
+
+
+
+
+});
 
 
 

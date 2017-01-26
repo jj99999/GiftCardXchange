@@ -13,6 +13,7 @@ var helpers = require("./utils/helpers");
 var Main = React.createClass({
 getInitialState: function(){
     return {
+    
     cards: [{
     "StoreName": "Walmart",
     "CardBalance": "$100",
@@ -64,9 +65,6 @@ getInitialState: function(){
   componentDidMount: function(){
     console.log("this is the state of cards", this.state.cards);
    
-   // helpers.getPassPort();
-   console.log("USER:")
-   helpers.routes.isLoggedIn();
    
   },
   // Here we describe this component's render method
