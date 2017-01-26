@@ -2,18 +2,21 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var CardSchema = new Schema({
-  store: {
+  cardOwnerEmail: {
     type: String,
   },
-  balance: {
+  storeName: {
+    type: String,
+  },
+  cardBalance: {
   	type: Number,
-  },
-   code: {
-   type: String,
-  },
-  availability: {
-   type: Boolean,
   }
+  //  code: {
+  //  type: String,
+  // },
+  // availability: {
+  //  type: Boolean,
+  // }
 
 });
 
