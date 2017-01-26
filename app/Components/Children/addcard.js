@@ -3,14 +3,27 @@ var React = require('react');
 var axios = require('axios');
 var cookie = require('react-cookie');
 
+var helpers = require("../utils/helpers");
+
 // This is the form component. 
 var AddCard = React.createClass({
 
   componentDidMount: function(){
-    var email = cookie.load('email')
-    console.log(email)
-console.log("ADDCARD AXIOS EMAIL");
-  console.log(this.props);
+    
+    // var email = cookie.load('email')
+    // console.log(email)
+
+// console.log("HERE IS AXIOS EMAIL FROM ADDCARD");
+//   console.log(this.props);
+
+     helpers.getUser().then(function(response){
+    // this.setState({email: response.data});
+    var email = response;
+     console.log("HERE IS AXIOS EMAIL FROM ADDCARD");
+     console.log(email);
+   }.bind(this));
+
+
 
 
   },
