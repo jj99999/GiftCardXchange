@@ -17,9 +17,9 @@ getInitialState: function(){
     return { email:""};
   },
 
-setEmail: function(email){
-  this.setState({email: email });
-},
+// setEmail: function(email){
+//   this.setState({email: email });
+// },
  //    return {
     
  //    cards: [{
@@ -71,13 +71,11 @@ setEmail: function(email){
 
   //   },
   componentDidMount: function(){
-    // console.log("this is the state of cards", this.state.cards);
-   
-
    helpers.getUser().then(function(response){
-    this.setState({email: response})
-     console.log("PARENT AXIOS");
-     console.log(response);
+    // this.setState({email: response.data});
+    var email = response;
+     console.log("HERE IS AXIOS EMAIL FROM PARENT");
+     console.log(email);
    }.bind(this));
    
   },
@@ -96,7 +94,7 @@ setEmail: function(email){
 
            </div>
            <div className="col-md-4">
-           <AddCard add={this.setEmail} />
+           <AddCard email="{{ email }}"  />
     
            </div>
            <div className="col-md-4">
@@ -105,13 +103,6 @@ setEmail: function(email){
 
            </div>
       </div>
-  
-           
-
-            
-      
-
-
   
 
     );

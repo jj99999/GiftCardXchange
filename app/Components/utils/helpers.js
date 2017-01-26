@@ -8,11 +8,11 @@ var helper = {
         
 getUser: function(){
 	return axios.get("/login").then(function(response){
-		console.log("HERE IS AXIOS EMAIL");
-	   	email = response;
+		console.log("HERE IS AXIOS EMAIL FROM HELPERS");
+	   	email = response.data;
 		console.log(email);
-		cookie.save('email', email)
-		return email
+		cookie.save('email', email);
+		return email;
 	})
 
 }
