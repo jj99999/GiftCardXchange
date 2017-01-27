@@ -6,8 +6,11 @@ var passport = require('passport');
 var passportLocal   = require('passport-local');
 
 var passport = require ('../config/passport.js');
-
+var cookie = require('react-cookie');
 var Card = require('./models/card');
+
+var email;
+var myCards;
 
 module.exports = function(app, passport) {
 
@@ -100,6 +103,34 @@ module.exports = function(app, passport) {
         })
 
     });
+
+    // GET INVENTORY route
+
+    app.get('/getcard', function(req, res){
+     // email = cookie.load('email');
+
+     console.log("ROUTES");
+     console.log(req.cookies.email);
+
+     var userEmail = req.cookies.email;
+
+      Card.find({"email" : userEmail}, function(response, cards) {
+          console.log("CARD RESPONSE");
+          console.log(response);
+
+           res.json(cards);
+           
+          // cookie.save('myCards', myCards);
+
+        // var cookieLoad = cookie.load('myCards');
+           
+      });
+         
+     });
+       
+    
+
+  
 
     // =====================================
     // ALLCARDS route

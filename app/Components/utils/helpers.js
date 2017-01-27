@@ -13,6 +13,9 @@ getUser: function(){
 	   	email = response.data;
 		// console.log(email);
 		cookie.save('email', email);
+    var cookieLoad = cookie.load('email');
+    console.log("===========COOKIE LOAD++++++++++");
+    console.log(cookieLoad);
 		return email;
 	})
 
@@ -35,6 +38,21 @@ getUser: function(){
       });
 
  },
+
+
+ getInventory: function(Card){
+   email = cookie.load('email');
+
+  return axios.get("/getcard", {Card: Card}).then(function(response){
+    // console.log("INVENTORY USER EMAIL")
+   
+       console.log("GETINVENTORY RESPONSE");
+       // console.log(response);
+       return response;
+  });
+  
+ }
+
 
  allCards: function(){
 

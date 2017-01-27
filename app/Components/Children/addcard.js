@@ -10,8 +10,12 @@ var AddCard = React.createClass({
 
   componentDidMount: function(){
     
-    var email = cookie.load('email')
-    console.log(email)
+    // var email = cookie.load('email')
+    // console.log(email)
+
+// console.log("GET INVENTORY");
+// helpers.getInventory();
+
 
   },
 

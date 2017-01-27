@@ -22,12 +22,16 @@ getInitialState: function(){
   //   },
   componentDidMount: function(){
    helpers.getUser().then(function(response){
-      var email = response;
-      // console.log("HERE IS AXIOS EMAIL FROM PARENT");
-      // console.log(email);
-      }.bind(this))
 
-   // helpers.allCards();
+
+    console.log("GET INVENTORY");
+helpers.getInventory();
+    // this.setState({email: response.data});
+    var email = response;
+     console.log("HERE IS AXIOS EMAIL FROM PARENT");
+     console.log(email);
+   }.bind(this));
+
    
   },
   // Here we describe this component's render method
