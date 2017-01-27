@@ -32,6 +32,15 @@ React Form Data posting to Mongo Database
 
 Database Post Route
 
+## Future Developments
+
+Email Confirmation Blast
+
+Gift Card API Balance Inquiry & Payment Processing 
+
+Real World Card Verify
+
+Chapter 11 Bankruptcy Gift Card Watchlist
 
 ## Team Members: 
 
