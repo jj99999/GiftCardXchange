@@ -81,9 +81,9 @@ module.exports = function(app, passport) {
         res.redirect('/');
     });
 
-
+    // =====================================
     // ADDCARD route
-
+    // =====================================
     app.post('/addcard', function(req, res){
         var newCard = new Card(req.body);
         console.log(req.body);
@@ -99,6 +99,18 @@ module.exports = function(app, passport) {
 
         })
 
+    });
+
+    // =====================================
+    // ALLCARDS route
+    // =====================================
+    app.get('/allcards', function(req, response, error){
+        Card.find({}, function (err, cards) {
+            if (err)
+            return (err);
+            response.json(cards);
+        });
+        
     });
 
 

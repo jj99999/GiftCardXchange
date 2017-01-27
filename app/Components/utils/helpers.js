@@ -4,13 +4,14 @@ var axios = require('axios');
 var email;
 import cookie from 'react-cookie'
 
+
 var helper = {
         
 getUser: function(){
 	return axios.get("/login").then(function(response){
-		console.log("HERE IS AXIOS EMAIL FROM HELPERS");
+		// console.log("HERE IS AXIOS EMAIL FROM HELPERS");
 	   	email = response.data;
-		console.log(email);
+		// console.log(email);
 		cookie.save('email', email);
 		return email;
 	})
@@ -19,26 +20,31 @@ getUser: function(){
 
  addCard: function(storeName, cardBalance, redeemCode) {
  	
- 	console.log("ADD CARD function is running");
+ 	// console.log("ADD CARD function is running");
  	email = cookie.load('email');
  	// console.log(email);
 
-    var newCard = { email: email, storeName: storeName, cardBalance: cardBalance, redeemCode: redeemCode };
-    console.log(newCard);
+    // var newCard = { email: email, storeName: storeName, cardBalance: cardBalance, redeemCode: redeemCode };
+    // console.log(newCard);
     return axios.post("/addcard", { email: email, storeName: storeName, cardBalance: cardBalance, redeemCode: redeemCode })
       .then(function(response) {
-        console.log("axios results", response);
+        // console.log("axios results", response);
         return response;
       }).catch(function(error){
       	console.log(error);
       });
+
+ },
+
+ allCards: function(){
+
+ 	return axios.get('/allcards', function(){
+ 		
+ 	});
 
  }
 
 };
 
 
-
-
-// We export the helpers function 
 module.exports = helper;
