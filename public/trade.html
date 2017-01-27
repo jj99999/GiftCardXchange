@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Make a Trade</title>
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/bootstraptheme.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+</head>
+
+<body>
+
+<!-- BEGINNING OF SCREEN 4 -->
+<div class="container" id="screen4"  style="display:block">
+
+    <div class="row" id="row10"></div>
+
+    <div class="row" id="row11">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3"></div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-sx-6" id="logo"></div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3"></div>
+    </div>
+
+  <div class="row" id="filler1"></div>
+    
+
+  <!--     <div class="row" id="row13"></div> -->
+
+      <div class="row" id="row14">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-sx-4">
+            <div class="panel panel-primary" id="addcard">
+              <div class="panel-heading" id="addcardhead">
+                  <h3 class="panel-title"><b>Which Card Do You Want To Offer?</b></h3>
+              </div>
+              <div class="panel-body" id="addcardbody">
+  
+
+                <!-- Entry Form -->
+              <form>
+                  <div class="form-group">
+                      <label for="">Store Name</label>
+                      <input type="text" class="form-control" id="storeNameInput" placeholder="Lesbian Pottery">
+                      </div>
+
+                      <div class="form-group">
+                      <label for="">Card Balance</label>
+                      <input type="text" class="form-control" id="cardBalanceInput" placeholder="$20.00">
+                      </div>
+
+                      <br>
+                      <!-- <button type="submit" class="btn btn-primary" id="offercard">Offer Trade</button> -->
+                      <img src="assets/images/click.gif" id="buttongif">
+              </form>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-lg-8 col-md-8 col-sm-8 col-sx-8">
+            <div class="panel panel-primary" id="alerts">
+              <div class="panel-heading" id="alertshead">
+                  <h3 class="panel-title" style="text-align:center"><b>Trade Status</b></h3>
+              </div>
+              <div class="panel-body" id="alertsbody">
+
+              <h1 id="waiting1" style="display:none">Waiting for</h1>
+              <h1 id="waiting2" style="display:none">joshudson93@gmail.com</h1>
+              <h1 id="waiting3" style="display:none">to respond.....</h1>
+              <h1 id="result1" style="display:none">CONGRATULATIONS!</h1>
+              <h1 id="result2" style="display:none">You successfully traded your</h1>
+              <h1 id="result3" style="display:none">$75 Buffalo Wild Wings</h1>
+              <h1 id="result4" style="display:none">unwanted gift card for the</h1>
+              <h1 id="result5" style="display:none">$50 Best Buy</h1>
+              <h1 id="result6" style="display:none">card that you actually wanted!</h1>
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="row" id="row15"></div>
+
+
+
+<!-- END OF SCREEN 3 -->
+<script type="text/javascript">
+
+function waitingfor(){
+  $("#waiting1").css("display","block");
+  $("#waiting2").css("display","block");
+  $("#waiting3").css("display","block");  
+}
+
+function fadein(){
+  $("#waiting1").animate({opacity: '1'});
+  $("#waiting2").animate({opacity: '1'});
+  $("#waiting3").animate({opacity: '1'});
+}
+
+function textswap(){
+  $("#waiting1").css("display","none");
+  $("#waiting2").css("display","none");
+  $("#waiting3").css("display","none");
+  $("#result1").css("display","block");
+  $("#result2").css("display","block");
+  $("#result3").css("display","block");
+  $("#result4").css("display","block");
+  $("#result5").css("display","block");
+  $("#result6").css("display","block");
+}
+
+function textgone(){
+  $("#result1").css("display","none");
+  $("#result2").css("display","none");
+  $("#result3").css("display","none");
+  $("#result4").css("display","none");
+  $("#result5").css("display","none");
+  $("#result6").css("display","none");
+}
+
+function textflash(){
+  textgone();
+  setTimeout(textswap,300);
+  setTimeout(textgone,600);
+  setTimeout(textflash,600);
+}
+
+$("#buttongif").on("click",function(){
+  waitingfor();
+  setTimeout(fadein,1000);
+  setTimeout(textswap,6000);
+  setTimeout(textflash,6200);
+});
+
+
+  </script>
+
+<!--   <script src="assets/javascript/trade.js"></script> -->
+
+</body>
+
+</html>
