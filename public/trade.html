@@ -12,6 +12,8 @@
 
 <body>
 
+<audio src="assets/images/dogs.mp3" id="dogs"></audio>
+
 <!-- BEGINNING OF SCREEN 4 -->
 <div class="container" id="screen4"  style="display:block">
 
@@ -131,10 +133,15 @@ function textflash(){
   setTimeout(textflash,600);
 }
 
+function playdogs(){
+  dogs.play();
+}
+
 $("#buttongif").on("click",function(){
   waitingfor();
   setTimeout(fadein,1000);
   setTimeout(textswap,6000);
+  setTimeout(playdogs,6000);
   setTimeout(textflash,6200);
 });
 
