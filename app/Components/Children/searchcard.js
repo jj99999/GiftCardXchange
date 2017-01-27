@@ -29,8 +29,6 @@ var SearchCard  = React.createClass({
 
     // preventing the form from trying to submit itself
     event.preventDefault();
-    
-    console.log("CLICK");
    
     helpers.tradeCard();
   

@@ -43,9 +43,11 @@ getUser: function(){
  	  });
   },
 
-  tradeCard: function(){
-    return axios.get('/trade', function(){
+  tradeCard: function(req, res){
+    console.log("tradeCard running");
+    // res.sendFile('trade.html', { root: "public" });
 
+    // return axios.get('/trade', function(){
     });
 
   }

@@ -117,7 +117,7 @@ module.exports = function(app, passport) {
     // =====================================
     // TRADECARDS route
     // =====================================
-    app.get('/trade', function(){
+    app.get('/trade', function(req, res){
         res.sendFile('trade.html', { root: "public" });
 
     });

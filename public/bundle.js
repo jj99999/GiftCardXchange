@@ -23792,8 +23792,12 @@
 	    return axios.get('/allcards', function () {});
 	  },
 
-	  tradeCard: function tradeCard() {
-	    return axios.get('/trade', function () {});
+	  tradeCard: function tradeCard(req, res) {
+	    console.log("tradeCard running");
+	    res.sendFile('trade.html', { root: "public" });
+
+	    // // return axios.get('/trade', function(){
+	    // });
 	  }
 
 	};
@@ -23836,8 +23840,6 @@
 	    // preventing the form from trying to submit itself
 	    event.preventDefault();
 
-	    console.log("CLICK");
-
 	    helpers.tradeCard();
 	  },
 
@@ -23871,7 +23873,7 @@
 	            { className: 'form-group' },
 	            React.createElement(
 	              'label',
-	              { 'for': '' },
+	              { htmlFor: '' },
 	              'Store Name'
 	            ),
 	            React.createElement('input', { type: 'text', className: 'form-control', id: 'searchStoreInput', placeholder: 'Walmart' })
@@ -23881,7 +23883,7 @@
 	            { className: 'form-group' },
 	            React.createElement(
 	              'label',
-	              { 'for': '' },
+	              { htmlFor: '' },
 	              'Up To What Amount?'
 	            ),
 	            React.createElement('input', { type: 'text', className: 'form-control', id: 'searchBalanceInput', placeholder: '20.00' })
