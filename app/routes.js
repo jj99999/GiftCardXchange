@@ -114,6 +114,14 @@ module.exports = function(app, passport) {
     });
 
 
+    // =====================================
+    // TRADECARDS route
+    // =====================================
+    app.get('/trade', function(){
+        res.sendFile('trade.html', { root: "public" });
+
+    });
+
 };
 
 

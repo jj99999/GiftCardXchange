@@ -65,7 +65,6 @@ var AddCard = React.createClass({
     // console.log("CLICK");
 
     // console.log(this.state.storeName+" "+this.state.cardBalance+" "+this.state.redeemCode);
-    console.log(this.state.redeemCode);
     helpers.addCard(this.state.storeName, this.state.cardBalance, this.state.redeemCode);
 
 

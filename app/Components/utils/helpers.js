@@ -36,13 +36,19 @@ getUser: function(){
 
  },
 
- allCards: function(){
+  allCards: function(){
 
- 	return axios.get('/allcards', function(){
+ 	  return axios.get('/allcards', function(){
  		
- 	});
+ 	  });
+  },
 
- }
+  tradeCard: function(){
+    return axios.get('/trade', function(){
+
+    });
+
+  }
 
 };
 
