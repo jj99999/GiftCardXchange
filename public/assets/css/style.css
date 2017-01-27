@@ -153,7 +153,7 @@ fieldset{
 	opacity:0.8;
 }
 
-#panelhead, #addcardhead, #addCardBtn, #buyCardBtn, #buycardhead, #alertshead, #searchhead {
+#panelhead, #addcardhead, #addCardBtn, #buyCardBtn, #buycardhead, #alertshead, #searchhead, #offercard {
 	background-color:#1f3b72;
 }
 
@@ -228,4 +228,38 @@ h3{
 
 #about {
 	width:100%;
+}
+
+#waiting1, #waiting2, #waiting3 {
+	font-family:Arial;
+	font-size:40px;
+	opacity:0;
+}
+
+#waiting2 {
+	color:red;
+	font-weight:bold;
+}
+
+#result2, #result3, #result4, #result5, #result6 {
+	font-size:25px;
+}
+
+#result1 {
+	font-size:35px;
+}
+
+#result1, #result3, #result5 {
+	color:red;
+	font-weight:bold;
+}
+
+#buttongif {
+	opacity:1;
+	width:150px;
+	margin-left:90px;
+}
+
+#wideaddcard, #widealerts {
+	height:600px;
 }
