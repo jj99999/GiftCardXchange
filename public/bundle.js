@@ -21771,68 +21771,21 @@
 	    return { email: "" };
 	  },
 
-	  // setEmail: function(email){
-	  //   this.setState({email: email });
-	  // },
-	  //    return {
-
-	  //    cards: [{
-	  //    "StoreName": "Walmart",
-	  //    "CardBalance": "$100",
-	  //    "RedemptionCode": "123456789",
-	  //    "RemoveCard": "Blah"
-	  //  }, 
-	  // {
-	  //    "StoreName": "Lesbian Pottert",
-	  //    "CardBalance": "$200",
-	  //    "RedemptionCode": "987654321",
-	  //    "RemoveCard": "Blah"
-	  //  }, 
-	  // {
-	  //    "StoreName": "Home Depot",
-	  //    "CardBalance": "$100",
-	  //    "RedemptionCode": "337879657",
-	  //    "RemoveCard": "Blah"
-	  //  }, 
-	  // {
-	  //    "StoreName": "Apple",
-	  //    "CardBalance": "$50",
-	  //    "RedemptionCode": "657890234",
-	  //    "RemoveCard": "Blah"
-	  //  }, 
-	  //  {
-	  //    "StoreName": "StarBucks",
-	  //    "CardBalance": "$150",
-	  //    "RedemptionCode": "9318790562",
-	  //    "RemoveCard": "Blah"
-	  //  }] 
-	  //    }
-
-	  // Here we set a generic state associated with the number of clicks
-	  // getInitialState: function() {
-	  //   return { searchTerm: "", results: [] };
-	  // },
-
-	  //  setTerm: function(term) {
-	  //   this.setState({ searchTerm: term });
-	  // },
-
-	  // componentDidUpdate is a lifecycle method that will get run every time the component updates it's
-	  // props or state
-	  // componentDidUpdate: function(prevProps, prevState) {
-
-
 	  //   },
 	  componentDidMount: function componentDidMount() {
 	    helpers.getUser().then(function (response) {
 
+
 	      console.log("GET INVENTORY");
 	      helpers.getInventory();
 	      // this.setState({email: response.data});
+
 	      var email = response;
-	      console.log("HERE IS AXIOS EMAIL FROM PARENT");
-	      console.log(email);
+	      // console.log("HERE IS AXIOS EMAIL FROM PARENT");
+	      // console.log(email);
 	    }.bind(this));
+
+	    // helpers.allCards();
 	  },
 	  // Here we describe this component's render method
 	  render: function render() {
@@ -24079,6 +24032,16 @@
 	    // helpers.getInventory();
 
 
+
+	  getUser: function getUser() {
+	    return axios.get("/login").then(function (response) {
+	      // console.log("HERE IS AXIOS EMAIL FROM HELPERS");
+	      email = response.data;
+	      // console.log(email);
+	      _reactCookie2.default.save('email', email);
+	      return email;
+	    });
+
 	  },
 
 	  // handleChange functions for each add card form field
@@ -24094,7 +24057,28 @@
 	    this.setState({ cardBalance: e.target.value });
 	  },
 
+	    // console.log("ADD CARD function is running");
+	    email = _reactCookie2.default.load('email');
+	    // console.log(email);
+
+	    // var newCard = { email: email, storeName: storeName, cardBalance: cardBalance, redeemCode: redeemCode };
+	    // console.log(newCard);
+	    return axios.post("/addcard", { email: email, storeName: storeName, cardBalance: cardBalance, redeemCode: redeemCode }).then(function (response) {
+	      // console.log("axios results", response);
+	      return response;
+	    }).catch(function (error) {
+	      console.log(error);
+	    });
+	  },
+
+	  allCards: function allCards() {
+
+	    return axios.get('/allcards', function () {});
+	  }
+
+
 	  handleRedeemCodeChange: function handleRedeemCodeChange(e) {
+
 
 	    //     console.log(e.target.value);
 	    // // console.log(e);
@@ -24220,6 +24204,9 @@
 	// Export the component back for use in other files
 	module.exports = AddCard;
 
+	module.exports = helper;
+
+
 /***/ },
 /* 217 */
 /***/ function(module, exports, __webpack_require__) {
@@ -24326,6 +24313,3 @@
 
 	// Export the component back for use in other files
 	module.exports = SearchCard;
-
-/***/ }
-/******/ ]);
