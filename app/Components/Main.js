@@ -72,6 +72,9 @@ getInitialState: function(){
   //   },
   componentDidMount: function(){
    helpers.getUser().then(function(response){
+
+    console.log("GET INVENTORY");
+helpers.getInventory();
     // this.setState({email: response.data});
     var email = response;
      console.log("HERE IS AXIOS EMAIL FROM PARENT");

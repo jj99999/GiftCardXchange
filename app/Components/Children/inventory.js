@@ -1,14 +1,18 @@
 var React = require('react');
 var axios = require('axios');
+// var Card = require('../../models/card');
 
-
+var helpers = require("../utils/helpers");
 
 // This is the form component. 
 var Inventory = React.createClass({
 
-  // Here we set a generic state associated with the text being searched for
-  // React created
+componentDidMount: function(){
 
+  console.log("GET INVENTORY");
+helpers.getInventory();
+
+},
 //   componentDidMount: function() {
 //     // Get the latest history.
 
