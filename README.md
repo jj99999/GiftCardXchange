@@ -6,6 +6,7 @@ User logs in and can post unwanted gift cards, then trade them to another user o
 
 Create using Bootstrap Template with HTML, CSS and Javascript
 
+
 Utilizes:
 
 NPM Packages
@@ -22,6 +23,7 @@ Passport Authentication
 
 Photoshop CC for logo and custom card creations
 
+
 Reported Issues since resolved include:
 
 Data Persistance:Javascript Routes to React.JS
@@ -29,5 +31,6 @@ Data Persistance:Javascript Routes to React.JS
 React Form Data posting to Mongo Database
 
 Database Post Route
+
 
 Team Members: Ben Cheng, Josh Hudson, Jon Jackson and Robert Kelly
