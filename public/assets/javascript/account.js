@@ -1,6 +1,6 @@
 
 var requiem = document.createElement('audio');
-	       requiem.setAttribute('src', "assets/images/requiem.mp3");
+	       requiem.setAttribute('src', "../assets/images/requiem.mp3");
 
 
 $(document).ready(function(){
@@ -13,7 +13,7 @@ $(document).ready(function(){
 	// 	}, false);
 
 
-});
+
 
 
 allcards = [
@@ -258,3 +258,70 @@ redeemCode: "ABCD",
 __v: 0
 }
 ]
+
+ 
+
+
+
+
+function searchcard(){
+	var cardStore=$("#storeNameBuyInput").val().trim().toLowerCase();
+	var cardAmount=$("#cardBalanceBuyInput").val().trim();
+
+	var firstresult;
+	var secondresult;
+	var thirdresult;
+
+
+	for (i=0;i<allcards.length;i++){
+		// console.log(allcards[i].storeName);
+		// console.log(allcards[i].cardBalance);
+
+		if(allcards[i].storeName.toLowerCase()==cardStore && allcards[i].cardBalance<=cardAmount && !firstresult && !secondresult && !thirdresult){
+			firstresult=i;
+			console.log("Index of 1st hit = "+firstresult);
+		}
+		else if (allcards[i].storeName.toLowerCase()==cardStore && allcards[i].cardBalance<=cardAmount && firstresult && !secondresult && !thirdresult){
+			secondresult=i;
+			console.log("Index of 2nd hit = "+secondresult);
+		}
+		else if (allcards[i].storeName.toLowerCase()==cardStore && allcards[i].cardBalance<=cardAmount && firstresult && secondresult && !thirdresult){
+			thirdresult=i;
+			console.log("Index of 3rd hit = "+thirdresult);
+		}
+
+	}
+}
+
+
+
+
+
+
+
+
+$("#buyCardBtn").on("click",function(){
+	searchcard();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
