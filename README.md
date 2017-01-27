@@ -32,7 +32,7 @@ React Form Data posting to Mongo Database
 
 Database Post Route
 
-## Future Developments
+## Future Developments:
 
 Email Confirmation Blast
 
