@@ -21541,11 +21541,15 @@
 	      React.createElement(
 	        "div",
 	        { className: "row" },
-	        React.createElement("div", { className: "col-md-4" }),
 	        React.createElement(
 	          "div",
 	          { className: "col-md-4" },
 	          React.createElement(AddCard, null)
+	        ),
+	        React.createElement(
+	          "div",
+	          { className: "col-md-4" },
+	          React.createElement(SearchCard, null)
 	        ),
 	        React.createElement("div", { className: "col-md-4" })
 	      )
@@ -23283,7 +23287,6 @@
 	    // console.log("CLICK");
 
 	    // console.log(this.state.storeName+" "+this.state.cardBalance+" "+this.state.redeemCode);
-	    console.log(this.state.redeemCode);
 	    helpers.addCard(this.state.storeName, this.state.cardBalance, this.state.redeemCode);
 	  },
 
@@ -23787,6 +23790,10 @@
 	  allCards: function allCards() {
 
 	    return axios.get('/allcards', function () {});
+	  },
+
+	  tradeCard: function tradeCard() {
+	    return axios.get('/trade', function () {});
 	  }
 
 	};
@@ -23797,99 +23804,92 @@
 /* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var React = __webpack_require__(1);
+	var axios = __webpack_require__(182);
+
+	var helpers = __webpack_require__(210);
 
 	// This is the form component. 
 	var SearchCard = React.createClass({
-	  displayName: "SearchCard",
+	  displayName: 'SearchCard',
 
 
-	  // Here we set a generic state associated with the text being searched for
-	  // React created
-	  getInitialState: function getInitialState() {
-	    return {
-	      term: ""
-	    };
-	  },
-
-	  setTerm: function setTerm(term) {
-	    this.setState({ searchTerm: term });
-	  },
+	  componentDidMount: function componentDidMount() {},
 
 	  // This function will respond to the user input 
-	  // Custom (developer created)
-	  handleChange: function handleChange(event) {
+	  // handleChange: function(event){
 
-	    // Here we create syntax to capture any change in text to the query terms (pre-search).
-	    // See this Stack Overflow answer for more details: 
-	    // http://stackoverflow.com/questions/21029999/react-js-identifying-different-inputs-with-one-onchange-handler
-	    var newState = {};
-	    newState[event.target.id] = event.target.value;
-	    this.setState(newState);
-	  },
+	  //     // Here we create syntax to capture any change in text to the query terms (pre-search).
+	  //     // See this Stack Overflow answer for more details: 
+	  //     // http://stackoverflow.com/questions/21029999/react-js-identifying-different-inputs-with-one-onchange-handler
+	  //     var newState = {};
+	  //     newState[event.target.id] = event.target.value;
+	  //     this.setState(newState);
+
+	  // },
 
 	  // When a user submits... 
-	  // Custom (developer created)
 	  handleClick: function handleClick() {
 
-	    console.log("CLICK");
-	    console.log(this.state.term);
+	    // preventing the form from trying to submit itself
+	    event.preventDefault();
 
-	    // Set the parent to have the search term
-	    this.props.setTerm(this.state.term);
+	    console.log("CLICK");
+
+	    helpers.tradeCard();
 	  },
 
 	  // Here we render the function
 	  render: function render() {
 
 	    return React.createElement(
-	      "div",
-	      { className: "panel panel-primary", id: "buycard" },
+	      'div',
+	      { className: 'panel panel-primary', id: 'buycard' },
 	      React.createElement(
-	        "div",
-	        { className: "panel-heading", id: "buycardhead" },
+	        'div',
+	        { className: 'panel-heading', id: 'buycardhead' },
 	        React.createElement(
-	          "h3",
-	          { className: "panel-title" },
+	          'h3',
+	          { className: 'panel-title' },
 	          React.createElement(
-	            "b",
+	            'b',
 	            null,
-	            "Search for Gift Cards"
+	            'Search for Gift Cards'
 	          )
 	        )
 	      ),
 	      React.createElement(
-	        "div",
-	        { className: "panel-body", id: "buycardbody" },
+	        'div',
+	        { className: 'panel-body', id: 'buycardbody' },
 	        React.createElement(
-	          "form",
+	          'form',
 	          null,
 	          React.createElement(
-	            "div",
-	            { className: "form-group" },
+	            'div',
+	            { className: 'form-group' },
 	            React.createElement(
-	              "label",
-	              { "for": "" },
-	              "Store Name"
+	              'label',
+	              { 'for': '' },
+	              'Store Name'
 	            ),
-	            React.createElement("input", { type: "text", className: "form-control", id: "storeNameBuyInput", placeholder: "Lesbian Pottery" })
+	            React.createElement('input', { type: 'text', className: 'form-control', id: 'searchStoreInput', placeholder: 'Walmart' })
 	          ),
 	          React.createElement(
-	            "div",
-	            { className: "form-group" },
+	            'div',
+	            { className: 'form-group' },
 	            React.createElement(
-	              "label",
-	              { "for": "" },
-	              "Up To What Amount?"
+	              'label',
+	              { 'for': '' },
+	              'Up To What Amount?'
 	            ),
-	            React.createElement("input", { type: "text", className: "form-control", id: "cardBalanceBuyInput", placeholder: "$20.00" })
+	            React.createElement('input', { type: 'text', className: 'form-control', id: 'searchBalanceInput', placeholder: '20.00' })
 	          ),
 	          React.createElement(
-	            "button",
-	            { type: "submit", className: "btn btn-primary", id: "buyCardBtn" },
-	            "Search for Card"
+	            'button',
+	            { type: 'submit', className: 'btn btn-primary', id: 'searchCardBtn', onClick: this.handleClick },
+	            'Search for Card'
 	          )
 	        )
 	      )

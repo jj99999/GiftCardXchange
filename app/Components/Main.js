@@ -41,15 +41,17 @@ getInitialState: function(){
            </div>
 
            <div className="row">
-           <div className="col-md-4">
 
-           </div>
+            <div className="col-md-4">
+            <AddCard />
+            </div>
+           
+            <div className="col-md-4">
+            <SearchCard />
+            </div>
+           
            <div className="col-md-4">
-           <AddCard />
-    
-           </div>
-           <div className="col-md-4">
-
+           
            </div>
 
            </div>
