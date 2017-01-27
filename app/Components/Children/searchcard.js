@@ -47,7 +47,7 @@ var SearchCard  = React.createClass({
               <div className="panel-body" id="buycardbody">
   
 
-              <form>
+              <form action="/trade">
                   <div className="form-group">
                       <label htmlFor="">Store Name</label>
                       <input type="text" className="form-control" id="searchStoreInput" placeholder="Walmart"></input>
@@ -59,7 +59,9 @@ var SearchCard  = React.createClass({
                       </div>
 
                       
-                      <button type="submit" className="btn btn-primary" id="searchCardBtn" onClick={this.handleClick}>Search for Card</button>
+                      <button type="submit" className="btn btn-primary" id="searchCardBtn">Search for Card</button>
+
+
               </form>
 
             </div>
