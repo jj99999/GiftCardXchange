@@ -15,8 +15,25 @@ getUser: function(){
 		return email;
 	})
 
-}
+},
 
+ addCard: function(storeName, cardBalance, redeemCode) {
+ 	
+ 	console.log("ADD CARD function is running");
+ 	email = cookie.load('email');
+ 	// console.log(email);
+
+    var newCard = { email: email, storeName: storeName, cardBalance: cardBalance, redeemCode: redeemCode };
+    console.log(newCard);
+    return axios.post("/addcard", { email: email, storeName: storeName, cardBalance: cardBalance, redeemCode: redeemCode })
+      .then(function(response) {
+        console.log("axios results", response);
+        return response;
+      }).catch(function(error){
+      	console.log(error);
+      });
+
+ }
 
 };
 

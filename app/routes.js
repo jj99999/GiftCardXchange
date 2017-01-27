@@ -7,7 +7,7 @@ var passportLocal   = require('passport-local');
 
 var passport = require ('../config/passport.js');
 
-var currentUserEmail = "";
+var Card = require('./models/card');
 
 module.exports = function(app, passport) {
 
@@ -81,7 +81,30 @@ module.exports = function(app, passport) {
         res.redirect('/');
     });
 
+
+    // ADDCARD route
+
+    app.post('/addcard', function(req, res){
+        var newCard = new Card(req.body);
+        console.log(req.body);
+        
+        newCard.save(function(err, doc) {
+            if (err) {
+            console.log(err);
+            }
+            else {
+                console.log("new Card saved?"); 
+            res.send(doc);
+            }
+
+        })
+
+    });
+
+
 };
+
+
 
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {

@@ -23287,30 +23287,29 @@
 
 	  componentDidMount: function componentDidMount() {
 
-	    // var email = cookie.load('email')
-	    // console.log(email)
-
-	    // console.log("HERE IS AXIOS EMAIL FROM ADDCARD");
-	    //   console.log(this.props);
-
-	    helpers.getUser().then(function (response) {
-	      // this.setState({email: response.data});
-	      var email = response;
-	      console.log("HERE IS AXIOS EMAIL FROM ADDCARD");
-	      console.log(email);
-	    }.bind(this));
+	    var email = cookie.load('email');
+	    console.log(email);
 	  },
 
-	  // getInitialState: function(){
-	  //   return {
-	  //     storeName      storeNameInput;
-	  //       newCard.cardBalance     = cardBalanceInput;
-	  //       newCard.redeemCode      = redeemCodeInput;
-	  //       newCard.tradeAvailability
-	  //   }
-	  // },
-	  // console.log("ADDCARD AXIOS EMAIL");
-	  // console.log({this.props.add(this.state.setEmail)})
+	  // handleChange functions for each add card form field
+	  handleStoreNameChange: function handleStoreNameChange(e) {
+	    // console.log(e.target.value);
+
+	    this.setState({ storeName: e.target.value });
+	  },
+
+	  handleCardBalanceChange: function handleCardBalanceChange(e) {
+	    // console.log(e.target.value);
+	    // console.log(e);
+	    this.setState({ cardBalance: e.target.value });
+	  },
+
+	  handleRedeemCodeChange: function handleRedeemCodeChange(e) {
+
+	    //     console.log(e.target.value);
+	    // // console.log(e);
+	    this.setState({ redeemCode: e.target.value });
+	  },
 
 	  // This function will respond to the user input 
 	  // Custom (developer created)
@@ -23328,45 +23327,14 @@
 	  // Custom (developer created)
 	  handleClick: function handleClick() {
 
-	    console.log("CLICK");
-	    console.log(this.state.term);
-	  },
-
-	  // When a user submits...
-	  handleSubmit: function handleSubmit(event) {
 	    // preventing the form from trying to submit itself
 	    event.preventDefault();
-	    // Set the parent to have the search term
-	    this.props.setTerm(this.state.term);
 
-	    // Clearing the input field after submitting
-	    this.setState({ term: "" });
+	    // console.log("CLICK");
 
-	    console.log("Posted to MONGODB");
-
-	    // return axios.post("/addcard").then(function())
-
-	    //   return axios.post({
-	    //     var newCard   = new Card();
-	    //     // newCard.cardOwnerEmail  = currentUserEmail;
-	    //     newCard.storeName       = storeNameInput;
-	    //     newCard.cardBalance     = cardBalanceInput;
-	    //     newCard.redeemCode      = redeemCodeInput;
-	    //     newCard.tradeAvailability = false;
-	    //     })
-	    // .then(function(term){
-	    //   return(turn);
-
-	    // },
-
-
-	    //   return axios.post({term: term})
-	    // .then(function(term){
-	    //   return(turn);
-	    // })
-
-	    // Set the parent to have the search term
-	    // this.props.setTerm(this.state.term);
+	    // console.log(this.state.storeName+" "+this.state.cardBalance+" "+this.state.redeemCode);
+	    console.log(this.state.redeemCode);
+	    helpers.addCard(this.state.storeName, this.state.cardBalance, this.state.redeemCode);
 	  },
 
 	  // Here we render the function
@@ -23393,7 +23361,7 @@
 	        { className: 'panel-body', id: 'addcardbody' },
 	        React.createElement(
 	          'form',
-	          { onSubmit: this.handleSubmit },
+	          { onSubmit: this.handleClick },
 	          React.createElement(
 	            'div',
 	            { className: 'form-group' },
@@ -23407,8 +23375,8 @@
 	              placeholder: 'Store Name'
 	              // value={this.state.StoreName}
 	              , className: 'form-control',
-	              id: 'storeNameInput',
-	              onChange: this.handleChange,
+	              id: 'storeName',
+	              onChange: this.handleStoreNameChange,
 	              required: true
 	            })
 	          ),
@@ -23425,8 +23393,8 @@
 	              placeholder: 'Balance'
 	              // value={this.state.CardBalance}
 	              , className: 'form-control',
-	              id: 'cardBalanceInput',
-	              onChange: this.handleChange,
+	              id: 'cardBalance',
+	              onChange: this.handleCardBalanceChange,
 	              required: true
 	            })
 	          ),
@@ -23442,8 +23410,8 @@
 	              type: 'text',
 	              placeholder: 'Redemption',
 	              className: 'form-control',
-	              id: 'redeemCodeInput',
-	              onChange: this.handleChange,
+	              id: 'redeemCode',
+	              onChange: this.handleRedeemCodeChange,
 	              required: true
 	            })
 	          ),
@@ -23840,15 +23808,31 @@
 
 	var helper = {
 
-		getUser: function getUser() {
-			return axios.get("/login").then(function (response) {
-				console.log("HERE IS AXIOS EMAIL FROM HELPERS");
-				email = response.data;
-				console.log(email);
-				_reactCookie2.default.save('email', email);
-				return email;
-			});
-		}
+	  getUser: function getUser() {
+	    return axios.get("/login").then(function (response) {
+	      console.log("HERE IS AXIOS EMAIL FROM HELPERS");
+	      email = response.data;
+	      console.log(email);
+	      _reactCookie2.default.save('email', email);
+	      return email;
+	    });
+	  },
+
+	  addCard: function addCard(storeName, cardBalance, redeemCode) {
+
+	    console.log("ADD CARD function is running");
+	    email = _reactCookie2.default.load('email');
+	    // console.log(email);
+
+	    var newCard = { email: email, storeName: storeName, cardBalance: cardBalance, redeemCode: redeemCode };
+	    console.log(newCard);
+	    return axios.post("/addcard", { email: email, storeName: storeName, cardBalance: cardBalance, redeemCode: redeemCode }).then(function (response) {
+	      console.log("axios results", response);
+	      return response;
+	    }).catch(function (error) {
+	      console.log(error);
+	    });
+	  }
 
 	};
 

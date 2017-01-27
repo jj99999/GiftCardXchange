@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var CardSchema = new Schema({
-  cardOwnerEmail: {
+  email: {
     type: String,
   },
   storeName: {
@@ -10,10 +10,10 @@ var CardSchema = new Schema({
   },
   cardBalance: {
   	type: Number,
+  },
+  redeemCode: {
+   type: String,
   }
-  //  code: {
-  //  type: String,
-  // },
   // availability: {
   //  type: Boolean,
   // }
