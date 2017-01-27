@@ -47,10 +47,12 @@ getUser: function(){
     console.log("tradeCard running");
     // res.sendFile('trade.html', { root: "public" });
 
-    // return axios.get('/trade', function(){
+    return axios.get('/trade', function(){
+    
     });
-
   }
+
+  
 
 };
 

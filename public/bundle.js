@@ -23794,10 +23794,9 @@
 
 	  tradeCard: function tradeCard(req, res) {
 	    console.log("tradeCard running");
-	    res.sendFile('trade.html', { root: "public" });
+	    // res.sendFile('trade.html', { root: "public" });
 
-	    // // return axios.get('/trade', function(){
-	    // });
+	    return axios.get('/trade', function () {});
 	  }
 
 	};
@@ -23867,7 +23866,7 @@
 	        { className: 'panel-body', id: 'buycardbody' },
 	        React.createElement(
 	          'form',
-	          null,
+	          { action: '/trade' },
 	          React.createElement(
 	            'div',
 	            { className: 'form-group' },
@@ -23890,7 +23889,7 @@
 	          ),
 	          React.createElement(
 	            'button',
-	            { type: 'submit', className: 'btn btn-primary', id: 'searchCardBtn', onClick: this.handleClick },
+	            { type: 'submit', className: 'btn btn-primary', id: 'searchCardBtn' },
 	            'Search for Card'
 	          )
 	        )
