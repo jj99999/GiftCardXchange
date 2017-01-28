@@ -23735,14 +23735,15 @@
 	    email = _reactCookie2.default.load('email');
 	    // console.log(email);
 
-	    // var newCard = { email: email, storeName: storeName, cardBalance: cardBalance, redeemCode: redeemCode };
+	    var addedCard = { email: email, storeName: storeName, cardBalance: cardBalance, redeemCode: redeemCode };
 	    // console.log(newCard);
-	    return axios.post("/addcard", { email: email, storeName: storeName, cardBalance: cardBalance, redeemCode: redeemCode }).then(function (response) {
-	      // console.log("axios results", response);
-	      return response;
-	    }).catch(function (error) {
-	      console.log(error);
-	    });
+	    return axios.post("/addcard", addedCard);
+	    // .then(function(response) {
+	    //   // console.log("axios results", response);
+	    //   // return response;
+	    // }).catch(function(error){
+	    // 	console.log(error);
+	    // });
 	  },
 
 	  getInventory: function getInventory(Card) {
