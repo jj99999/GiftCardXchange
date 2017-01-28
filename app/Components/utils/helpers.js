@@ -30,7 +30,7 @@ getUser: function(){
     return axios.post("/addcard", { email: email, storeName: storeName, cardBalance: cardBalance, redeemCode: redeemCode })
       .then(function(response) {
         // console.log("axios results", response);
-        return response;
+        // return response;
       }).catch(function(error){
       	console.log(error);
       });
