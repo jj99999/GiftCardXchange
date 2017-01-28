@@ -92,7 +92,7 @@ module.exports = function(app, passport) {
         var newCard = new Card(req.body);
         console.log(req.body);
         
-        post.save(function(err, doc) {
+        newCard.save(function(err, doc) {
             if (err) {
             console.log(err);
             }
