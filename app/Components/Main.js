@@ -81,31 +81,26 @@ this.setState({ userCards : response.data });
   render: function() {
     return (
       <div className="container" id="screen2">
-            <div className="row">
-             <div className="col-md-12">
+        <div className="row">
+          <div className="col-md-12">
             <Inventory cards={this.state.userCards}/>
-            </div>
-           </div>
+          </div>
+        </div>
 
-           <div className="row">
-           <div className="col-md-4">
-
-           </div>
-           <div className="col-md-4">
+        <div className="row">
+          <div className="col-md-6">
            <AddCard />
-    
-           </div>
-           <div className="col-md-4">
+          </div>
+        
+          <div className="col-md-6">
+            <SearchCard />
+          </div>    
 
-           </div>
-
-           </div>
+        </div>
+           
+           
       </div>
-
-
-  
-
-    );
+   );
 
   },
 
