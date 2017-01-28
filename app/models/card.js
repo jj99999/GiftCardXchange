@@ -13,6 +13,7 @@ var CardSchema = new Schema({
   },
   redeemCode: {
    type: String,
+   unique: true
   }
   // availability: {
   //  type: Boolean,
