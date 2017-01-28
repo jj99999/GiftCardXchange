@@ -4,6 +4,10 @@ body {
 	background-image:url("../images/confetti.gif");
 }
 
+select{
+    font-weight: bold;
+}
+
 #header {
 	height:500px;
 	background-image:url("../images/logo.png");
