@@ -98,7 +98,7 @@ module.exports = function(app, passport) {
             }
             else {
  
-            res.send(doc);
+            // res.send(doc);
             }
 
         })
