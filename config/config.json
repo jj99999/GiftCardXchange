@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "joshudson",
+    "password": "PitSteel43",
+    "database": "mongodb://joshudson:PitSteel43@ds111559.mlab.com:11559/cardexchange"
+,
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "joshudson",
+    "password": "PitSteel43",
+    "database": "mongodb://joshudson:PitSteel43@ds111559.mlab.com:11559/cardexchange",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "joshudson",
+    "password": "PitSteel43",
+    "database": "mongodb://joshudson:PitSteel43@ds111559.mlab.com:11559/cardexchange",
+    "host": "tkck4yllxdrw0bhi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql"
+  }
+}
+
