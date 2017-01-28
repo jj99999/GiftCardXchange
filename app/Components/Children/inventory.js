@@ -20,7 +20,7 @@ renderCards: function(){
 
  
 
-        <tr className="card" key={i}>
+        <tr className="panel" key={i}>
 
              <td  className="col-lg-4 col-md-4 col-sm-4 col-xs-4" key={e}>{card.storeName}</td>
              <td  className="col-lg-4 col-md-4 col-sm-4 col-xs-4" key={o}>{card.cardBalance}</td>
@@ -60,7 +60,9 @@ renderCards: function(){
             </div>
           </div>
         </div>
-          <table className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div className="row">
+        <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <table>
               <thead className="panel-heading" id="panelhead">
               <tr>
                   <th className="col-lg-4 col-md-4 col-sm-4 col-xs-4">Store Name</th>
@@ -73,6 +75,8 @@ renderCards: function(){
                 {this.renderCards()}
             </tbody>
           </table>
+        </div>
+        </div>  
       </div> 
 
     )
