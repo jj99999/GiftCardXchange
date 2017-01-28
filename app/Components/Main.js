@@ -84,7 +84,7 @@ this.setState({ userCards : response.data });
         <div className="row">
           <div className="col-md-12">
             <Inventory cards={this.state.userCards}/>
-          </div>
+           </div> 
         </div>
 
         <div className="row">

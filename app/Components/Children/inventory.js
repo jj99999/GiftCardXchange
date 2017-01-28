@@ -53,30 +53,37 @@ renderCards: function(){
     return(
 
        <div className="panel panel-primary" id="panel">
+        
         <div className="panel-heading" id="panelhead">
           <div className="row">
-            <div className="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-              <h3 className="panel-title" id="giftcardinventory"><b>Your Gift Card Inventory</b></h3>
+            <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+            <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <h2 className="panel-title" id="giftcardinventory"><center><b>Your Gift Card Inventory</b></center></h2>
             </div>
+            <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
           </div>
         </div>
+        
         <div className="row">
+        
         <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <table>
-              <thead className="panel-heading" id="panelhead">
+          <table className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <thead>
               <tr>
-                  <th className="col-lg-4 col-md-4 col-sm-4 col-xs-4">Store Name</th>
-                    <th className="col-lg-4 col-md-4 col-sm-4 col-xs-4">Gift Card Balance</th>
-                  <th className="col-lg-4 col-md-4 col-sm-4 col-xs-4">Redemption Code</th>
+                  <th>Store Name</th>
+                  <th>Gift Card Balance</th>
+                  <th>Redemption Code</th>
               </tr>
               </thead>
         
-            <tbody className="col-md-12">
+            <tbody>
                 {this.renderCards()}
             </tbody>
           </table>
         </div>
+        
         </div>  
+      
       </div> 
 
     )
