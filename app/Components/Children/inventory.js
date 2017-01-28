@@ -1,14 +1,49 @@
 var React = require('react');
 var axios = require('axios');
+var cookie = require('react-cookie');
+var userCard;
+// var Card = require('../../models/card');
 
-
+var helpers = require("../utils/helpers");
 
 // This is the form component. 
 var Inventory = React.createClass({
 
-  // Here we set a generic state associated with the text being searched for
-  // React created
+renderCards: function(){
+  // var cookieLoad = cookie.load('userCard');
+  //   console.log("COOKIE LOAD OBJECT");
+  //   console.log(cookieLoad);
 
+  return this.props.cards.map(function(card,i){
+  
+   return(
+  
+ <li className="container"  key={i}>
+
+        <div className="card">
+
+             <p>{card.storeName}</p>
+             <p>{card.cardBalance}</p>
+             <p>{card.redeemCode}</p>
+
+        </div>
+
+         </li>
+
+    )
+    });
+},
+
+renderContainer: function(){
+  return(
+   
+   <ul>
+    {this.renderCards()}
+  </ul>
+  
+
+    )
+},
 //   componentDidMount: function() {
 //     // Get the latest history.
 
@@ -37,7 +72,7 @@ var Inventory = React.createClass({
 //           )
 
 //     });
-//   },
+// //   },
 // renderContainer:function(){
 //     return(
 //       <ul>
@@ -62,14 +97,18 @@ var Inventory = React.createClass({
           </div>
         </div>
         <div className="panel-body" id="panelbody">
-    
-               
-             
+          <div className="row">
+            <div className="col-md-12">
+                {this.renderContainer()}
+            </div>
+            </div>
         </div>
       </div> 
 
     )
-  }
+ 
+   
+  },
 
 });
 
