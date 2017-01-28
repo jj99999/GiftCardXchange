@@ -25,9 +25,9 @@ getUser: function(){
  	email = cookie.load('email');
  	// console.log(email);
 
-    var newCard = { email: email, storeName: storeName, cardBalance: cardBalance, redeemCode: redeemCode };
+    var addedCard = { email: email, storeName: storeName, cardBalance: cardBalance, redeemCode: redeemCode };
     // console.log(newCard);
-    return axios.post("/addcard", newCard);
+    return axios.post("/addcard", addedCard);
       // .then(function(response) {
       //   // console.log("axios results", response);
       //   // return response;
