@@ -12,7 +12,7 @@
 
 <body>
 
-<audio src="assets/images/dogs.mp3" id="dogs"></audio>
+<!-- <audio src="assets/images/dogs.mp3" id="dogs"></audio> -->
 
 <!-- BEGINNING OF SCREEN 4 -->
 <div class="container" id="screen4"  style="display:block">
@@ -43,12 +43,12 @@
               <form>
                   <div class="form-group">
                       <label for="">Store Name</label>
-                      <input type="text" class="form-control" id="storeNameInput" placeholder="Lesbian Pottery">
+                      <input type="text" class="form-control" id="storeNameInput" placeholder="Which card do you want?">
                       </div>
 
                       <div class="form-group">
-                      <label for="">Card Balance</label>
-                      <input type="text" class="form-control" id="cardBalanceInput" placeholder="$20.00">
+                      <label for="">Card Value</label>
+                      <input type="text" class="form-control" id="cardBalanceInput" placeholder="How much?">
                       </div>
 
                       <br>
@@ -69,14 +69,14 @@
               <div class="panel-body" id="alertsbody">
 
               <h1 id="waiting1" style="display:none">Waiting for</h1>
-              <h1 id="waiting2" style="display:none">joshudson93@gmail.com</h1>
+              <h1 id="waiting2" style="display:none">Josh Hudson</h1>
               <h1 id="waiting3" style="display:none">to respond.....</h1>
               <h1 id="result1" style="display:none">CONGRATULATIONS!</h1>
               <h1 id="result2" style="display:none">You successfully traded your</h1>
               <h1 id="result3" style="display:none">$75 Buffalo Wild Wings</h1>
               <h1 id="result4" style="display:none">unwanted gift card for the</h1>
               <h1 id="result5" style="display:none">$50 Best Buy</h1>
-              <h1 id="result6" style="display:none">card that you actually wanted!</h1>
+              <h1 id="result6" style="display:none">card that you wanted!</h1>
 
 
             </div>
@@ -133,15 +133,15 @@ function textflash(){
   setTimeout(textflash,600);
 }
 
-function playdogs(){
-  dogs.play();
-}
+// function playdogs(){
+//   dogs.play();
+// }
 
 $("#buttongif").on("click",function(){
   waitingfor();
   setTimeout(fadein,1000);
   setTimeout(textswap,6000);
-  setTimeout(playdogs,6000);
+  // setTimeout(playdogs,6000);
   setTimeout(textflash,6200);
 });
 
