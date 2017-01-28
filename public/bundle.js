@@ -21499,30 +21499,78 @@
 	var React = __webpack_require__(1);
 	var createFragment = __webpack_require__(179);
 	var Inventory = __webpack_require__(181);
-	var AddCard = __webpack_require__(207);
+	var AddCard = __webpack_require__(210);
 	var SearchCard = __webpack_require__(211);
 
 	// Helper Function
-	var helpers = __webpack_require__(210);
+	var helpers = __webpack_require__(209);
 
 	// This is the main component
 	var Main = React.createClass({
 	  displayName: "Main",
 
 	  getInitialState: function getInitialState() {
-
-	    return { email: "" };
+	    return { userCards: [] };
 	  },
 
-	  //   },
+	  setUser: function setUser(user) {
+	    this.setState({ userCards: user });
+	  },
+
+	  // setEmail: function(email){
+	  //   this.setState({email: email });
+	  // },
+	  //    return {
+
+	  //    cards: [{
+	  //    "StoreName": "Walmart",
+	  //    "CardBalance": "$100",
+	  //    "RedemptionCode": "123456789",
+	  //    "RemoveCard": "Blah"
+	  //  }, 
+	  // {
+	  //    "StoreName": "Lesbian Pottert",
+	  //    "CardBalance": "$200",
+	  //    "RedemptionCode": "987654321",
+	  //    "RemoveCard": "Blah"
+	  //  }, 
+	  // {
+	  //    "StoreName": "Home Depot",
+	  //    "CardBalance": "$100",
+	  //    "RedemptionCode": "337879657",
+	  //    "RemoveCard": "Blah"
+	  //  }, 
+	  // {
+	  //    "StoreName": "Apple",
+	  //    "CardBalance": "$50",
+	  //    "RedemptionCode": "657890234",
+	  //    "RemoveCard": "Blah"
+	  //  }, 
+	  //  {
+	  //    "StoreName": "StarBucks",
+	  //    "CardBalance": "$150",
+	  //    "RedemptionCode": "9318790562",
+	  //    "RemoveCard": "Blah"
+	  //  }] 
+	  //    }
+
 	  componentDidMount: function componentDidMount() {
 	    helpers.getUser().then(function (response) {
-	      var email = response;
-	      // console.log("HERE IS AXIOS EMAIL FROM PARENT");
-	      // console.log(email);
+
+	      // this.setState({email: response.data});
+	      // var email = response;
+	      //  console.log("HERE IS AXIOS EMAIL FROM PARENT");
+	      //  console.log(email)
 	    }.bind(this));
 
-	    // helpers.allCards();
+	    helpers.getInventory().then(function (response) {
+	      console.log("MAIN getInventory");
+	      console.log(response.data);
+	      this.setState({ userCards: response.data });
+
+	      // userCard = response;
+	      // cookie.save('userCard', userCard);
+	    }.bind(this));
 	  },
 	  // Here we describe this component's render method
 	  render: function render() {
@@ -21535,7 +21583,7 @@
 	        React.createElement(
 	          "div",
 	          { className: "col-md-12" },
-	          React.createElement(Inventory, { cards: this.state.cards })
+	          React.createElement(Inventory, { cards: this.state.userCards })
 	        )
 	      ),
 	      React.createElement(
@@ -21648,15 +21696,57 @@
 
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(182);
+	var cookie = __webpack_require__(207);
+	var userCard;
+	// var Card = require('../../models/card');
+
+	var helpers = __webpack_require__(209);
 
 	// This is the form component. 
 	var Inventory = React.createClass({
 	  displayName: 'Inventory',
 
 
-	  // Here we set a generic state associated with the text being searched for
-	  // React created
+	  renderCards: function renderCards() {
+	    // var cookieLoad = cookie.load('userCard');
+	    //   console.log("COOKIE LOAD OBJECT");
+	    //   console.log(cookieLoad);
 
+	    return this.props.cards.map(function (card, i) {
+
+	      return React.createElement(
+	        'li',
+	        { className: 'container', key: i },
+	        React.createElement(
+	          'div',
+	          { className: 'card' },
+	          React.createElement(
+	            'p',
+	            null,
+	            card.storeName
+	          ),
+	          React.createElement(
+	            'p',
+	            null,
+	            card.cardBalance
+	          ),
+	          React.createElement(
+	            'p',
+	            null,
+	            card.redeemCode
+	          )
+	        )
+	      );
+	    });
+	  },
+
+	  renderContainer: function renderContainer() {
+	    return React.createElement(
+	      'ul',
+	      null,
+	      this.renderCards()
+	    );
+	  },
 	  //   componentDidMount: function() {
 	  //     // Get the latest history.
 
@@ -21685,7 +21775,7 @@
 	  //           )
 
 	  //     });
-	  //   },
+	  // //   },
 	  // renderContainer:function(){
 	  //     return(
 	  //       <ul>
@@ -21723,7 +21813,19 @@
 	          )
 	        )
 	      ),
-	      React.createElement('div', { className: 'panel-body', id: 'panelbody' })
+	      React.createElement(
+	        'div',
+	        { className: 'panel-body', id: 'panelbody' },
+	        React.createElement(
+	          'div',
+	          { className: 'row' },
+	          React.createElement(
+	            'div',
+	            { className: 'col-md-12' },
+	            this.renderContainer()
+	          )
+	        )
+	      )
 	    );
 	  }
 
@@ -23224,168 +23326,6 @@
 /* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-
-	// Include React 
-	var React = __webpack_require__(1);
-	var axios = __webpack_require__(182);
-	var cookie = __webpack_require__(208);
-
-	var helpers = __webpack_require__(210);
-
-	// This is the form component. 
-	var AddCard = React.createClass({
-	  displayName: 'AddCard',
-
-
-	  componentDidMount: function componentDidMount() {
-
-	    var email = cookie.load('email');
-	    console.log(email);
-	  },
-
-	  // handleChange functions for each add card form field
-	  handleStoreNameChange: function handleStoreNameChange(e) {
-	    // console.log(e.target.value);
-
-	    this.setState({ storeName: e.target.value });
-	  },
-
-	  handleCardBalanceChange: function handleCardBalanceChange(e) {
-	    // console.log(e.target.value);
-	    // console.log(e);
-	    this.setState({ cardBalance: e.target.value });
-	  },
-
-	  handleRedeemCodeChange: function handleRedeemCodeChange(e) {
-
-	    //     console.log(e.target.value);
-	    // // console.log(e);
-	    this.setState({ redeemCode: e.target.value });
-	  },
-
-	  // This function will respond to the user input 
-	  // Custom (developer created)
-	  handleChange: function handleChange(event) {
-
-	    // Here we create syntax to capture any change in text to the query terms (pre-search).
-	    // See this Stack Overflow answer for more details: 
-	    // http://stackoverflow.com/questions/21029999/react-js-identifying-different-inputs-with-one-onchange-handler
-	    var newState = {};
-	    newState[event.target.id] = event.target.value;
-	    this.setState(newState);
-	  },
-
-	  // When a user submits... 
-	  // Custom (developer created)
-	  handleClick: function handleClick() {
-
-	    // preventing the form from trying to submit itself
-	    event.preventDefault();
-
-	    // console.log("CLICK");
-
-	    // console.log(this.state.storeName+" "+this.state.cardBalance+" "+this.state.redeemCode);
-	    helpers.addCard(this.state.storeName, this.state.cardBalance, this.state.redeemCode);
-	  },
-
-	  // Here we render the function
-	  render: function render() {
-
-	    return React.createElement(
-	      'div',
-	      { className: 'panel panel-primary', id: 'addcard' },
-	      React.createElement(
-	        'div',
-	        { className: 'panel-heading', id: 'addcardhead' },
-	        React.createElement(
-	          'h3',
-	          { className: 'panel-title' },
-	          React.createElement(
-	            'b',
-	            null,
-	            'Add Gift Card'
-	          )
-	        )
-	      ),
-	      React.createElement(
-	        'div',
-	        { className: 'panel-body', id: 'addcardbody' },
-	        React.createElement(
-	          'form',
-	          { onSubmit: this.handleClick },
-	          React.createElement(
-	            'div',
-	            { className: 'form-group' },
-	            React.createElement(
-	              'label',
-	              { htmlFor: '' },
-	              'Store Name'
-	            ),
-	            React.createElement('input', {
-	              type: 'text',
-	              placeholder: 'Store Name'
-	              // value={this.state.StoreName}
-	              , className: 'form-control',
-	              id: 'storeName',
-	              onChange: this.handleStoreNameChange,
-	              required: true
-	            })
-	          ),
-	          React.createElement(
-	            'div',
-	            { className: 'form-group' },
-	            React.createElement(
-	              'label',
-	              { htmlFor: '' },
-	              'Card Balance'
-	            ),
-	            React.createElement('input', {
-	              type: 'text',
-	              placeholder: 'Balance'
-	              // value={this.state.CardBalance}
-	              , className: 'form-control',
-	              id: 'cardBalance',
-	              onChange: this.handleCardBalanceChange,
-	              required: true
-	            })
-	          ),
-	          React.createElement(
-	            'div',
-	            { className: 'form-group' },
-	            React.createElement(
-	              'label',
-	              { htmlFor: '' },
-	              'Redemption Code'
-	            ),
-	            React.createElement('input', {
-	              type: 'text',
-	              placeholder: 'Redemption',
-	              className: 'form-control',
-	              id: 'redeemCode',
-	              onChange: this.handleRedeemCodeChange,
-	              required: true
-	            })
-	          ),
-	          React.createElement('br', null),
-	          React.createElement(
-	            'button',
-	            { type: 'submit', className: 'btn btn-primary', id: 'addCardBtn', onClick: this.handleClick },
-	            'Add Card'
-	          )
-	        )
-	      )
-	    );
-	  }
-	});
-
-	// Export the component back for use in other files
-	module.exports = AddCard;
-
-/***/ },
-/* 208 */
-/***/ function(module, exports, __webpack_require__) {
-
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -23401,7 +23341,7 @@
 	exports.setRawCookie = setRawCookie;
 	exports.plugToRequest = plugToRequest;
 
-	var _cookie = __webpack_require__(209);
+	var _cookie = __webpack_require__(208);
 
 	var _cookie2 = _interopRequireDefault(_cookie);
 
@@ -23540,7 +23480,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 209 */
+/* 208 */
 /***/ function(module, exports) {
 
 	/*!
@@ -23741,12 +23681,12 @@
 
 
 /***/ },
-/* 210 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _reactCookie = __webpack_require__(208);
+	var _reactCookie = __webpack_require__(207);
 
 	var _reactCookie2 = _interopRequireDefault(_reactCookie);
 
@@ -23766,6 +23706,7 @@
 	      email = response.data;
 	      // console.log(email);
 	      _reactCookie2.default.save('email', email);
+	      var cookieLoad = _reactCookie2.default.load('email');
 	      return email;
 	    });
 	  },
@@ -23786,6 +23727,18 @@
 	    });
 	  },
 
+	  getInventory: function getInventory(Card) {
+	    email = _reactCookie2.default.load('email');
+
+	    return axios.get("/getcard", { Card: Card }).then(function (response) {
+	      // console.log("INVENTORY USER EMAIL")
+
+	      console.log("GETINVENTORY RESPONSE");
+	      // console.log(response);
+	      return response;
+	    });
+	  },
+
 	  allCards: function allCards() {
 
 	    return axios.get('/allcards', function () {});
@@ -23803,6 +23756,168 @@
 	module.exports = helper;
 
 /***/ },
+/* 210 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	// Include React 
+	var React = __webpack_require__(1);
+	var axios = __webpack_require__(182);
+	var cookie = __webpack_require__(207);
+
+	var helpers = __webpack_require__(209);
+
+	// This is the form component. 
+	var AddCard = React.createClass({
+	  displayName: 'AddCard',
+
+
+	  componentDidMount: function componentDidMount() {
+
+	    var email = cookie.load('email');
+	    console.log(email);
+	  },
+
+	  // handleChange functions for each add card form field
+	  handleStoreNameChange: function handleStoreNameChange(e) {
+	    // console.log(e.target.value);
+
+	    this.setState({ storeName: e.target.value });
+	  },
+
+	  handleCardBalanceChange: function handleCardBalanceChange(e) {
+	    // console.log(e.target.value);
+	    // console.log(e);
+	    this.setState({ cardBalance: e.target.value });
+	  },
+
+	  handleRedeemCodeChange: function handleRedeemCodeChange(e) {
+
+	    //     console.log(e.target.value);
+	    // // console.log(e);
+	    this.setState({ redeemCode: e.target.value });
+	  },
+
+	  // This function will respond to the user input 
+	  // Custom (developer created)
+	  handleChange: function handleChange(event) {
+
+	    // Here we create syntax to capture any change in text to the query terms (pre-search).
+	    // See this Stack Overflow answer for more details: 
+	    // http://stackoverflow.com/questions/21029999/react-js-identifying-different-inputs-with-one-onchange-handler
+	    var newState = {};
+	    newState[event.target.id] = event.target.value;
+	    this.setState(newState);
+	  },
+
+	  // When a user submits... 
+	  // Custom (developer created)
+	  handleClick: function handleClick() {
+
+	    // preventing the form from trying to submit itself
+	    event.preventDefault();
+
+	    // console.log("CLICK");
+
+	    // console.log(this.state.storeName+" "+this.state.cardBalance+" "+this.state.redeemCode);
+	    helpers.addCard(this.state.storeName, this.state.cardBalance, this.state.redeemCode);
+	  },
+
+	  // Here we render the function
+	  render: function render() {
+
+	    return React.createElement(
+	      'div',
+	      { className: 'panel panel-primary', id: 'addcard' },
+	      React.createElement(
+	        'div',
+	        { className: 'panel-heading', id: 'addcardhead' },
+	        React.createElement(
+	          'h3',
+	          { className: 'panel-title' },
+	          React.createElement(
+	            'b',
+	            null,
+	            'Add Gift Card'
+	          )
+	        )
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'panel-body', id: 'addcardbody' },
+	        React.createElement(
+	          'form',
+	          { onSubmit: this.handleClick },
+	          React.createElement(
+	            'div',
+	            { className: 'form-group' },
+	            React.createElement(
+	              'label',
+	              { htmlFor: '' },
+	              'Store Name'
+	            ),
+	            React.createElement('input', {
+	              type: 'text',
+	              placeholder: 'Store Name'
+	              // value={this.state.StoreName}
+	              , className: 'form-control',
+	              id: 'storeName',
+	              onChange: this.handleStoreNameChange,
+	              required: true
+	            })
+	          ),
+	          React.createElement(
+	            'div',
+	            { className: 'form-group' },
+	            React.createElement(
+	              'label',
+	              { htmlFor: '' },
+	              'Card Balance'
+	            ),
+	            React.createElement('input', {
+	              type: 'text',
+	              placeholder: 'Balance'
+	              // value={this.state.CardBalance}
+	              , className: 'form-control',
+	              id: 'cardBalance',
+	              onChange: this.handleCardBalanceChange,
+	              required: true
+	            })
+	          ),
+	          React.createElement(
+	            'div',
+	            { className: 'form-group' },
+	            React.createElement(
+	              'label',
+	              { htmlFor: '' },
+	              'Redemption Code'
+	            ),
+	            React.createElement('input', {
+	              type: 'text',
+	              placeholder: 'Redemption',
+	              className: 'form-control',
+	              id: 'redeemCode',
+	              onChange: this.handleRedeemCodeChange,
+	              required: true
+	            })
+	          ),
+	          React.createElement('br', null),
+	          React.createElement(
+	            'button',
+	            { type: 'submit', className: 'btn btn-primary', id: 'addCardBtn', onClick: this.handleClick },
+	            'Add Card'
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	// Export the component back for use in other files
+	module.exports = AddCard;
+
+/***/ },
 /* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -23811,7 +23926,7 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(182);
 
-	var helpers = __webpack_require__(210);
+	var helpers = __webpack_require__(209);
 
 	// This is the form component. 
 	var SearchCard = React.createClass({
