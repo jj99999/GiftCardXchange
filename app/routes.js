@@ -93,7 +93,7 @@ module.exports = function(app, passport) {
             console.log(err);
             }
             else {
-                console.log("new Card saved?"); 
+ 
             res.send(doc);
             }
 

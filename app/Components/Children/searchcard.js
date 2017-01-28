@@ -40,9 +40,9 @@ var SearchCard  = React.createClass({
 
     return(
 
-        <div className="panel panel-primary" id="buycard">
-              <div className="panel-heading" id="buycardhead">
-                  <h3 className="panel-title"><b>Search for Gift Cards</b></h3>
+        <div className="panel panel-primary" id="searchcard">
+              <div className="panel-heading" id="searchcardhead">
+                  <h3 className="panel-title"><b>Search for Gift Cards to trade!</b></h3>
               </div>
               <div className="panel-body" id="buycardbody">
   
@@ -50,7 +50,21 @@ var SearchCard  = React.createClass({
               <form action="/trade">
                   <div className="form-group">
                       <label htmlFor="">Store Name</label>
-                      <input type="text" className="form-control" id="searchStoreInput" placeholder="Walmart"></input>
+                      <br />
+                      <select>
+                        <option value="banana-republic">Banana Republic</option>
+                        <option value="barnes-and-noble">Barnes & Noble</option>
+                        <option value="best-buy">Best Buy</option>
+                        <option value="buffalo-wild-wings">Buffalo Wild Wings</option>
+                        <option value="gap">GAP</option>
+                        <option value="home-depot">Home Depot</option> 
+                        <option value="macys">Macy's</option>
+                        <option value="panera-bread">Panera Bread</option>
+                        <option value="starbucks">Starbucks</option>
+                        <option value="target">Target</option>
+                        <option value="walmart">Walmart</option>
+                      </select> 
+  
                       </div>
 
                       <div className="form-group">

@@ -21543,15 +21543,14 @@
 	        { className: "row" },
 	        React.createElement(
 	          "div",
-	          { className: "col-md-4" },
+	          { className: "col-md-6" },
 	          React.createElement(AddCard, null)
 	        ),
 	        React.createElement(
 	          "div",
-	          { className: "col-md-4" },
+	          { className: "col-md-6" },
 	          React.createElement(SearchCard, null)
-	        ),
-	        React.createElement("div", { className: "col-md-4" })
+	        )
 	      )
 	    );
 	  }
@@ -23847,17 +23846,17 @@
 
 	    return React.createElement(
 	      'div',
-	      { className: 'panel panel-primary', id: 'buycard' },
+	      { className: 'panel panel-primary', id: 'searchcard' },
 	      React.createElement(
 	        'div',
-	        { className: 'panel-heading', id: 'buycardhead' },
+	        { className: 'panel-heading', id: 'searchcardhead' },
 	        React.createElement(
 	          'h3',
 	          { className: 'panel-title' },
 	          React.createElement(
 	            'b',
 	            null,
-	            'Search for Gift Cards'
+	            'Search for Gift Cards to trade!'
 	          )
 	        )
 	      ),
@@ -23875,7 +23874,66 @@
 	              { htmlFor: '' },
 	              'Store Name'
 	            ),
-	            React.createElement('input', { type: 'text', className: 'form-control', id: 'searchStoreInput', placeholder: 'Walmart' })
+	            React.createElement('br', null),
+	            React.createElement(
+	              'select',
+	              null,
+	              React.createElement(
+	                'option',
+	                { value: 'banana-republic' },
+	                'Banana Republic'
+	              ),
+	              React.createElement(
+	                'option',
+	                { value: 'barnes-and-noble' },
+	                'Barnes & Noble'
+	              ),
+	              React.createElement(
+	                'option',
+	                { value: 'best-buy' },
+	                'Best Buy'
+	              ),
+	              React.createElement(
+	                'option',
+	                { value: 'buffalo-wild-wings' },
+	                'Buffalo Wild Wings'
+	              ),
+	              React.createElement(
+	                'option',
+	                { value: 'gap' },
+	                'GAP'
+	              ),
+	              React.createElement(
+	                'option',
+	                { value: 'home-depot' },
+	                'Home Depot'
+	              ),
+	              React.createElement(
+	                'option',
+	                { value: 'macys' },
+	                'Macy\'s'
+	              ),
+	              React.createElement(
+	                'option',
+	                { value: 'panera-bread' },
+	                'Panera Bread'
+	              ),
+	              React.createElement(
+	                'option',
+	                { value: 'starbucks' },
+	                'Starbucks'
+	              ),
+	              React.createElement(
+	                'option',
+	                { value: 'target' },
+	                'Target'
+	              ),
+	              React.createElement(
+	                'option',
+	                { value: 'walmart' },
+	                'Walmart'
+	              )
+	            )
 	          ),
 	          React.createElement(
 	            'div',
