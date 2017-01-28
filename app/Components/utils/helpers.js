@@ -25,15 +25,15 @@ getUser: function(){
  	email = cookie.load('email');
  	// console.log(email);
 
-    // var newCard = { email: email, storeName: storeName, cardBalance: cardBalance, redeemCode: redeemCode };
+    var newCard = { email: email, storeName: storeName, cardBalance: cardBalance, redeemCode: redeemCode };
     // console.log(newCard);
-    return axios.post("/addcard", { email: email, storeName: storeName, cardBalance: cardBalance, redeemCode: redeemCode })
-      .then(function(response) {
-        // console.log("axios results", response);
-        // return response;
-      }).catch(function(error){
-      	console.log(error);
-      });
+    return axios.post("/addcard", newCard);
+      // .then(function(response) {
+      //   // console.log("axios results", response);
+      //   // return response;
+      // }).catch(function(error){
+      // 	console.log(error);
+      // });
 
  },
 
