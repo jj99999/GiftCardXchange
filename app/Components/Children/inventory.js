@@ -14,76 +14,40 @@ renderCards: function(){
   //   console.log("COOKIE LOAD OBJECT");
   //   console.log(cookieLoad);
 
-  return this.props.cards.map(function(card,i){
+  return this.props.cards.map(function(card,i,e,o,u){
   
    return(
-  
- <li className="container"  key={i}>
 
-        <div className="card">
+ 
 
-             <p>{card.storeName}</p>
-             <p>{card.cardBalance}</p>
-             <p>{card.redeemCode}</p>
+        <tr className="card" key={i}>
 
-        </div>
+             <td  className="col-lg-4 col-md-4 col-sm-4 col-xs-4" key={e}>{card.storeName}</td>
+             <td  className="col-lg-4 col-md-4 col-sm-4 col-xs-4" key={o}>{card.cardBalance}</td>
+             <td  className="col-lg-4 col-md-4 col-sm-4 col-xs-4" key={u}>{card.redeemCode}</td>
 
-         </li>
+        </tr>
+
+
 
     )
     });
 },
 
-renderContainer: function(){
-  return(
+// renderContainer: function(){
+//   return(
+
    
-   <ul>
-    {this.renderCards()}
-  </ul>
+//     {this.renderCards()}
   
 
-    )
-},
-//   componentDidMount: function() {
-//     // Get the latest history.
+  
 
-// return axios.get({term: term}).then(function(term){
-//               console.log(term.id);
-//               return(term)
-//        });
-
-//   },
-// componentDidMount:function(){
-//   console.log("this is cards inside inventory.js", this.props.cards);
+//     )
 // },
-// renderCards: function(){
-//     return this.props.cards.map(function(card, i){
-//         return(
-      
-//           <li className="container"  key={i}>
 
 
-//             <div className="card">
-             
-//              <p>{card.StoreName}</p>
-            
-//              </div>
-//           </li>
-//           )
-
-//     });
-// //   },
-// renderContainer:function(){
-//     return(
-//       <ul>
-//         {this.renderCards()}
-//       </ul>
-
-//       )
-//   },
   
-  
-  // Here we render the function
   render: function(){
 
     return(
@@ -96,13 +60,19 @@ renderContainer: function(){
             </div>
           </div>
         </div>
-        <div className="panel-body" id="panelbody">
-          <div className="row">
-            <div className="col-md-12">
-                {this.renderContainer()}
-            </div>
-            </div>
-        </div>
+          <table className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <thead className="panel-heading" id="panelhead">
+              <tr>
+                  <th className="col-lg-4 col-md-4 col-sm-4 col-xs-4">Store Name</th>
+                    <th className="col-lg-4 col-md-4 col-sm-4 col-xs-4">Gift Card Balance</th>
+                  <th className="col-lg-4 col-md-4 col-sm-4 col-xs-4">Redemption Code</th>
+              </tr>
+              </thead>
+        
+            <tbody className="col-md-12">
+                {this.renderCards()}
+            </tbody>
+          </table>
       </div> 
 
     )
