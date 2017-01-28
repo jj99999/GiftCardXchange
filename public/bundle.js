@@ -21720,17 +21720,30 @@
 	        React.createElement(
 	          'td',
 	          { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4', key: e },
-	          card.storeName
+	          React.createElement(
+	            'h4',
+	            null,
+	            card.storeName
+	          )
 	        ),
 	        React.createElement(
 	          'td',
 	          { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4', key: o },
-	          card.cardBalance
+	          React.createElement(
+	            'h4',
+	            null,
+	            '$',
+	            card.cardBalance
+	          )
 	        ),
 	        React.createElement(
 	          'td',
 	          { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4', key: u },
-	          card.redeemCode
+	          React.createElement(
+	            'h4',
+	            null,
+	            card.redeemCode
+	          )
 	        )
 	      );
 	    });
@@ -21797,17 +21810,29 @@
 	                React.createElement(
 	                  'th',
 	                  null,
-	                  'Store Name'
+	                  React.createElement(
+	                    'h3',
+	                    null,
+	                    'Store Name'
+	                  )
 	                ),
 	                React.createElement(
 	                  'th',
 	                  null,
-	                  'Gift Card Balance'
+	                  React.createElement(
+	                    'h3',
+	                    null,
+	                    'Gift Card Balance'
+	                  )
 	                ),
 	                React.createElement(
 	                  'th',
 	                  null,
-	                  'Redemption Code'
+	                  React.createElement(
+	                    'h3',
+	                    null,
+	                    'Redemption Code'
+	                  )
 	                )
 	              )
 	            ),

@@ -22,9 +22,9 @@ renderCards: function(){
 
         <tr className="panel" key={i}>
 
-             <td  className="col-lg-4 col-md-4 col-sm-4 col-xs-4" key={e}>{card.storeName}</td>
-             <td  className="col-lg-4 col-md-4 col-sm-4 col-xs-4" key={o}>{card.cardBalance}</td>
-             <td  className="col-lg-4 col-md-4 col-sm-4 col-xs-4" key={u}>{card.redeemCode}</td>
+             <td  className="col-lg-4 col-md-4 col-sm-4 col-xs-4" key={e}><h4>{card.storeName}</h4></td>
+             <td  className="col-lg-4 col-md-4 col-sm-4 col-xs-4" key={o}><h4>${card.cardBalance}</h4></td>
+             <td  className="col-lg-4 col-md-4 col-sm-4 col-xs-4" key={u}><h4>{card.redeemCode}</h4></td>
 
         </tr>
 
@@ -70,9 +70,9 @@ renderCards: function(){
           <table className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <thead>
               <tr>
-                  <th>Store Name</th>
-                  <th>Gift Card Balance</th>
-                  <th>Redemption Code</th>
+                  <th><h3>Store Name</h3></th>
+                  <th><h3>Gift Card Balance</h3></th>
+                  <th><h3>Redemption Code</h3></th>
               </tr>
               </thead>
         
