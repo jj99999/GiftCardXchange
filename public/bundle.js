@@ -21758,19 +21758,25 @@
 	        React.createElement(
 	          'div',
 	          { className: 'row' },
+	          React.createElement('div', { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4' }),
 	          React.createElement(
 	            'div',
-	            { className: 'col-lg-3 col-md-3 col-sm-3 col-xs-3' },
+	            { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4' },
 	            React.createElement(
-	              'h3',
+	              'h2',
 	              { className: 'panel-title', id: 'giftcardinventory' },
 	              React.createElement(
-	                'b',
+	                'center',
 	                null,
-	                'Your Gift Card Inventory'
+	                React.createElement(
+	                  'b',
+	                  null,
+	                  'Your Gift Card Inventory'
+	                )
 	              )
 	            )
-	          )
+	          ),
+	          React.createElement('div', { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4' })
 	        )
 	      ),
 	      React.createElement(
@@ -21781,33 +21787,33 @@
 	          { className: 'col-lg-12 col-md-12 col-sm-12 col-xs-12' },
 	          React.createElement(
 	            'table',
-	            null,
+	            { className: 'col-lg-12 col-md-12 col-sm-12 col-xs-12' },
 	            React.createElement(
 	              'thead',
-	              { className: 'panel-heading', id: 'panelhead' },
+	              null,
 	              React.createElement(
 	                'tr',
 	                null,
 	                React.createElement(
 	                  'th',
-	                  { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4' },
+	                  null,
 	                  'Store Name'
 	                ),
 	                React.createElement(
 	                  'th',
-	                  { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4' },
+	                  null,
 	                  'Gift Card Balance'
 	                ),
 	                React.createElement(
 	                  'th',
-	                  { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4' },
+	                  null,
 	                  'Redemption Code'
 	                )
 	              )
 	            ),
 	            React.createElement(
 	              'tbody',
-	              { className: 'col-md-12' },
+	              null,
 	              this.renderCards()
 	            )
 	          )
