@@ -1,9 +1,30 @@
 // Include the Main React Dependencies
-var React = require("react");
-var ReactDOM = require("react-dom");
+import React from 'react';
+import ReactDOM from 'react-dom';
+import MuiThemeProvider from '../node_modules/material-ui/styles/MuiThemeProvider';
+import Main from './components/Main';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
-// Include the Main Component
-var Main = require("./components/Main");
+// var React = require('react');
+// var ReactDOM = require('react-dom');
+// var MuiThemeProvider = require('../node_modules/material-ui/styles/MuiThemeProvider');
+// var Main = require('./components/Main');
+// var injectTapEventPlugin = require('react-tap-event-plugin');
+
+injectTapEventPlugin();
 
 // This code here allows us to render our main component (in this case Main)
-ReactDOM.render(<Main />, document.getElementById("app"));
+
+//   const App = () => (
+//   <MuiThemeProvider>
+//     <Main />
+//   </MuiThemeProvider>
+// );
+
+
+// ReactDOM.render(<App />, document.getElementById("app"));
+
+ReactDOM.render(
+    <MuiThemeProvider>
+	<Main />
+	</MuiThemeProvider>, document.getElementById("app"));

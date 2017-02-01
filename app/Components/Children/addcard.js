@@ -1,11 +1,17 @@
 // Include React 
-var React = require('react');
-var axios = require('axios');
-var cookie = require('react-cookie');
-
-var helpers = require("../utils/helpers");
-
+// var React = require('react');
+import React, {Component} from 'react';
+// var axios = require('axios');
+import axios from 'axios'
+// var cookie = require('react-cookie');
+import cookie from 'react-cookie'
+// var helpers = require("../utils/helpers");
+import helpers from '../utils/helpers'
 // This is the form component. 
+import AutoComplete from 'material-ui/AutoComplete';
+import MenuItem from 'material-ui/MenuItem';
+
+
 var AddCard = React.createClass({
 
   componentDidMount: function(){
