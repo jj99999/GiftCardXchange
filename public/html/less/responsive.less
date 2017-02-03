@@ -1,0 +1,350 @@
+// Templage Defult Veriables
+@import "variable.less";
+
+
+@media (max-width: @screen-sm-max) {
+
+	/**
+	 * =======================
+	 * Navigation
+	 * =======================
+	 */
+	.main-navbar-top {
+		.navbar-nav {
+			li {
+				.btn-nav {
+				    padding: 15px;
+				}
+			}
+		}
+	}
+
+
+
+	/**
+	 * ====================================
+	 * Features Style 2
+	 * ====================================
+	 */
+	.features-section-2 {
+
+		.section-header * {
+			text-align: center;
+		}
+
+		.flex,
+		.vertical-middle {
+			display: block;
+		}
+	}
+
+	.features-image {
+		margin-top: 50px;
+
+		img {
+			position: relative;
+			height: auto;
+			width: 100%;
+			margin: 0 !important;
+		}
+	}
+
+
+
+	/**
+	 * ====================================
+	 * Features Style 4
+	 * ====================================
+	 */
+	.features-section-4 {
+		*,
+		.section-header * {
+			text-align: center;
+		}
+	}
+
+
+	/**
+	 * ====================================
+	 * Features Style 5
+	 * ====================================
+	 */
+	.features-section-5 {
+
+		.p-l-50 {
+			padding-left: 30px;
+		}
+
+		.p-r-50 {
+			padding-right: 30px;
+		}
+		
+	}
+
+
+
+	/**
+	 * ====================================
+	 * Features Style 7
+	 * ====================================
+	 */
+	.count-down {
+		.each-item {
+		    .inner {
+			    width: 160px;
+			    height: 160px;
+			}
+		}
+	}
+
+
+
+	/**
+	 * ====================================
+	 * Features Style 9
+	 * ====================================
+	 */
+	.pricing-table {
+		.each-table {
+			.inner {
+				max-width: 410px;
+				margin-left: auto;
+				margin-right: auto;
+				margin-bottom: 30px;
+			}
+
+			&:last-child {
+				.inner {
+					margin-bottom: 0px;
+				}
+			}
+
+		}
+	}
+
+
+}
+
+
+@media (max-width: @screen-xs-max) {
+
+
+	/**
+	 * =======================
+	 * Navigation
+	 * =======================
+	 */
+	.main-navbar-top {
+		.navbar-header {
+			.navbar-brand {
+				margin-left: 15px;
+				height: 70px;
+			}
+		}
+
+		.navbar-collapse {
+			border: 1px solid;
+			border-color: fade(@dark-color, 8%);
+		}
+
+		.navbar-nav {
+			padding-top: 11px;
+			padding-right: 15px;
+
+			li {
+				float: left;
+
+				.btn-nav {
+				    padding: 0px 10px;
+				    line-height: 40px;
+				}
+			}
+		}
+	}
+
+
+
+	/**
+	 * ===============================
+	 * Sign In and Up close button
+	 * ===============================
+	*/
+	.sign-form {
+		.modal-content {
+			padding: 30px 5px;
+		}
+	}
+
+
+
+	/**
+	 * ====================================
+	 * Features Style 1
+	 * ====================================
+	 */
+	.features-section-1 {
+		
+		.group {
+			padding: 40px 20px;
+		}
+		
+		.each-features {
+			.inner {
+				margin-bottom: 30px;
+			}
+
+			&:last-child {
+				.inner {
+					margin-bottom: 0px;
+				}
+			}
+		}
+	}
+
+
+	.sub-title-overlay {
+		left: 50%;
+		.transform-mix( @translateX: -50% );
+	}
+
+
+
+
+	/**
+	 * ====================================
+	 * Features Style 2
+	 * ====================================
+	 */
+	.features-section-2 {
+
+		.features-item {
+			margin-bottom: 30px;
+		}
+	}
+
+
+
+
+	/**
+	 * ====================================
+	 * Features Style 3
+	 * ====================================
+	 */
+	.intro-video {
+
+		.content-part {
+			margin-bottom: 30px;
+
+			.inner {
+				padding-right: 0px;
+			}
+		}
+	}
+
+
+
+	/**
+	 * ====================================
+	 * Features Style 5
+	 * ====================================
+	 */
+	.project-item {
+
+		.content-part {
+			.inner {
+				padding: 30px 20px;
+			}
+		}
+		
+		.image-part {
+			height: 200px;
+		}
+
+
+		.each-project {
+			.each-project-inner {
+				margin-bottom: 25px;
+				padding-bottom: 25px;
+				border-bottom: 1px solid;
+				border-bottom-color: fade(@shadow-color, 8%);
+				
+			}
+
+			&:last-child {
+				.each-project-inner {
+					margin-bottom: 0px;
+					padding-bottom: 0px;
+					border-bottom: 0px solid;
+				}
+			}
+		}
+	}
+
+
+
+	/**
+	 * ====================================
+	 * Features Style 8
+	 * ====================================
+	 */
+	.faq-item {
+		max-width: 370px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+
+
+	.features-section-1,
+	.features-section-2,
+	.project-item,
+	.features-section-12 {
+
+		.each-features,
+		.each-project {
+			.inner,
+			.each-project-inner {
+				max-width: 370px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+	}
+
+
+
+
+	/**
+	 * ====================================
+	 * Footer Section Style
+	 * ====================================
+	 */
+	.footer-section {
+
+		.each-section {
+			margin-bottom: 30px;
+			display: block;
+
+			&:last-child {
+				margin-bottom: 0px;
+			}
+		}
+	}
+
+
+
+	
+}
+
+
+@media (max-width: 480px) {
+
+	
+}
+
+
+@media (max-width: 320px) {
+
+	
+}
+

@@ -1,13 +1,24 @@
-var React = require("react");
-var createFragment = require('react-addons-create-fragment');
-var Inventory = require("./Children/Inventory");
-var AddCard = require("./Children/AddCard");
-var SearchCard = require("./Children/SearchCard");
+// var React = require("react");
+// var createFragment = require('react-addons-create-fragment');
+// var Inventory = require("./Children/Inventory");
+// var AddCard = require("./Children/AddCard");
+// var SearchCard = require("./Children/SearchCard");
 
-
-
+import React, {Component} from 'react';
+import AddCard from './Children/AddCard'
+import SearchCard from './Children/SearchCard'
+import Inventory from './Children/Inventory'
+import cookie from 'react-cookie'
+import helpers from './utils/helpers'
+// This is the form component. 
+import AutoComplete from '../../node_modules/material-ui/AutoComplete';
+import MenuItem from '../../node_modules/material-ui/MenuItem';
+import AppBar from '../../node_modules/material-ui/AppBar';
+import FontIcon from '../../node_modules/material-ui/FontIcon';
+import {red500, yellow500, blue500} from '../../node_modules/material-ui/styles/colors';
+import { RadioButton, RadioButtonGroup } from '../../node_modules/material-ui/RadioButton'
 // Helper Function
-var helpers = require("./utils/helpers");
+// import helpers from './utils/helpers';
 
 // This is the main component
 var Main = React.createClass({

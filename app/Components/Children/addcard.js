@@ -10,7 +10,11 @@ import helpers from '../utils/helpers'
 // This is the form component. 
 import AutoComplete from '../../../node_modules/material-ui/AutoComplete';
 import MenuItem from '../../../node_modules/material-ui/MenuItem';
-
+import AppBar from '../../../node_modules/material-ui/AppBar';
+import FontIcon from '../../../node_modules/material-ui/FontIcon';
+import {red500, yellow500, blue500} from '../../../node_modules/material-ui/styles/colors';
+import { RadioButton, RadioButtonGroup } from '../../../node_modules/material-ui/RadioButton'
+ 
 
 // var AddCard = React.createClass({
 
@@ -174,20 +178,56 @@ handleUpdateInput: function(value) {
 render: function(){
 
    return (
-      <div>
+
+<div class="panel panel-primary" id="addcard">
+<AppBar
+    title="Add Gift Card"
+  />
+
+<div className="panel-body" id="addcardbody">
+ 
+    <form>
+      <div className="form-group">
+         <div className="container">
+          <div className="row">
+           <div className="col-md-12">
         <AutoComplete
-          hintText="Type anything"
+          node="string"
+          hintText="Gift Card Name"
           dataSource={this.state.dataSource}
           onUpdateInput={this.handleUpdateInput}
         />
-        <AutoComplete
-          hintText="Type anything"
-          dataSource={this.state.dataSource}
-          onUpdateInput={this.handleUpdateInput}
-          floatingLabelText="Full width"
-          fullWidth={true}
-        />
+        </div>
       </div>
+           <div className="row">
+           <div className="col-md-12">
+        <AutoComplete
+          node="string"
+          hintText="Card Balance"
+          dataSource={this.state.dataSource}
+          onUpdateInput={this.handleUpdateInput}
+        />
+        </div>
+        </div>
+        <div className="row">
+        <div className="col-md-12">
+        <AutoComplete
+          node="string"
+          hintText="Redemption Code"
+          dataSource={this.state.dataSource}
+          onUpdateInput={this.handleUpdateInput}
+        />
+        </div>
+        </div>
+      </div>
+      </div>
+    </form>
+
+    <a href="#" className="btn btn-info"><span className="glyphicon glyphicon-credit-card"></span> Add Gift Card</a>
+
+  </div>
+</div>
+
     )
 }
 

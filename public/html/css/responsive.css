@@ -1,0 +1,213 @@
+@media (max-width: 991px) {
+  /**
+	 * =======================
+	 * Navigation
+	 * =======================
+	 */
+  .main-navbar-top .navbar-nav li .btn-nav {
+    padding: 15px;
+  }
+  /**
+	 * ====================================
+	 * Features Style 2
+	 * ====================================
+	 */
+  .features-section-2 .section-header * {
+    text-align: center;
+  }
+  .features-section-2 .flex,
+  .features-section-2 .vertical-middle {
+    display: block;
+  }
+  .features-image {
+    margin-top: 50px;
+  }
+  .features-image img {
+    position: relative;
+    height: auto;
+    width: 100%;
+    margin: 0 !important;
+  }
+  /**
+	 * ====================================
+	 * Features Style 4
+	 * ====================================
+	 */
+  .features-section-4 *,
+  .features-section-4 .section-header * {
+    text-align: center;
+  }
+  /**
+	 * ====================================
+	 * Features Style 5
+	 * ====================================
+	 */
+  .features-section-5 .p-l-50 {
+    padding-left: 30px;
+  }
+  .features-section-5 .p-r-50 {
+    padding-right: 30px;
+  }
+  /**
+	 * ====================================
+	 * Features Style 7
+	 * ====================================
+	 */
+  .count-down .each-item .inner {
+    width: 160px;
+    height: 160px;
+  }
+  /**
+	 * ====================================
+	 * Features Style 9
+	 * ====================================
+	 */
+  .pricing-table .each-table .inner {
+    max-width: 410px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+  }
+  .pricing-table .each-table:last-child .inner {
+    margin-bottom: 0px;
+  }
+}
+@media (max-width: 767px) {
+  /**
+	 * =======================
+	 * Navigation
+	 * =======================
+	 */
+  .main-navbar-top .navbar-header .navbar-brand {
+    margin-left: 15px;
+    height: 70px;
+  }
+  .main-navbar-top .navbar-collapse {
+    border: 1px solid;
+    border-color: rgba(115, 115, 115, 0.08);
+  }
+  .main-navbar-top .navbar-nav {
+    padding-top: 11px;
+    padding-right: 15px;
+  }
+  .main-navbar-top .navbar-nav li {
+    float: left;
+  }
+  .main-navbar-top .navbar-nav li .btn-nav {
+    padding: 0px 10px;
+    line-height: 40px;
+  }
+  /**
+	 * ===============================
+	 * Sign In and Up close button
+	 * ===============================
+	*/
+  .sign-form .modal-content {
+    padding: 30px 5px;
+  }
+  /**
+	 * ====================================
+	 * Features Style 1
+	 * ====================================
+	 */
+  .features-section-1 .group {
+    padding: 40px 20px;
+  }
+  .features-section-1 .each-features .inner {
+    margin-bottom: 30px;
+  }
+  .features-section-1 .each-features:last-child .inner {
+    margin-bottom: 0px;
+  }
+  .sub-title-overlay {
+    left: 50%;
+    transform: translateX(-50%) translateY(0) translateZ(0) rotate(0deg) scale(1);
+    -o-transform: translateX(-50%) translateY(0) translateZ(0) rotate(0deg) scale(1);
+    -ms-transform: translateX(-50%) translateY(0) translateZ(0) rotate(0deg) scale(1);
+    -moz-transform: translateX(-50%) translateY(0) translateZ(0) rotate(0deg) scale(1);
+    -webkit-transform: translateX(-50%) translateY(0) translateZ(0) rotate(0deg) scale(1);
+  }
+  /**
+	 * ====================================
+	 * Features Style 2
+	 * ====================================
+	 */
+  .features-section-2 .features-item {
+    margin-bottom: 30px;
+  }
+  /**
+	 * ====================================
+	 * Features Style 3
+	 * ====================================
+	 */
+  .intro-video .content-part {
+    margin-bottom: 30px;
+  }
+  .intro-video .content-part .inner {
+    padding-right: 0px;
+  }
+  /**
+	 * ====================================
+	 * Features Style 5
+	 * ====================================
+	 */
+  .project-item .content-part .inner {
+    padding: 30px 20px;
+  }
+  .project-item .image-part {
+    height: 200px;
+  }
+  .project-item .each-project .each-project-inner {
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid;
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+  }
+  .project-item .each-project:last-child .each-project-inner {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    border-bottom: 0px solid;
+  }
+  /**
+	 * ====================================
+	 * Features Style 8
+	 * ====================================
+	 */
+  .faq-item {
+    max-width: 370px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .features-section-1 .each-features .inner,
+  .features-section-2 .each-features .inner,
+  .project-item .each-features .inner,
+  .features-section-12 .each-features .inner,
+  .features-section-1 .each-project .inner,
+  .features-section-2 .each-project .inner,
+  .project-item .each-project .inner,
+  .features-section-12 .each-project .inner,
+  .features-section-1 .each-features .each-project-inner,
+  .features-section-2 .each-features .each-project-inner,
+  .project-item .each-features .each-project-inner,
+  .features-section-12 .each-features .each-project-inner,
+  .features-section-1 .each-project .each-project-inner,
+  .features-section-2 .each-project .each-project-inner,
+  .project-item .each-project .each-project-inner,
+  .features-section-12 .each-project .each-project-inner {
+    max-width: 370px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /**
+	 * ====================================
+	 * Footer Section Style
+	 * ====================================
+	 */
+  .footer-section .each-section {
+    margin-bottom: 30px;
+    display: block;
+  }
+  .footer-section .each-section:last-child {
+    margin-bottom: 0px;
+  }
+}

@@ -20,7 +20,7 @@ module.exports = function(app, passport) {
     // =====================================
     app.get('/', function(req, res) {
 
-        res.sendFile('home.html', { root: "public" });
+        res.sendFile('home.html', { root: "public/html" });
     });
 
     // =====================================

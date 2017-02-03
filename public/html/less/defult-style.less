@@ -1,0 +1,878 @@
+
+/**
+ * ===============================
+ *  Defult CSS 
+ * ===============================
+ */
+body{
+    font-family:            @font-1;
+    color:                  fade(@dark-color, 85%);
+    font-size:              16px;
+    font-style:             none;
+    line-height:            30px;
+    font-weight:            400;
+    overflow-x:             hidden !important;
+    text-align:             left;
+    position:               relative;
+}
+
+a{
+    text-decoration:    none !important;
+    display:            inline-block;
+    cursor:             pointer;
+    font-family:        @font-1;
+    padding:            0px;
+    .transition(0.4s);
+
+    &:hover {
+        color: @main-color-1;
+    }
+
+    &:focus {
+        outline: 0 !important;
+    }
+}
+
+.overflow {
+    overflow:           hidden;
+}
+
+
+.section-video { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+    overflow: hidden;
+    z-index: -1;
+
+    .bgvid {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-height: 100%;
+        min-width: 100%;
+        background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+    }
+}
+.body-video-bg {
+    > .section-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+}
+
+
+p{
+    font-family:        @font-1;
+    color:              fade(@dark-color, 85%);
+    font-size:          16px;
+    line-height:        30px;
+    margin-bottom:      25px;
+    font-weight:        400;
+
+    &:last-child {
+        margin-bottom: 0px;
+    }
+}
+
+/* Heading Style */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family:        @font-2;
+    color:              fade(@dark-color, 100%);
+}
+
+h1{
+    font-size:          55px;
+    line-height:        70px;
+    font-weight:        300;
+}
+h2{
+    font-size:          30px;
+    line-height:        45px;
+    font-weight:        300;
+}
+h3{
+    font-size:          25px;
+    line-height:        45px;
+    font-weight:        400;
+}
+h4{
+    font-size:          22px;
+    line-height:        40px;
+    font-weight:        400;
+}
+
+h5{
+    font-size:          20px;
+    line-height:        34px;
+    font-weight:        400;
+}
+h6{
+    font-size:          18px;
+    line-height:        30px;
+    font-weight:        400;
+}
+
+
+
+
+/**
+ * ====================================
+ *  Every Section Headline Defult Class
+ * ====================================
+ */
+.section-heading {
+    color: fade(@dark-color, 95%);
+    display: block;
+    padding-bottom: 23px;
+    margin: 0;
+}
+
+.section-header {
+    margin-bottom: 45px;
+    text-align: center;
+
+    .sub-heading {
+        text-transform: uppercase;
+        font-size: 15px;
+        line-height: 30px;
+        font-weight: 400;
+        color: fade(@dark-color, 50%);
+        margin: 0 0 10px 0;
+        letter-spacing: 3px;
+    }
+
+    &.text-left {
+        &,
+        * {
+            text-align: left;
+        }
+    }
+    &.text-right {
+        &,
+        * {
+            text-align: right;
+        }
+    }
+}
+
+
+.light-text {
+    h1,
+    h2, 
+    h3, 
+    h4, 
+    h5, 
+    h6,
+    .btn * {
+        color: fade(@light-color, 100%);
+    }
+
+    p,
+    span,
+    .sub-heading {
+        color: fade(@light-color, 75%);
+    }
+}
+
+
+.vertical-middle {
+    display: table-cell;
+    float: none;
+    vertical-align: middle;
+}
+
+.flex {
+    display: flex;
+    flex: 1;
+}
+
+
+
+/**
+ * ===============================
+ *  Section Top and Bottom padding  
+ * ===============================
+ */
+.section-separator {
+    display: block;
+    padding-top: 110px;
+    padding-bottom: 110px;
+
+    &.sp-top {
+        padding-bottom: 0px;
+    }
+    &.sp-bottom {
+        padding-top: 0px;
+    }
+}
+
+.section-separator-line {
+    margin: 0;
+    width: 100%;
+    border-top: 1px solid;
+    border-color: fade(@shadow-color, 12%);
+}
+
+
+
+/**
+ * ====================================
+ * Background Overlay Color
+ * ====================================
+ */
+.overlay-color {
+    position: relative;
+    background-color: fade(@shadow-color, 80%);
+}
+
+.bg-overlay {
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: fade(@shadow-color, 65%);
+    }
+}
+
+
+
+
+/**
+ * ====================================
+ * Making Same Height Left & Right Part
+ * ====================================
+ */
+.display-full {
+    display: table !important;
+    width: 100%;
+
+    .left,
+    .right {
+        display: table-cell;
+        float: none !important;
+    }
+}
+
+
+
+/**
+ * ===============================
+ *   Defult Button Style
+ * ===============================
+ */
+.btn {
+    .border-radius();
+    color: @shadow-color;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-right: 15px;
+    overflow: hidden;
+    outline: 0;
+    position: relative;
+    z-index: 2;
+    padding: 0;
+    .transition(0.4s);
+
+    &:last-child {
+        margin-right: 0px !important;
+    }
+
+    .icon {
+        position: relative;
+        top: 3px;
+    }
+
+    &.left-icon {
+        .icon {
+            margin-right: 8px;
+        }
+    }
+
+    &.right-icon {
+        .icon {
+            margin-left: 8px;
+        }
+    }
+
+    &.btn-fill,
+    &.btn-border {
+        line-height: 58px;
+        border: 1px solid;
+        padding: 3px 30px;
+        min-width: 200px;
+
+        &,
+        .icon,
+        &:hover {
+            color: @light-color;
+        }
+
+        &:hover {
+            border-color: darken(@main-color-1, 10%);
+            background-color: darken(@main-color-1, 10%);
+        }
+    }
+
+    &.btn-fill {
+        background-color: @main-color-1;
+        border-color: @main-color-1;
+    }
+
+    &.btn-border {
+        background-color: transparent;
+        border-color: @light-color;
+    }
+}
+
+
+.btn.active.focus, 
+.btn.active:focus, 
+.btn.focus, 
+.btn:active.focus, 
+.btn:active:focus, 
+.btn:focus {
+    outline: thin dotted;
+    outline: 0px auto -webkit-focus-ring-color !important;
+    outline-offset: -2px;
+}
+
+.btn-text-link {
+    padding: 50px 0 0 0;
+    text-align: center;
+    // color: fade(@dark-color, 85%);
+
+    a {
+        color: @main-color-1;
+        margin-left: 10px;
+    }
+}
+
+
+// Margin 30px
+.m-t-30 {
+    margin-top: 30px;
+}
+.m-r-30 {
+    margin-right: 30px;
+}
+.m-b-30 {
+    margin-bottom: 30px;
+}
+.m-l-30 {
+    margin-left: 30px;
+}
+
+
+// Margin 40px
+.m-t-40 {
+    margin-top: 40px;
+}
+.m-r-40 {
+    margin-right: 40px;
+}
+.m-b-40 {
+    margin-bottom: 40px;
+}
+.m-l-40 {
+    margin-left: 40px;
+}
+
+
+// Margin 50px 
+.m-t-50 {
+    margin-top: 50px;
+}
+.m-r-50 {
+    margin-right: 50px;
+}
+.m-b-50 {
+    margin-bottom: 50px;
+}
+.m-l-50 {
+    margin-left: 50px;
+}
+
+// Padding 30px
+.p-t-30 {
+    padding-top: 30px;
+}
+.p-r-30 {
+    padding-right: 30px;
+}
+.p-b-30 {
+    padding-bottom: 30px;
+}
+.p-l-30 {
+    padding-left: 30px;
+}
+
+
+// Padding 40px
+.p-t-40 {
+    padding-top: 40px;
+}
+.p-r-40 {
+    padding-right: 40px;
+}
+.p-b-40 {
+    padding-bottom: 40px;
+}
+.p-l-40 {
+    padding-left: 40px;
+}
+
+
+// Padding 50px 
+.p-t-50 {
+    padding-top: 50px;
+}
+.p-r-50 {
+    padding-right: 50px;
+}
+.p-b-50 {
+    padding-bottom: 50px;
+}
+.p-l-50 {
+    padding-left: 50px;
+}
+
+
+
+
+/** 
+ * ======================
+ * Social Icon Style
+ * ======================
+ */
+.social-icon {
+    // margin-top: 15px;
+    display: inline-block;
+
+    li {
+        list-style: none;
+        float: left;
+        margin-bottom: 0px;
+
+        a {
+            font-size: 22px;
+            text-align: center;
+            width: 33px;
+            height: 33px;
+            padding: 3px;
+            border-radius: 50%;
+            margin-right: 30px;
+            background-color: transparent;
+            color: fade(@light-color, 100%);
+            border: 0px solid;
+            border-color: fade(@light-color, 100%);
+            
+            &:hover,
+            &:focus {
+                background-color: transparent;
+                color: @light-color;
+                border-color: @light-color;
+            }
+        }
+
+        &:last-child {
+            a {
+                margin-right: 0px;
+            }
+        }
+    }
+}
+
+
+
+/**
+ * ===================================
+ * Subscription and contact  "MESSAGE"
+ * ===================================
+ */
+.message {
+    .inner {
+        background-color: @background-2;
+    }
+}
+.subscription-success, 
+.subscription-failed, 
+.email-success, 
+.email-failed,
+.email-loading {
+    font-size: 15px;
+    display: none;
+    text-align: center !important;
+    padding: 10px !important;
+}
+
+.email-loading {
+    color: #52B8FF;
+    
+    img {
+        width: 15px;
+        position: relative;
+        top: -2px;
+    }
+}
+
+.subscription-failed, 
+.email-failed{
+    color: #FF5252 !important;
+
+    .icon {
+        font-size: 20px;
+        position: relative;
+        top: 5px;
+    }
+}
+
+.subscription-success, 
+.email-success {
+    color: #56CC35;
+}
+
+.subscription-failed, 
+.email-failed,
+.subscription-success, 
+.email-success {
+    .icon {
+        font-size: 20px;
+        position: relative;
+        top: 5px;    
+    }
+}
+
+
+
+
+/**
+ * =========================
+ * Form Style 
+ * =========================
+ */
+
+ @form-input-background: #F2F4F3;
+
+
+.single-form {
+    width: 100%;
+    display: inline-table; 
+
+    .form-control {
+        height: 58px;
+        font-size: 16px;
+        line-height: 30px;
+        font-weight: 300;
+        border: 1px solid;
+        border-color: fade(@dark-color, 20%);
+        box-shadow: 0 0 0 0 #fff;
+        text-align: left;
+        margin-bottom: 30px;
+        padding: 0 10px ;
+        background-color: @form-input-background;
+        color: fade(@dark-color, 100%);
+        .border-radius();
+        .placeholder-color(fade(@dark-color, 85%));
+        .transition( 0.4s );
+
+        &:focus {
+            border-color: @main-color-1;
+        }
+    }
+
+    textarea {
+        height: 175px !important;
+        padding: 10px !important;
+    }
+
+    .select-outer {
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 19px;
+            right: 15px;
+            border-width: 7px 6px;
+            border-style: solid;
+            border-color: fade(@light-color, 100%) transparent transparent;
+        }
+    }
+
+    select {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+    }
+
+    input[type=checkbox] {
+        visibility: hidden;
+    }
+
+    .checkbox {
+        margin: 0 0 30px 0;
+        text-align: left;
+
+        label {
+            padding-left: 35px;
+
+            &::after,
+            &::before {
+                content: '';
+                position: absolute;
+                .transition( 0.4s );
+            }
+
+            &::after {
+                height: 20px;
+                width: 20px;
+                left: 0;
+                top: 4px;
+                background: @form-input-background;
+                border: 1px solid;
+                border-color: fade(@dark-color, 20%);
+                .border-radius( @border-radius / 2, @border-radius / 2, @border-radius / 2, @border-radius / 2 );
+            }
+
+            &::before {
+                border: 2px solid;
+                border-color: transparent;
+                width: 10px;
+                height: 20px;
+                left: 9px;
+                top: -2px;
+                .transform-mix( @rotate: 45deg );
+                z-index: 11;
+            }
+
+            &:hover {
+                &::before {
+                    border-color: transparent fade(@dark-color, 50%) fade(@dark-color, 50%) transparent;
+                }
+            }
+        }
+
+        input[type=checkbox]:checked {
+            + label::before {
+                border-color: transparent fade(@dark-color, 100%) fade(@dark-color, 100%) transparent;
+            }
+        }
+    }
+
+    .squaredFour 
+
+    .btn {
+        margin-top: 25px;
+    }
+
+    .form-group {
+        margin: 0px;
+    }
+
+    .p-right {
+        padding-left: 0px;
+    }
+    .p-left {
+        padding-right: 0px;
+    }
+
+    .m-right {
+        margin-right: 0px;
+    }
+    .m-left {
+        margin-left: 0px;
+    }
+}
+
+
+
+/**
+ * ================================
+ * CONTAINER HALF CONTENT
+ * ================================
+ */
+.content-half {
+    position: relative;
+}
+
+.container-half {
+    position: absolute;
+    vertical-align: middle;
+    top: 0;
+    bottom: 0;
+    width: 43%;
+
+    &.pr30 {
+        width: ~"calc(50% - 30px)";
+    }
+}
+
+.bg-cover {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-attachment: initial;
+    background-repeat: no-repeat;
+}
+
+.container-half-left {
+    left: 0;
+    // background-position: top left;
+    background-position: 50% 50%;
+}
+
+.container-half-right {
+    right: 0;
+    // background-position: top right;
+    background-position: 50% 50%;
+}
+
+
+
+
+@media (max-width: @screen-sm-max) {
+    
+    .container-half-left,
+    .container-half-right {
+        display: none;
+    }
+    
+}
+
+
+@media (max-width: @screen-xs-max) {
+
+    h1 {
+        font-size:          45px;
+        line-height:        65px;
+        font-weight:        300;
+    }
+
+
+
+    /**
+     * ===============================
+     *  Defult CSS 
+     * ===============================
+     */
+    html *,
+    body,
+    p{
+        text-align: center;
+    }
+
+
+
+
+    /**
+     * ===============================
+     *   Defult Button Style
+     * ===============================
+     */
+    .btn {
+        &.btn-fill,
+        &.btn-border {
+            padding: 3px 15px;
+            min-width: 120px
+        }
+    }
+
+
+
+    /**
+     * ===============================
+     *  Section Top and Bottom padding  
+     * ===============================
+     */
+    .section-separator {
+        display: block;
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+
+    
+    /**
+     * ===============================
+     *  Section Heading Style
+     * ===============================
+     */
+    .section-header {
+        &.text-left,
+        &.text-right {
+            &,
+            * {
+                text-align: center;
+            }
+        }
+    }
+
+
+
+    /**
+     * ================================
+     * Nav Defult Style
+     * ================================
+     */
+    .nav {
+        display: inline-block;
+    }
+
+    ul,
+    li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+
+
+    /**
+     * ===============================
+     *   Defult Button Style
+     * ===============================
+     */
+    .btn {
+        &,
+        &:last-child {
+            margin: 10px !important;
+        }
+
+        
+    }
+
+
+    /**
+     * ===============================
+     *   Display Vertical
+     * ===============================
+     */
+    .vertical-middle {
+        display: block;
+    }
+    
+}
