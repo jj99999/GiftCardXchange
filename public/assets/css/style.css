@@ -34,6 +34,23 @@ select{
 	margin-bottom:40px;
 }
 
+
+#services {
+	background-color: white;
+	color:  #333
+}
+
+h2{
+	font-weight: 200;
+	font-size: 32px;
+
+}
+
+h4 {
+	font-size: 16px;
+	line-height: 1.5;
+}
+
 #row1 {
 	height:120px;
 }

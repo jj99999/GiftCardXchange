@@ -24,10 +24,12 @@ let MobileTearSheet = React.createClass({
       },
 
       container: {
-        border: 'solid 1px grey',
+        border: '1px solid #DCDCDC',
         // borderBottom: 'none',
         height: this.props.height,
+        
         overflow: 'hidden'
+
       },
 
       bottomTear: {

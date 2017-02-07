@@ -45343,8 +45343,13 @@
 	            { className: 'col-md-6 ' },
 	            _react2.default.createElement(
 	              'h2',
-	              null,
+	              { className: 'add' },
 	              'Keep track of any gift card'
+	            ),
+	            _react2.default.createElement(
+	              'h4',
+	              null,
+	              'Have a holiday gift card to a store you never shop at? Wouldn\'t it be nice to find a marketplace where you can get something you want? Oh wait, you can!'
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -45376,7 +45381,20 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'row' },
-	            _react2.default.createElement('div', { className: 'col-md-6' }),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-md-6' },
+	              _react2.default.createElement(
+	                'h2',
+	                null,
+	                'Exchange for gift cards you don\'t want for people who do want them.'
+	              ),
+	              _react2.default.createElement(
+	                'h4',
+	                { className: 'exchange' },
+	                'Go to the marketplace, take unwanted your unwanted cards, and get the ones that you\'ve secretly always wanted but would never tell your gift givers.'
+	              )
+	            ),
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'col-md-3' },
@@ -46030,10 +46048,12 @@
 	      },
 
 	      container: {
-	        border: 'solid 1px grey',
+	        border: '1px solid #DCDCDC',
 	        // borderBottom: 'none',
 	        height: this.props.height,
+
 	        overflow: 'hidden'
+
 	      },
 
 	      bottomTear: {
