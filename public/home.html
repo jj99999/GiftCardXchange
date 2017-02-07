@@ -1,398 +1,155 @@
 <!DOCTYPE html>
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en-US"> <![endif]-->
-<!--[if gt IE 8]><!-->
 <html lang="en">
-    <head>     
-  
-        <!-- TITLE OF SITE --> 
-        <title>Treetoper - App Landing Page Template</title>
-  
-        <!-- Meta -->
-        <meta charset="utf-8">
-        <meta name="description" content="StartUp Landing Page Template" />
-        <meta name="keywords" content="Treetoper, startup, landing page, gradient background, image background, video background, template, responsive, bootstrap" />
-        <meta name="developer" content="TemplateOcean">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        <!-- FAV AND TOUCH ICONS   -->
-        <link rel="icon" href="images/favicon.ico">
-        <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-
-        <!-- GOOGLE FONTS -->
-        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-
-        <!-- BOOTSTRAP CSS -->
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-
-        <!-- Image Slider -->
-        <link rel="stylesheet" href="css/plagin-css/plagin.css">
-
-        <!-- FONT ICONS -->
-        <link rel="stylesheet" href="icons/toicons/css/styles.css">
-
-        <!--   COUSTOM CSS link  -->
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/responsive.css">
+<head>
+    <title>Gift Card Marketplace</title>
 
 
-        <!--[if lt IE 9]>
-            <script src="js/plagin-js/html5shiv.js"></script>
-            <script src="js/plagin-js/respond.min.js"></script>
-        <![endif]-->
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/bootstraptheme.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+</head>
 
-    </head>
-    <body class="">
-
-        <!-- Start: Navbar Area
-        ============================= -->
-        <header id="header" class="okayNav-header navbar-fixed-top main-navbar-top">
-            <div class="container">
-                <div class="row">
-                    
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-
-                        <a class="okayNav-header__logo navbar-brand" href="#">
-                            <img src="images/logo.png" alt="" class="logo-1 img-responsive">
-                            <img src="images/logo-dark.png" alt="" class="logo-2 img-responsive">
-                        </a>
-
-                    </div> <!-- End: .col-xs-3 -->
-                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-6">
-
-                        <nav role="navigation" class="okayNav pull-right" id="js-navbar-menu">
-                            <ul id="navbar-nav" class="navbar-nav">
-                                <li><a class="btn-nav" href="#features">Features</a></li>
-                                <li><a class="btn-nav" href="#pricing">Pricing</a></li>
-                                <li><a class="btn-nav" href="#reviews">Reviews</a></li>
-                                <li><a class="btn-nav" href="#" data-toggle="modal" data-target="#sign-in-form">Sign In</a></li>
-                                <li><a class="btn-nav btn-border" href="#" data-toggle="modal" data-target="#sign-up-form">Sign Up</a></li>
-                            </ul>
-                        </nav>
-
-                    </div> <!-- End: .col-xs-9 -->
-                </div> <!-- End: .row -->
-            </div> <!-- End: .container -->
-        </header><!-- /header -->
-        <!-- End: Navbar Area
-        ============================= -->
+<body>
 
 
 
 
-        <!-- Start: Sign In Form
-        ================================== -->
-        <div id="sign-in-form" class="sign-form modal fade" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    
-                    <!-- Modal Close Button -->
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    
-                    <form method="post" class="single-form" action="">
+<div class="container" style="display:block">
 
-                        <div class="col-xs-12 text-center">
-                            <h2 class="section-heading p-b-30">Sign In</h2>
-                        </div>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-right" id="topbar">
+        <div class="container">
+                <div class="form">
+                    <form class="create-form" action="/login" method="POST" id="login">
+                        <input type="text" placeholder=" email address" id="emailfield" name="email">
+                        <input type="password" placeholder=" password" id="passwordfield" name="password">
 
-                        <div class="col-xs-12">
-                            <!-- Email -->
-                            <input name="email" class="contact-email form-control" type="email" placeholder="Email*" required="">
-                        </div>
-                        <div class="col-xs-12">
-                            <!-- Subject -->
-                            <input name="password" class="contact-password form-control" type="pass" placeholder="Password">
-                        </div>
+                        <input type="submit" value="Login" id="loginbutton">
+                        <p class="message" id="notregistered">Not registered? <a href=/register id="create"> Create an account</a>
 
-                        <div class="col-xs-12">
-                            <div class="checkbox">
-                                <input type="checkbox" id="remember-me">
-                                <label for="remember-me">Remember me</label>
-                            </div>
-                        </div>
-                        
-                        <!-- Subject Button -->
-                        <div class="btn-form text-center col-xs-12">
-                            <button class="btn btn-fill">Sign In</button>
-                        </div>
                     </form>
+                </div>
+        </div>
+    </nav>
 
-                </div><!-- End: .modal-content -->
-            </div><!-- End: .modal-dialog -->
-        </div><!-- End: .modal -->
-        <!-- End: Sign In Form
-        ================================== -->
+    <div class="row" id="row1"></div>
 
-
-
-
-        <!-- Start: Sign Out Form
-        ================================== -->
-        <div id="sign-up-form" class="sign-form modal fade" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content p-t-30 p-b-30">
-                    
-                    <!-- Modal Close Button -->
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    
-                    <form method="post" class="single-form" action="">
-
-                        <div class="col-xs-12 text-center">
-                            <h2 class="section-heading p-b-30">Sign Up</h2>
-                        </div>
-
-                        <div class="col-xs-12">
-                            <!-- First Name -->
-                            <input name="text" class="contact-first-name form-control" type="text" placeholder="First Name*" required="">
-                        </div>
-                        <div class="col-xs-12">
-                            <!-- Last Name -->
-                            <input name="text" class="contact-last-name form-control" type="text" placeholder="Last Name*" required="">
-                        </div>
-                        <div class="col-xs-12">
-                            <!-- Email -->
-                            <input name="email" class="contact-email form-control" type="email" placeholder="Email*" required="">
-                        </div>
-                        <div class="col-xs-12">
-                            <!-- Subject -->
-                            <input name="password" class="contact-password form-control" type="pass" placeholder="Password">
-                        </div>
-                        <div class="col-xs-12">
-                            <!-- Subject -->
-                            <input name="password" class="contact-cmp-password form-control" type="pass" placeholder="Confirm Password">
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="checkbox">
-                                <input type="checkbox" id="agreement">
-                                <label for="agreement">I agree to Your Terms of Service </label>
-                            </div>
-                        </div>
-                        
-                        <!-- Subject Button -->
-                        <div class="btn-form text-center col-xs-12">
-                            <button class="btn btn-fill">Sign Up</button>
-                        </div>
-                    </form>
-
-                </div><!-- End: .modal-content -->
-            </div><!-- End: .modal-dialog -->
-        </div><!-- End: .modal -->
-        <!-- End: Sign Out Form
-        ================================== -->
+    <div class="row" id="row2">
+        <div class="col-lg-1 col-md-1 col-sm-1 col-sx-1"></div>
+        <div class="col-lg-10 col-md-10 col-sm-10 col-sx-10" id="header"></div>
+        <div class="col-lg-1 col-md-1 col-sm-1 col-sx-1"></div>
+    </div>
 
 
+    <div class="row" id="row3"></div>
 
-        
-        <!-- Start: Header Section
-        ================================ -->
-        <section class="header-section-1 bg-image-1 header-js" id="header" >
-            <div class="overlay-color">
-                <div class="container">
-                    <div class="row section-separator">
+    <div class="row" id="aboutus1">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12" id="aboutus2">
+            <!-- <h3>GCXchange is the newest gift card exchange site. No cash, no credit cards - just exchange that unused card for one you actually want. Simply create an account and tell us which cards you are trying to get rid of. Then, search for gift cards that you want and offer to make a trade. No hassle, no stress.</h3> -->
+            <img src="assets/images/about.png" id="about">
+        </div>
+    </div>
 
-                        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
-                            <div class="part-inner text-center">
 
-                                <!--  Header SubTitle Goes here -->
-                                <h1 class="title">Landing page for your startup or your service.</h1> 
+    <div class="row" id="row4a">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
+            <img src="/assets/images/gc1.jpeg" id="card1">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
+            <img src="/assets/images/gc2.png" id="card2">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
+            <img src="/assets/images/gc3.png" id="card3">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
+            <img src="/assets/images/gc4.png" id="card4">
+        </div>
+    </div>
 
-                                <div class="detail">
-                                    <p>Use this template to promote and describe the benefits of your product.</p>
-                                </div>
+    <div class="row" id="row4b">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
+            <img src="assets/images/gc5.png" id="card5">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
+            <img src="assets/images/gc6.gif" id="card6">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
+            <img src="assets/images/gc7.jpg" id="card7">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
+            <img src="assets/images/gc8.jpg" id="card8">
+        </div>
+    </div>
+    
+    <div class="row" id="row4c">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
+            <img src="assets/images/gc9.jpg" id="card9">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
+            <img src="assets/images/gc10.jpg" id="card10">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
+            <img src="assets/images/gc11.jpg" id="card11">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
+            <img src="assets/images/gc12.jpeg" id="card12">
+        </div>
+    </div>
 
-                                <!-- Button Area -->
-                                <div class="btn-form btn-scroll">
-                                    <a href="#" class="btn btn-border">Get started</a>
-                                </div>
+    <div class="row" id="row4d">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
+            <img src="assets/images/gc13.jpg" id="card13">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
+            <img src="assets/images/gc14.png" id="card14">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
+            <img src="assets/images/spanxgc.jpg" id="card15">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
+            <img src="assets/images/gc16.png" id="card16">
+        </div>
+    </div>
 
-                            </div>
-                        </div> <!-- End: .part-1 -->
-
-                    </div> <!-- End: .row -->
-                </div> <!-- End: .container -->
-            </div> <!-- End: .overlay-color -->
-        </section>
-        <!-- End: Header Section
-        ================================ -->
+    <div class="row" id="row4e">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
+            <img src="assets/images/gc17.jpg" id="card17">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
+            <img src="assets/images/gc18.jpg" id="card18">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
+            <img src="assets/images/gc19.jpg" id="card19">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-sx-3">
+            <img src="assets/images/gc20.jpg" id="card20">
+        </div>
+    </div>
 
 
 
+    <div class="row" id="space1"></div>
 
-        <!-- Start: Features Section 1
-        ====================================== -->
-        <section class="features-section-1 relative background-semi-dark" >
-            <div class="container">
-                <div class="row section-separator">
 
-                    <div class="each-features col-sm-6">
-                        <div class="inner text-center bg-cover light-text" style="background-image: url(images/background-2.jpg);">
-                            <div class="overlay-color">
-                                
-                                <div class="group">
-                                    <h4 class="title">ABOUT ARCHER</h4>
-                                    <div class="detail">
-                                        <p>Consectetur adipiscing elit. Donec aliquet quis, cursus interdum orci cras ullamcorper tellus a massa ornare, luctus at augue id tincidunt. Proin nulla risus, pharetra id aliquet quis, cursus interdum orci cras ullamcorper tellus a massa ornare, non ornare arcu cursus.</p>
-                                    </div>
-                                </div>
+    <div class="row" id="testimonials">
+    <br>
+        <h1>Our happy customers love us!</h1>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-sx-6">
+            <img src="assets/images/test1.png" id="testimonial1">
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-sx-6">
+            <img src="assets/images/test2.png" id="testimonial2">
+        </div>
+    </div>
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="each-features col-sm-6">
-                        <div class="inner text-center bg-cover light-text" style="background-image: url(images/background-3.jpg);">
-                            <div class="overlay-color">
-                                
-                                <div class="group">
-                                    <h4 class="title">OUR MISSION</h4>
-                                    <div class="detail">
-                                        <p>Consectetur adipiscing elit. Donec aliquet quis, cursus interdum orci cras ullamcorper tellus a massa ornare, luctus at augue id tincidunt. Proin nulla risus, pharetra id aliquet quis, cursus interdum orci cras ullamcorper tellus a massa ornare, non ornare arcu cursus.</p>
-                                    </div>
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
-
-                    
-                </div> <!-- End: .row -->
-            </div> <!-- End: .container -->
-        </section>
-        <!-- End: Features Section 1
-        ======================================-->
+</div>
 
 
 
+<!--     <script src="assets/javascript/home.js"></script> -->
 
-
-        <!-- Start: Features Section 2
-        ====================================== -->
-        <section class="features-section-2 relative background-light">
-            <div class="container">
-                <div class="row section-separator">
-
-                    <!-- Start: Section Header -->
-                    <div class="section-header col-sm-8 col-sm-offset-2">
-                        
-                        <p class="sub-heading">How It Works</p>
-                        <h2 class="section-heading">Understanding Our Easy To Use Product</h2>
-
-                    </div>
-                    <!-- End: Section Header -->
-
-                    <div class="clearfix"></div>
-
-                    <div class="col-xs-12 features-item three-col">
-                        <div class="row">
-                            
-                            <div class="each-features col-md-4 col-sm-6 col-xs-12">
-                                <div class="inner">
-                            
-                                    <div class="sub-title-overlay counter"></div>
-                                    <h4 class="title">Quick Reponse</h4>
-                                    <div class="detail">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
-                                    </div>
-
-                                </div> <!-- End: .inner -->
-                            </div> <!-- End: .each-features -->
-
-                            <div class="each-features col-md-4 col-sm-6 col-xs-12">
-                                <div class="inner">
-                            
-                                    <div class="sub-title-overlay counter"></div>
-                                    <h4 class="title">Dynamic Growth</h4>
-                                    <div class="detail">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
-                                    </div>
-
-                                </div> <!-- End: .inner -->
-                            </div> <!-- End: .each-features -->
-
-                            <div class="each-features col-md-4 col-sm-6 col-xs-12">
-                                <div class="inner">
-                            
-                                    <div class="sub-title-overlay counter"></div>
-                                    <h4 class="title">Weekly Report</h4>
-                                    <div class="detail">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
-                                    </div>
-
-                                </div> <!-- End: .inner -->
-                            </div> <!-- End: .each-features -->
-
-                            <div class="each-features col-md-4 col-sm-6 col-xs-12">
-                                <div class="inner">
-                                    
-                                    <div class="sub-title-overlay counter"></div>
-                                    <h4 class="title">Well Promoted</h4>
-                                    <div class="detail">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
-                                    </div>
-
-                                </div> <!-- End: .inner -->
-                            </div> <!-- End: .each-features -->
-
-                            <div class="each-features col-md-4 col-sm-6 col-xs-12">
-                                <div class="inner">
-                                    
-                                    <div class="sub-title-overlay counter"></div>
-                                    <h4 class="title">Most Popular</h4>
-                                    <div class="detail">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
-                                    </div>
-
-                                </div> <!-- End: .inner -->
-                            </div> <!-- End: .each-features -->
-
-                            <div class="each-features col-md-4 col-sm-6 col-xs-12">
-                                <div class="inner">
-                                    
-                                    <div class="sub-title-overlay counter"></div>
-                                    <h4 class="title">Follows Law</h4>
-                                    <div class="detail">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
-                                    </div>
-
-                                </div> <!-- End: .inner -->
-                            </div> <!-- End: .each-features -->
-
-                        </div> <!-- End: .row -->
-                    </div> <!-- End: .features-item -->
-
-                </div> <!-- End: .row -->
-            </div> <!-- End: .container -->
-        </section>
-        <!-- End: Features Section 2
-        ======================================-->
-
-
-
-
-      
-        <!-- End: Footer Section 1
-        ================================== -->
-
-
-
-        
-        <!-- SCRIPTS 
-        ========================================-->
-        <script src="js/plagin-js/jquery-1.11.3.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>
-        <script src="js/plagin-js/plagin.js"></script>
-
-        <!-- Custom Script 
-        ==========================================-->
-        <script src="js/custom-scripts.js"></script>
-
-
-    </body>
+</body>
 
 </html>

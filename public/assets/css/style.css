@@ -1,18 +1,29 @@
 
-
+html,
 body {
 	/*background-image:url("../images/confetti.gif");*/
+ width: 100%;
+ height: 100%;
+}
+
+body {
+ font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 select{
     font-weight: bold;
 }
 
-#header {
-	height:500px;
-	background-image:url("../images/logo.png");
-	background-size: 100%;
-	background-repeat:no-repeat;
+.header {
+	display: table;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url(../images/header2.jpg) no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
 
 #header1 {

@@ -19,8 +19,12 @@ module.exports = function(app, passport) {
     // HOME PAGE (with login links) ========
     // =====================================
     app.get('/', function(req, res) {
+    
 
-        res.sendFile('home.html', { root: "public/html" });
+    
+         res.sendFile('account.html', { root: "public" });
+      
+
     });
 
     // =====================================

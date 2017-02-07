@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import MuiThemeProvider from '../node_modules/material-ui/styles/MuiThemeProvider';
 import Main from './components/Main';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import GiftCard from './components/GiftCard';
 
 // var React = require('react');
 // var ReactDOM = require('react-dom');
@@ -24,7 +25,10 @@ injectTapEventPlugin();
 
 // ReactDOM.render(<App />, document.getElementById("app"));
 
+
+
 ReactDOM.render(
     <MuiThemeProvider>
-	<Main />
+	<GiftCard />
 	</MuiThemeProvider>, document.getElementById("app"));
+
