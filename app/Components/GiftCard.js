@@ -15,6 +15,8 @@ import ActionCardGiftCard from '../../node_modules/material-ui/svg-icons/action/
 // import FontIcon from 'material-ui/FontIcon';
 // import Avatar from '../../node_modules/material-ui/Avatar';
 import MobileTearSheet from '../MobileTearSheet';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 
 const iconStyles = {
 	
@@ -22,12 +24,35 @@ const iconStyles = {
 
 };
 
+const style = {
+  height: 36,
+  margin: 12,
+};
+
+const position = {
+  position: 'fixed',
+}
+
 
 const GiftCard = () => (
 	<div>
-  <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-    <AppBar title="My AppBar" />      
-  </MuiThemeProvider>
+  
+    <AppBar 
+    className="navvy"
+
+    style={position}
+
+    title="Gift Card Exchange"
+   
+    children={
+
+      <div>
+      <FlatButton  label="Log In" secondary  ={true} style={style.margin}/>
+      <RaisedButton label="Sign Up" secondary={true}  style={style} />
+     </div>
+  }
+   
+    />
  
   <header id="top" className="header"> 
     <div className="text-vertical-center">

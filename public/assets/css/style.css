@@ -14,16 +14,19 @@ select{
     font-weight: bold;
 }
 
+
+
 .header {
 	display: table;
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 500px;
     background: url(../images/header2.jpg) no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+   
 }
 
 #header1 {
