@@ -56,10 +56,13 @@ const GiftCard = () => (
  
   <header id="top" className="header"> 
     <div className="text-vertical-center">
-     <h1>GEt the Gift Card that You Want</h1>
-    
+     <div className="container">
+     <div className="col-md-12">
+     <h1 className="hatch">The Virtual Card Marketpace</h1>
+     </div>
+     </div>
 
-      <a href="#about" className="btn btn-dark btn-lg">Find Out More</a>
+  
     </div>
    </header>
 

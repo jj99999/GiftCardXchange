@@ -45345,14 +45345,17 @@
 	        'div',
 	        { className: 'text-vertical-center' },
 	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'GEt the Gift Card that You Want'
-	        ),
-	        _react2.default.createElement(
-	          'a',
-	          { href: '#about', className: 'btn btn-dark btn-lg' },
-	          'Find Out More'
+	          'div',
+	          { className: 'container' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'col-md-12' },
+	            _react2.default.createElement(
+	              'h1',
+	              { className: 'hatch' },
+	              'The Virtual Card Marketpace'
+	            )
+	          )
 	        )
 	      )
 	    ),
