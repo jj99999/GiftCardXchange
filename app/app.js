@@ -5,6 +5,17 @@ import MuiThemeProvider from '../node_modules/material-ui/styles/MuiThemeProvide
 import Main from './components/Main';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import GiftCard from './components/GiftCard';
+import { Router, Route, browserHistory } from 'react-router';
+import SignUp from './Components/SignUp';
+// import hashHistory from 'react-router';
+
+
+const routes = (
+	        <Router history={browserHistory}>
+            <Route path="/" component={GiftCard}/>
+            <Route path="/signup" component={SignUp} />
+            </Router>
+          );
 
 // var React = require('react');
 // var ReactDOM = require('react-dom');
@@ -28,7 +39,11 @@ injectTapEventPlugin();
 
 
 ReactDOM.render(
+    
     <MuiThemeProvider>
-	<GiftCard />
-	</MuiThemeProvider>, document.getElementById("app"));
+    <Router routes={routes} history={browserHistory} />
+	</MuiThemeProvider>
+	
+
+	, document.getElementById("app"));
 

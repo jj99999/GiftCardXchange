@@ -17,6 +17,7 @@ import ActionCardGiftCard from '../../node_modules/material-ui/svg-icons/action/
 import MobileTearSheet from '../MobileTearSheet';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import { Link } from 'react-router';
 
 const iconStyles = {
 	
@@ -47,8 +48,9 @@ const GiftCard = () => (
     children={
 
       <div>
-      <FlatButton  label="Log In" secondary  ={true} style={style.margin}/>
-      <RaisedButton label="Sign Up" secondary={true}  style={style} />
+      <FlatButton  label="Log In" secondary={true} style={style.margin}/>
+     <Link to="/signup"> <RaisedButton label="Sign Up" secondary={true}  style={style}  /></Link>
+     
      </div>
   }
    
