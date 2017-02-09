@@ -49,8 +49,8 @@ const GiftCard = () => (
 
       <div>
       <FlatButton  label="Log In" secondary={true} style={style.margin}/>
-     <Link to="/signup"> <RaisedButton label="Sign Up" secondary={true}  style={style}  /></Link>
-     
+      <Link to="/signup"> <RaisedButton label="Sign Up" secondary={true}  style={style}  /></Link>
+
      </div>
   }
    
