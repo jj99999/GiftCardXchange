@@ -29110,49 +29110,12 @@
 	  displayName: 'Main',
 
 	  getInitialState: function getInitialState() {
-	    return { userCards: [] };
+	    return { userCards: [], searchCardResults: [] };
 	  },
 
 	  setUser: function setUser(user) {
 	    this.setState({ userCards: user });
 	  },
-
-	  // setEmail: function(email){
-	  //   this.setState({email: email });
-	  // },
-	  //    return {
-
-	  //    cards: [{
-	  //    "StoreName": "Walmart",
-	  //    "CardBalance": "$100",
-	  //    "RedemptionCode": "123456789",
-	  //    "RemoveCard": "Blah"
-	  //  }, 
-	  // {
-	  //    "StoreName": "Lesbian Pottert",
-	  //    "CardBalance": "$200",
-	  //    "RedemptionCode": "987654321",
-	  //    "RemoveCard": "Blah"
-	  //  }, 
-	  // {
-	  //    "StoreName": "Home Depot",
-	  //    "CardBalance": "$100",
-	  //    "RedemptionCode": "337879657",
-	  //    "RemoveCard": "Blah"
-	  //  }, 
-	  // {
-	  //    "StoreName": "Apple",
-	  //    "CardBalance": "$50",
-	  //    "RedemptionCode": "657890234",
-	  //    "RemoveCard": "Blah"
-	  //  }, 
-	  //  {
-	  //    "StoreName": "StarBucks",
-	  //    "CardBalance": "$150",
-	  //    "RedemptionCode": "9318790562",
-	  //    "RemoveCard": "Blah"
-	  //  }] 
-	  //    }
 
 	  componentDidMount: function componentDidMount() {
 	    _helpers2.default.getUser().then(function (response) {
@@ -29167,9 +29130,6 @@
 	      console.log("MAIN getInventory");
 	      console.log(response.data);
 	      this.setState({ userCards: response.data });
-
-	      // userCard = response;
-	      // cookie.save('userCard', userCard);
 	    }.bind(this));
 	  },
 	  // Here we describe this component's render method
@@ -29188,7 +29148,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'col-md-6' },
-	          _react2.default.createElement(_Populate2.default, { cards: this.state.userCards })
+	          _react2.default.createElement(_Populate2.default, { cards: this.state.searchCardResults })
 	        )
 	      ),
 	      _react2.default.createElement(
@@ -31452,7 +31412,10 @@
 
 	  searchTradeCard: function searchTradeCard(req, res) {
 
-	    return axios.get('/searchtrade', function () {});
+	    return axios.get('/searchtrade', { Card: Card }).then(function (response) {
+	      console.log(response);
+	      return response;
+	    });
 	  }
 
 	};
@@ -43026,7 +42989,7 @@
 	    // preventing the form from trying to submit itself
 	    event.preventDefault();
 
-	    _helpers2.default.tradeCard();
+	    _helpers2.default.searchTradeCard();
 	  },
 
 	  // Here we render the function
@@ -43046,7 +43009,7 @@
 	        { className: 'panel-body', id: 'buycardbody' },
 	        _react2.default.createElement(
 	          'form',
-	          { action: '/trade' },
+	          null,
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'form-group' },
@@ -43128,7 +43091,7 @@
 	          ),
 	          _react2.default.createElement(
 	            'button',
-	            { type: 'submit', className: 'btn btn-primary', id: 'searchCardBtn' },
+	            { type: 'submit', className: 'btn btn-primary', id: 'searchCardBtn', onClick: this.handleClick },
 	            'Search for Card'
 	          )
 	        )
@@ -43236,10 +43199,14 @@
 	  displayName: 'Populate',
 
 
-	  renderCards: function renderCards() {
-	    // var cookieLoad = cookie.load('userCard');
-	    //   console.log("COOKIE LOAD OBJECT");
-	    //   console.log(cookieLoad);
+	  componentDidUpdate: function componentDidUpdate() {
+	    _helpers2.default.searchTradeCard().then(function (response) {
+	      console.log("in componentDidUpdate, run getInventory, response is " + response.data);
+	      this.setState({ searchCardResults: response.data });
+	    });
+	  },
+
+	  renderCardResults: function renderCardResults() {
 
 	    return this.props.cards.map(function (card, i, e, o, u) {
 
@@ -43268,17 +43235,6 @@
 	      );
 	    });
 	  },
-
-	  // renderContainer: function(){
-	  //   return(
-
-
-	  //     {this.renderCards()}
-
-
-	  //     )
-	  // },
-
 
 	  render: function render() {
 
@@ -43336,7 +43292,7 @@
 	            _react2.default.createElement(
 	              'tbody',
 	              null,
-	              this.renderCards()
+	              this.renderCardResults()
 	            )
 	          )
 	        )
@@ -52423,7 +52379,10 @@
 
 	  searchTradeCard: function searchTradeCard(req, res) {
 
-	    return axios.get('/searchtrade', function () {});
+	    return axios.get('/searchtrade', { Card: Card }).then(function (response) {
+	      console.log(response);
+	      return response;
+	    });
 	  }
 
 	};

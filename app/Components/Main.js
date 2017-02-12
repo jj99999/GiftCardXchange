@@ -24,49 +24,16 @@ import { RadioButton, RadioButtonGroup } from '../../node_modules/material-ui/Ra
 // This is the main component
 var Main = React.createClass({
  getInitialState: function() {
-    return { userCards: []};
+    return { userCards: [], searchCardResults: []};
+
   },
 
    setUser: function(user) {
     this.setState({ userCards: user});
   },
 
-// setEmail: function(email){
-//   this.setState({email: email });
-// },
- //    return {
-    
- //    cards: [{
- //    "StoreName": "Walmart",
- //    "CardBalance": "$100",
- //    "RedemptionCode": "123456789",
- //    "RemoveCard": "Blah"
- //  }, 
- // {
- //    "StoreName": "Lesbian Pottert",
- //    "CardBalance": "$200",
- //    "RedemptionCode": "987654321",
- //    "RemoveCard": "Blah"
- //  }, 
- // {
- //    "StoreName": "Home Depot",
- //    "CardBalance": "$100",
- //    "RedemptionCode": "337879657",
- //    "RemoveCard": "Blah"
- //  }, 
- // {
- //    "StoreName": "Apple",
- //    "CardBalance": "$50",
- //    "RedemptionCode": "657890234",
- //    "RemoveCard": "Blah"
- //  }, 
- //  {
- //    "StoreName": "StarBucks",
- //    "CardBalance": "$150",
- //    "RedemptionCode": "9318790562",
- //    "RemoveCard": "Blah"
- //  }] 
- //    }
+
+ 
    
   componentDidMount: function(){
    helpers.getUser().then(function(response){
@@ -82,10 +49,9 @@ console.log("MAIN getInventory");
 console.log(response.data);
 this.setState({ userCards : response.data });
 
+
        
 
-// userCard = response;
-// cookie.save('userCard', userCard);
 }.bind(this));
    
   },
@@ -99,7 +65,7 @@ this.setState({ userCards : response.data });
            </div> 
           <div className="col-md-6">
 
-           <Populate cards={this.state.userCards}/>
+           <Populate cards={this.state.searchCardResults}/>
           </div>
         </div>
 

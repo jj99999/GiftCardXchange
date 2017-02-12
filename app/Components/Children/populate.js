@@ -23,10 +23,16 @@ const iconStyle = {
 // This is the form component. 
 var Populate = React.createClass({
 
-renderCards: function(){
-  // var cookieLoad = cookie.load('userCard');
-  //   console.log("COOKIE LOAD OBJECT");
-  //   console.log(cookieLoad);
+componentDidUpdate: function(){
+  helpers.searchTradeCard().then(function(response){
+    console.log("in componentDidUpdate, run getInventory, response is "+response.data);
+    this.setState({ searchCardResults: response.data });
+
+  });
+
+},  
+
+renderCardResults: function(){
 
   return this.props.cards.map(function(card,i,e,o,u){
   
@@ -48,17 +54,6 @@ renderCards: function(){
     });
 },
 
-// renderContainer: function(){
-//   return(
-
-   
-//     {this.renderCards()}
-  
-
-  
-
-//     )
-// },
 
 
   
@@ -95,7 +90,7 @@ renderCards: function(){
               </thead>
         
             <tbody>
-                {this.renderCards()}
+                {this.renderCardResults()}
             </tbody>
           </table>
 

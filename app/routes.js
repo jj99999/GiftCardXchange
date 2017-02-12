@@ -160,9 +160,8 @@ module.exports = function(app, passport) {
 
         console.log("the store cookie is "+storeSearch);
 
-        Card.find({"storeName" : storeSearch}, function(err, cards) {
-            if (err)
-            return (err);
+        Card.find({"storeName" : storeSearch}, function(response, cards) {
+
             response.json(cards);
 
 

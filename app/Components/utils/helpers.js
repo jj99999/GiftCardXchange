@@ -61,7 +61,9 @@ getUser: function(){
 
   searchTradeCard: function(req, res){
 
-    return axios.get('/searchtrade', function(){
+    return axios.get('/searchtrade', {Card: Card}).then(function(response){
+      console.log(response);
+      return response;
     
     });
   }

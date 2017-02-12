@@ -55,7 +55,7 @@ var SearchCard  = React.createClass({
     // preventing the form from trying to submit itself
     event.preventDefault();
    
-    helpers.tradeCard();
+    helpers.searchTradeCard();
   
 
   },
@@ -77,7 +77,7 @@ var SearchCard  = React.createClass({
               <div className="panel-body" id="buycardbody">
   
 
-              <form action="/trade">
+              <form>
                   <div className="form-group">
                       <label htmlFor="">Store Name</label>
                       <br />
@@ -103,8 +103,7 @@ var SearchCard  = React.createClass({
                       </div>
 
                       
-                      <button type="submit" className="btn btn-primary" id="searchCardBtn">Search for Card</button>
-
+                      <button type="submit" className="btn btn-primary" id="searchCardBtn" onClick={this.handleClick}>Search for Card</button>
 
               </form>
 
