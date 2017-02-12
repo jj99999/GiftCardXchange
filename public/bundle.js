@@ -43273,7 +43273,7 @@
 	            { className: 'col-lg-12 col-md-12 col-sm-12 col-xs-12', id: 'tablepopulate' },
 	            _react2.default.createElement(
 	              'thead',
-	              null,
+	              { id: 'populatethead' },
 	              _react2.default.createElement(
 	                'tr',
 	                null,
@@ -43392,16 +43392,52 @@
 
 	'use strict';
 
-	var React = __webpack_require__(1);
-	var axios = __webpack_require__(329);
-	var cookie = __webpack_require__(354);
-	var userCard;
-	// var Card = require('../../models/card');
+	var _react = __webpack_require__(1);
 
-	var helpers = __webpack_require__(356);
+	var _react2 = _interopRequireDefault(_react);
+
+	var _axios = __webpack_require__(329);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _reactCookie = __webpack_require__(354);
+
+	var _reactCookie2 = _interopRequireDefault(_reactCookie);
+
+	var _cardGiftcard = __webpack_require__(446);
+
+	var _cardGiftcard2 = _interopRequireDefault(_cardGiftcard);
+
+	var _AppBar = __webpack_require__(437);
+
+	var _AppBar2 = _interopRequireDefault(_AppBar);
+
+	var _cardMembership = __webpack_require__(450);
+
+	var _cardMembership2 = _interopRequireDefault(_cardMembership);
+
+	var _helpers = __webpack_require__(356);
+
+	var _helpers2 = _interopRequireDefault(_helpers);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var iconStyle = {
+	  color: 'white',
+	  margin: 11
+	};
 
 	// This is the form component. 
-	var Inventory = React.createClass({
+
+	// var userCard;
+	// var Card = require('../../models/card');
+
+	// var helpers = require("../utils/helpers");
+	// var React = require('react');
+	// var axios = require('axios');
+	// var cookie = require('react-cookie');
+
+	var Inventory = _react2.default.createClass({
 	  displayName: 'Inventory',
 
 
@@ -43412,35 +43448,26 @@
 
 	    return this.props.cards.map(function (card, i, e, o, u) {
 
-	      return React.createElement(
+	      return _react2.default.createElement(
 	        'tr',
 	        { className: 'panel', key: i },
-	        React.createElement(
+	        _react2.default.createElement(
 	          'td',
 	          { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4', key: e },
-	          React.createElement(
+	          _react2.default.createElement(
 	            'h4',
 	            null,
 	            card.storeName
 	          )
 	        ),
-	        React.createElement(
+	        _react2.default.createElement(
 	          'td',
 	          { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4', key: o },
-	          React.createElement(
+	          _react2.default.createElement(
 	            'h4',
 	            null,
 	            '$',
 	            card.cardBalance
-	          )
-	        ),
-	        React.createElement(
-	          'td',
-	          { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4', key: u },
-	          React.createElement(
-	            'h4',
-	            null,
-	            card.redeemCode
 	          )
 	        )
 	      );
@@ -43460,83 +43487,60 @@
 
 	  render: function render() {
 
-	    return React.createElement(
+	    return _react2.default.createElement(
 	      'div',
 	      { className: 'panel panel-primary', id: 'panel' },
-	      React.createElement(
-	        'div',
-	        { className: 'panel-heading', id: 'panelhead' },
-	        React.createElement(
-	          'div',
-	          { className: 'row' },
-	          React.createElement('div', { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4' }),
-	          React.createElement(
-	            'div',
-	            { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4' },
-	            React.createElement(
-	              'h2',
-	              { className: 'panel-title', id: 'giftcardinventory' },
-	              React.createElement(
-	                'center',
-	                null,
-	                React.createElement(
-	                  'b',
-	                  null,
-	                  'Your Gift Card Inventory'
-	                )
-	              )
-	            )
-	          ),
-	          React.createElement('div', { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4' })
-	        )
-	      ),
-	      React.createElement(
+	      _react2.default.createElement(_AppBar2.default, {
+
+	        iconElementLeft: _react2.default.createElement(_cardMembership2.default, { style: iconStyle }),
+
+	        title: 'Your Cards'
+	      }),
+	      _react2.default.createElement(
 	        'div',
 	        { className: 'row' },
-	        React.createElement(
+	        _react2.default.createElement('div', { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4' }),
+	        _react2.default.createElement('div', { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4' }),
+	        _react2.default.createElement('div', { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4' })
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'row' },
+	        _react2.default.createElement(
 	          'div',
 	          { className: 'col-lg-12 col-md-12 col-sm-12 col-xs-12' },
-	          React.createElement(
+	          _react2.default.createElement(
 	            'table',
-	            { className: 'col-lg-12 col-md-12 col-sm-12 col-xs-12' },
-	            React.createElement(
+	            { className: 'col-lg-12 col-md-12 col-sm-12 col-xs-12', id: 'tableall' },
+	            _react2.default.createElement(
 	              'thead',
 	              null,
-	              React.createElement(
+	              _react2.default.createElement(
 	                'tr',
 	                null,
-	                React.createElement(
+	                _react2.default.createElement(
 	                  'th',
 	                  null,
-	                  React.createElement(
+	                  _react2.default.createElement(
 	                    'h3',
 	                    null,
 	                    'Store Name'
 	                  )
 	                ),
-	                React.createElement(
+	                _react2.default.createElement(
 	                  'th',
 	                  null,
-	                  React.createElement(
+	                  _react2.default.createElement(
 	                    'h3',
 	                    null,
 	                    'Gift Card Balance'
 	                  )
-	                ),
-	                React.createElement(
-	                  'th',
-	                  null,
-	                  React.createElement(
-	                    'h3',
-	                    null,
-	                    'Redemption Code'
-	                  )
 	                )
 	              )
 	            ),
-	            React.createElement(
+	            _react2.default.createElement(
 	              'tbody',
-	              null,
+	              { id: 'tablebody' },
 	              this.renderCards()
 	            )
 	          )
