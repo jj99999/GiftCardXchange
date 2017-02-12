@@ -7,6 +7,7 @@
 import React, {Component} from 'react';
 import AddCard from './Children/AddCard'
 import SearchCard from './Children/SearchCard'
+import Populate from './Children/Populate'
 import Inventory from './Children/Inventory'
 import cookie from 'react-cookie'
 import helpers from './utils/helpers'
@@ -93,9 +94,13 @@ this.setState({ userCards : response.data });
     return (
       <div className="container" id="screen2">
         <div className="row">
-          <div className="col-md-12">
+          <div className="col-md-6">
             <Inventory cards={this.state.userCards}/>
            </div> 
+          <div className="col-md-6">
+
+           <Populate cards={this.state.userCards}/>
+          </div>
         </div>
 
         <div className="row">

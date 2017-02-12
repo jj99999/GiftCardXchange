@@ -7,7 +7,7 @@ var userCard;
 var helpers = require("../utils/helpers");
 
 // This is the form component. 
-var Inventory = React.createClass({
+var Populate = React.createClass({
 
 renderCards: function(){
   // var cookieLoad = cookie.load('userCard');
@@ -58,7 +58,7 @@ renderCards: function(){
           <div className="row">
             <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
             <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <h2 className="panel-title" id="giftcardinventory"><center><b>Your Gift Card Inventory</b></center></h2>
+              <h2 className="panel-title" id="giftcardinventory"><center><b>Choose your Gift Card</b></center></h2>
             </div>
             <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
           </div>
@@ -95,4 +95,4 @@ renderCards: function(){
 });
 
 
-module.exports = Inventory;
+module.exports = Populate;

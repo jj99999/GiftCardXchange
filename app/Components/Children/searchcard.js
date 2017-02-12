@@ -42,7 +42,7 @@ var SearchCard  = React.createClass({
 
         <div className="panel panel-primary" id="searchcard">
               <div className="panel-heading" id="searchcardhead">
-                  <h3 className="panel-title"><b>Search for Gift Cards to trade!</b></h3>
+                  <h3 className="panel-title"><b>What type of gift card are you looking for?</b></h3>
               </div>
               <div className="panel-body" id="buycardbody">
   
