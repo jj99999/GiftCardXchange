@@ -1,9 +1,66 @@
 // Include the Main React Dependencies
-var React = require("react");
-var ReactDOM = require("react-dom");
+import React from 'react';
+import ReactDOM from 'react-dom';
+import MuiThemeProvider from '../node_modules/material-ui/styles/MuiThemeProvider';
+import Main from './components/Main';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import GiftCard from './components/GiftCard';
+import { Router, Route, browserHistory } from 'react-router';
+import SignUp from './Components/SignUp';
+// import hashHistory from 'react-router';
+import helpers from './Components/utils/helpers';
 
-// Include the Main Component
-var Main = require("./components/Main");
+const routes = (
+	        <Router history={browserHistory}>
+            <Route path="/" component={GiftCard}/>
+            <Route path="/signup" component={SignUp} />
+            <Route path="/myaccount" component={Main} />
+            </Router>
+          );
+
+
+   
+
+ helpers.getUser().then(function(response){
+ console.log("APPJS user");
+ console.log(response);
+    
+
+
+
+
+
+   }.bind(this));
+
+// var React = require('react');
+// var ReactDOM = require('react-dom');
+// var MuiThemeProvider = require('../node_modules/material-ui/styles/MuiThemeProvider');
+// var Main = require('./components/Main');
+// var injectTapEventPlugin = require('react-tap-event-plugin');
+
+injectTapEventPlugin();
 
 // This code here allows us to render our main component (in this case Main)
-ReactDOM.render(<Main />, document.getElementById("app"));
+
+//   const App = () => (
+//   <MuiThemeProvider>
+//     <Main />
+//   </MuiThemeProvider>
+// );
+
+
+// ReactDOM.render(<App />, document.getElementById("app"));
+
+
+
+ReactDOM.render(
+
+
+    
+    <MuiThemeProvider>
+    <Router routes={routes} history={browserHistory} />
+	</MuiThemeProvider>
+	
+
+	, document.getElementById("app"));
+

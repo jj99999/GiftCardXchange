@@ -32,6 +32,7 @@
     "express-sessions": "^1.0.6",
     "install": "^0.8.4",
     "logger": "^0.0.1",
+    "material-ui": "^0.16.7",
     "method-override": "^2.3.7",
     "mongoose": "^4.7.7",
     "morgan": "^1.7.0",
@@ -44,6 +45,7 @@
     "react-addons-create-fragment": "^15.4.2",
     "react-cookie": "^1.0.4",
     "react-dom": "^15.4.2",
+    "react-tap-event-plugin": "^2.0.1",
     "request": "^2.79.0",
     "serve-favicon": "^2.3.2",
     "webpack": "^1.14.0"
