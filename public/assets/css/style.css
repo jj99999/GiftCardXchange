@@ -29,6 +29,10 @@ select{
    
 }
 
+#addcardbody{
+	background-color: white;
+}
+
 #header1 {
 	height:350px;
 	background-image:url("../images/logo.png");
@@ -206,7 +210,7 @@ label{
 }
 
 #addcard, #searchcard, #alerts {
-	height:400px;
+	height:292px;
 }
 
 #row12 {
