@@ -24,7 +24,7 @@ const routes = (
    
 
  helpers.getUser().then(function(response){
- console.log("APPJS user");
+ // console.log("APPJS user");
  console.log(response);
     
 

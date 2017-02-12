@@ -43,7 +43,7 @@ getUser: function(){
   return axios.get("/getcard", {Card: Card}).then(function(response){
     // console.log("INVENTORY USER EMAIL")
    
-       console.log("GETINVENTORY RESPONSE");
+       // console.log("GETINVENTORY RESPONSE");
        // console.log(response);
        return response;
   });
@@ -58,11 +58,9 @@ getUser: function(){
  	  });
   },
 
-  tradeCard: function(req, res){
-    console.log("tradeCard running");
-    // res.sendFile('trade.html', { root: "public" });
+  searchTradeCard: function(req, res){
 
-    return axios.get('/trade', function(){
+    return axios.get('/searchtrade', function(){
     
     });
   }
