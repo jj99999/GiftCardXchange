@@ -22,7 +22,7 @@ import { Link } from 'react-router';
 const iconStyles = {
   
     color: 'white',
-
+    margin: 11,
 };
 
 const style = {

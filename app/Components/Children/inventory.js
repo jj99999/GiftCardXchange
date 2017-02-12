@@ -1,10 +1,23 @@
-var React = require('react');
-var axios = require('axios');
-var cookie = require('react-cookie');
-var userCard;
+// var React = require('react');
+// var axios = require('axios');
+// var cookie = require('react-cookie');
+
+import React from 'react';
+import axios from 'axios';
+import cookie from 'react-cookie';
+import ActionCardGiftCard from '../../../node_modules/material-ui/svg-icons/action/card-giftcard';
+import AppBar from '../../../node_modules/material-ui/AppBar';
+import CardMembersehip from '../../../node_modules/material-ui/svg-icons/action/card-membership';
+// var userCard;
 // var Card = require('../../models/card');
 
-var helpers = require("../utils/helpers");
+// var helpers = require("../utils/helpers");
+import helpers from "../utils/helpers";
+
+const iconStyle = {
+  color: 'white',
+  margin: 11,
+}
 
 // This is the form component. 
 var Inventory = React.createClass({
@@ -54,20 +67,25 @@ renderCards: function(){
 
        <div className="panel panel-primary" id="panel">
         
-        <div className="panel-heading" id="panelhead">
+        <AppBar
+
+    iconElementLeft={<CardMembersehip style={iconStyle} />}
+
+    title="Your Cards"
+  />
           <div className="row">
             <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
             <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <h2 className="panel-title" id="giftcardinventory"><center><b>Your Gift Card Inventory</b></center></h2>
+             
             </div>
             <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
           </div>
-        </div>
+        
         
         <div className="row">
         
         <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <table className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <table className="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="tableall">
               <thead>
               <tr>
                   <th><h3>Store Name</h3></th>
@@ -75,7 +93,7 @@ renderCards: function(){
               </tr>
               </thead>
         
-            <tbody>
+            <tbody id="tablebody">
                 {this.renderCards()}
             </tbody>
           </table>

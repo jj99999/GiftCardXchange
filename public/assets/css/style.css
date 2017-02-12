@@ -37,6 +37,18 @@ select{
 	margin-bottom:40px;
 }
 
+#tableall {
+	background-color: white;
+	color: black;
+}
+
+#tablebody {
+	background-color: white;
+}
+
+#tablepopulate{
+	color: black;
+}
 
 #services {
 	background-color: white;
@@ -54,7 +66,15 @@ h4 {
 	line-height: 1.5;
 }
 
+#addcardbody {
 
+  background-color: white;
+
+}
+
+.panel {
+	background-color: white;
+}
 
 #row1 {
 	height:120px;
@@ -186,7 +206,7 @@ fieldset{
 }
 
 #panel, #addcard, #searchcard, #alerts, #searchresults {
-	background-color:teal;
+	background-color: white;
 	opacity:0.8;
 }
 
@@ -208,7 +228,7 @@ label{
 }
 
 #addcard, #searchcard, #alerts {
-	height:400px;
+	height:292px;
 }
 
 #row12 {

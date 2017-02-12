@@ -14,7 +14,8 @@ import AppBar from '../../../node_modules/material-ui/AppBar';
 import FontIcon from '../../../node_modules/material-ui/FontIcon';
 import {red500, yellow500, blue500} from '../../../node_modules/material-ui/styles/colors';
 import { RadioButton, RadioButtonGroup } from '../../../node_modules/material-ui/RadioButton'
- 
+import ActionCardGiftCard from '../../../node_modules/material-ui/svg-icons/action/card-giftcard';
+
 
 // var AddCard = React.createClass({
 
@@ -34,11 +35,7 @@ import { RadioButton, RadioButtonGroup } from '../../../node_modules/material-ui
 //   },
 
 
-//   handleCardBalanceChange: function(e){
-//         // console.log(e.target.value);
-//     // console.log(e);
-//     this.setState({cardBalance: e.target.value});
-//   },
+  
 
 
 //   handleRedeemCodeChange: function(e){
@@ -152,7 +149,11 @@ import { RadioButton, RadioButtonGroup } from '../../../node_modules/material-ui
 //   }
 // });
 
+const giftIcon = {
 
+  color: 'white',
+  margin: 11,
+}
 
 // Export the component back for use in other files
 // module.exports = AddCard;
@@ -181,6 +182,9 @@ render: function(){
 
 <div class="panel panel-primary" id="addcard">
 <AppBar
+
+    iconElementLeft={<ActionCardGiftCard style={giftIcon} />}
+
     title="Add Gift Card"
   />
 
