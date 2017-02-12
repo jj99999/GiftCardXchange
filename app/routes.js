@@ -152,7 +152,7 @@ module.exports = function(app, passport) {
     // =====================================
     // SEARCH FOR CARDS TO TRADE WITH route
     // =====================================
-    app.get('/searchtrade', function(req, response, error){
+    app.get('/searchtrade', function(req, res, error){
 
         console.log("/searchtrade route running");
 
@@ -162,7 +162,7 @@ module.exports = function(app, passport) {
 
         Card.find({"storeName" : storeSearch}, function(response, cards) {
 
-            response.json(cards);
+            res.json(cards);
 
 
           // var searchResultsCards = response.json(cards);
