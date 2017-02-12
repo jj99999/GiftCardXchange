@@ -6,11 +6,11 @@ var tonto = document.createElement('audio');
 $(document).ready(function(){
 
 
-	tonto.play();
-	tonto.addEventListener('ended', function() {
-   		this.currentTime = 0;
-    	this.play();
-		}, false);
+	// tonto.play();
+	// tonto.addEventListener('ended', function() {
+ //   		this.currentTime = 0;
+ //    	this.play();
+	// 	}, false);
 
 
 });
