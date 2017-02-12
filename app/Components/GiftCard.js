@@ -20,7 +20,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { Link } from 'react-router';
 
 const iconStyles = {
-	
+  
     color: 'white',
 
 };
@@ -36,7 +36,7 @@ const position = {
 
 
 const GiftCard = () => (
-	<div>
+  <div>
   
     <AppBar 
     className="navvy"
@@ -48,7 +48,7 @@ const GiftCard = () => (
     children={
 
       <div>
-      <FlatButton  label="Log In" secondary={true} style={style.margin}/>
+      <Link to="/loginPage"><FlatButton  label="Log In" secondary={true} style={style.margin}/></Link>
       <Link to="/signup"> <RaisedButton label="Sign Up" secondary={true}  style={style}  /></Link>
 
      </div>

@@ -7,6 +7,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import GiftCard from './components/GiftCard';
 import { Router, Route, browserHistory } from 'react-router';
 import SignUp from './Components/SignUp';
+import LogIn from './Components/LogIn';
 // import hashHistory from 'react-router';
 import helpers from './Components/utils/helpers';
 
@@ -15,6 +16,7 @@ const routes = (
             <Route path="/" component={GiftCard}/>
             <Route path="/signup" component={SignUp} />
             <Route path="/myaccount" component={Main} />
+            <Route path="/loginPage" component={LogIn} />
             </Router>
           );
 

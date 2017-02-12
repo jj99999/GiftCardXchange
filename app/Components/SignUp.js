@@ -39,11 +39,6 @@ const SignUp = () => (
 
 
 
-=======
- <Card className="container">
- <form className="create-form" action="/signup" method="POST">
-
-
 <div className="row">
  <div className="col-md-4">
 

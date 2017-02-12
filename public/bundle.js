@@ -76,21 +76,26 @@
 
 	var _SignUp2 = _interopRequireDefault(_SignUp);
 
-	var _helpers = __webpack_require__(535);
+	var _LogIn = __webpack_require__(535);
+
+	var _LogIn2 = _interopRequireDefault(_LogIn);
+
+	var _helpers = __webpack_require__(536);
 
 	var _helpers2 = _interopRequireDefault(_helpers);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	// Include the Main React Dependencies
 	var routes = _react2.default.createElement(
 	   _reactRouter.Router,
 	   { history: _reactRouter.browserHistory },
 	   _react2.default.createElement(_reactRouter.Route, { path: '/', component: _GiftCard2.default }),
 	   _react2.default.createElement(_reactRouter.Route, { path: '/signup', component: _SignUp2.default }),
-	   _react2.default.createElement(_reactRouter.Route, { path: '/myaccount', component: _Main2.default })
+	   _react2.default.createElement(_reactRouter.Route, { path: '/myaccount', component: _Main2.default }),
+	   _react2.default.createElement(_reactRouter.Route, { path: '/loginPage', component: _LogIn2.default })
 	);
 	// import hashHistory from 'react-router';
-	// Include the Main React Dependencies
 
 
 	_helpers2.default.getUser().then(function (response) {
@@ -43675,7 +43680,11 @@
 	      children: _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_FlatButton2.default, { label: 'Log In', secondary: true, style: style.margin }),
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/loginPage' },
+	          _react2.default.createElement(_FlatButton2.default, { label: 'Log In', secondary: true, style: style.margin })
+	        ),
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: '/signup' },
@@ -50500,6 +50509,16 @@
 	            'div',
 	            { className: 'button-line' },
 	            _react2.default.createElement(_RaisedButton2.default, { type: 'submit', label: 'Create New Account', primary: true })
+	          ),
+	          _react2.default.createElement(
+	            _Card.CardText,
+	            null,
+	            'Already have an account? ',
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: '/login' },
+	              'Log in'
+	            )
 	          )
 	        ),
 	        _react2.default.createElement('div', { className: 'col-md-4' })
@@ -51826,6 +51845,133 @@
 
 /***/ },
 /* 535 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _darkBaseTheme = __webpack_require__(455);
+
+	var _darkBaseTheme2 = _interopRequireDefault(_darkBaseTheme);
+
+	var _MuiThemeProvider = __webpack_require__(178);
+
+	var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
+
+	var _getMuiTheme = __webpack_require__(265);
+
+	var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
+
+	var _List = __webpack_require__(458);
+
+	var _Subheader = __webpack_require__(387);
+
+	var _Subheader2 = _interopRequireDefault(_Subheader);
+
+	var _Divider = __webpack_require__(435);
+
+	var _Divider2 = _interopRequireDefault(_Divider);
+
+	var _FlatButton = __webpack_require__(465);
+
+	var _FlatButton2 = _interopRequireDefault(_FlatButton);
+
+	var _RaisedButton = __webpack_require__(468);
+
+	var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
+
+	var _reactRouter = __webpack_require__(470);
+
+	var _Card = __webpack_require__(525);
+
+	var _TextField = __webpack_require__(367);
+
+	var _TextField2 = _interopRequireDefault(_TextField);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// import AppBar from '../../node_modules/material-ui/AppBar';
+	// // import MobileTearSheet from '../../node_modules/material-ui/MobileTearSheet';
+	// import Avatar from '../../node_modules/material-ui/Avatar';
+	var style = {
+
+	  color: 'teal',
+	  marginRight: 98
+	};
+	// import CommunicationChatBubble from '../../node_modules/material-ui/svg-icons/communication/chat-bubble';
+	// import ActionSwapHoriz from '../../node_modules/material-ui/svg-icons/action/swap-horiz';
+	// import ActionSwapVert from '../../node_modules/material-ui/svg-icons/action/swap-vert';
+	// import ActionCardGiftCard from '../../node_modules/material-ui/svg-icons/action/card-giftcard';
+	// // import FontIcon from 'material-ui/FontIcon';
+	// // import Avatar from '../../node_modules/material-ui/Avatar';
+	// import MobileTearSheet from '../MobileTearSheet';
+
+
+	var LogIn = function LogIn() {
+	  return _react2.default.createElement(
+	    _Card.Card,
+	    { className: 'container' },
+	    _react2.default.createElement(
+	      'form',
+	      { className: 'create-form', action: '/login', method: 'POST' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'row' },
+	        _react2.default.createElement('div', { className: 'col-md-4' }),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'col-md-4' },
+	          _react2.default.createElement(
+	            'h1',
+	            { className: 'card-heading', style: style },
+	            'Login In'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'field-line' },
+	            _react2.default.createElement(_TextField2.default, {
+	              floatingLabelText: 'Email',
+	              name: 'email'
+	              // errorText={errors.email}
+	              // onChange={onChange}
+	              // value={user.email}
+	            })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'field-line' },
+	            _react2.default.createElement(_TextField2.default, {
+	              floatingLabelText: 'Password',
+	              type: 'password',
+	              name: 'password'
+	              // onChange={onChange}
+	              // errorText={errors.password}
+	              // value={user.password}
+	            })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'button-line' },
+	            _react2.default.createElement(_RaisedButton2.default, { type: 'submit', label: 'Log In', primary: true })
+	          )
+	        ),
+	        _react2.default.createElement('div', { className: 'col-md-4' })
+	      )
+	    )
+	  );
+	};
+
+	exports.default = LogIn;
+
+/***/ },
+/* 536 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
