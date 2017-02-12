@@ -87,7 +87,7 @@ renderCards: function(){
         
         <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <table className="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="tablepopulate">
-              <thead>
+              <thead id="populatethead">
               <tr>
                   <th><h3>Store Name</h3></th>
                   <th><h3>Gift Card Balance</h3></th>

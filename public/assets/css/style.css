@@ -33,6 +33,7 @@ select{
 	background-color: white;
 }
 
+
 #header1 {
 	height:350px;
 	background-image:url("../images/logo.png");
@@ -41,6 +42,20 @@ select{
 	margin-bottom:40px;
 }
 
+.panel {
+	background-color: white;
+	color: black;
+}
+
+#tableall {
+	background-color: white;
+	color: black;
+}
+
+#populatethead{
+	background-color: white; 
+	color: black;	
+}
 
 #services {
 	background-color: white;
@@ -193,7 +208,7 @@ fieldset{
 }
 
 #panelhead, #addcardhead, #addCardBtn, #searchCardBtn, #searchcardhead, #alertshead, #searchhead, #offercard {
-	background-color:#1f3b72;
+	background-color: white;
 }
 
 #field1, #field2, #field3, #field4 {
