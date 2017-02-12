@@ -115,23 +115,20 @@ module.exports = function(app, passport) {
     app.get('/getcard', function(req, res){
      // email = cookie.load('email');
 
-     console.log("ROUTES");
-     console.log(req.cookies.email);
+     // console.log(req.cookies.email);
 
      var userEmail = req.cookies.email;
 
       Card.find({"email" : userEmail}, function(response, cards) {
-          console.log("CARD RESPONSE");
-          console.log(response);
+          // console.log("CARD RESPONSE");
+          // console.log(response);
 
           
 
           var myCards = res.json(cards);
 
 
-          // cookie.save('myCards', myCards);
 
-        // var cookieLoad = cookie.load('myCards');
            
       });
          
@@ -153,13 +150,28 @@ module.exports = function(app, passport) {
 
 
     // =====================================
-    // TRADECARDS route
+    // SEARCH FOR CARDS TO TRADE WITH route
     // =====================================
-    app.get('/trade', function(req, res){
-        res.sendFile('trade.html', { root: "public" });
+    app.get('/searchtrade', function(req, response, error){
 
+        console.log("/searchtrade route running");
+
+        var storeSearch = req.cookies.storesearch;
+
+        console.log("the store cookie is "+storeSearch);
+
+        Card.find({"storeName" : storeSearch}, function(err, cards) {
+            if (err)
+            return (err);
+            response.json(cards);
+
+
+          // var searchResultsCards = response.json(cards);
+          // console.log(json(searchResultsCards));
+
+        });
     });
-
+      
 };
 
 

@@ -77,8 +77,8 @@ var Main = React.createClass({
    }.bind(this));
 
    helpers.getInventory().then(function(response){
-console.log("MAIN getInventory");
-console.log(response.data);
+// console.log("MAIN getInventory");
+// console.log(response.data);
 this.setState({ userCards : response.data });
 
        

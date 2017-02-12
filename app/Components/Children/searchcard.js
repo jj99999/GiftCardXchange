@@ -1,7 +1,10 @@
 var React = require('react');
 var axios = require('axios');
 
+var cookie = require('react-cookie');
+
 var helpers = require("../utils/helpers");
+
 
 // This is the form component. 
 var SearchCard  = React.createClass({
@@ -11,29 +14,36 @@ var SearchCard  = React.createClass({
 
   },
 
+  handleStoreNameChange: function(e){
+    console.log(e.target.value);
 
-  // This function will respond to the user input 
-  // handleChange: function(event){
+    var storeSearch = document.getElementById("storeSearch").value;
+    console.log("storeSearch is "+storeSearch);
 
-  //     // Here we create syntax to capture any change in text to the query terms (pre-search).
-  //     // See this Stack Overflow answer for more details: 
-  //     // http://stackoverflow.com/questions/21029999/react-js-identifying-different-inputs-with-one-onchange-handler
-  //     var newState = {};
-  //     newState[event.target.id] = event.target.value;
-  //     this.setState(newState);
+    cookie.save('storesearch', storeSearch);
 
-  // },
+    // console.log("cookie save is running");
+    var storesearchcookie = cookie.load('storesearch');
+
+    console.log("the store cookie is "+storesearchcookie);
+
+
+  },
+
 
   // When a user submits... 
   handleClick: function(){
 
     // preventing the form from trying to submit itself
     event.preventDefault();
-   
-    helpers.tradeCard();
-  
 
+    helpers.searchTradeCard();
+
+    // return storesearch;   
+    
   },
+
+
 
   // Here we render the function
   render: function(){
@@ -47,33 +57,34 @@ var SearchCard  = React.createClass({
               <div className="panel-body" id="buycardbody">
   
 
-              <form action="/trade">
+              <form>
                   <div className="form-group">
                       <label htmlFor="">Store Name</label>
                       <br />
-                      <select>
-                        <option value="banana-republic">Banana Republic</option>
-                        <option value="barnes-and-noble">Barnes & Noble</option>
-                        <option value="best-buy">Best Buy</option>
-                        <option value="buffalo-wild-wings">Buffalo Wild Wings</option>
-                        <option value="gap">GAP</option>
-                        <option value="home-depot">Home Depot</option> 
-                        <option value="macys">Macy's</option>
-                        <option value="panera-bread">Panera Bread</option>
-                        <option value="starbucks">Starbucks</option>
-                        <option value="target">Target</option>
-                        <option value="walmart">Walmart</option>
+                      <select id="storeSearch" onChange={this.handleStoreNameChange}>
+                        <option selected value=""></option>
+                        <option value="Banana Republic">Banana Republic</option>
+                        <option value="Barnes & Noble">Barnes & Noble</option>
+                        <option value="Best Buy">Best Buy</option>
+                        <option value="Buffalo Wild Wings">Buffalo Wild Wings</option>
+                        <option value="Gap">GAP</option>
+                        <option value="Home Depot">Home Depot</option> 
+                        <option value="Macy's">Macy's</option>
+                        <option value="Panera Bread">Panera Bread</option>
+                        <option value="Starbucks">Starbucks</option>
+                        <option value="Target">Target</option>
+                        <option value="Walmart">Walmart</option>
                       </select> 
   
                       </div>
 
                       <div className="form-group">
                       <label htmlFor="">Up To What Amount?</label>
-                      <input type="text" className="form-control" id="searchBalanceInput" placeholder="20.00"></input>
+                      <input type="text" className="form-control" id="searchBalanceInput" placeholder="$20"></input>
                       </div>
 
                       
-                      <button type="submit" className="btn btn-primary" id="searchCardBtn">Search for Card</button>
+                      <button type="submit" className="btn btn-primary" id="searchCardBtn" onClick={this.handleClick}>Search for Card</button>
 
 
               </form>

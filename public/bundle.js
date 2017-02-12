@@ -99,7 +99,7 @@
 
 
 	_helpers2.default.getUser().then(function (response) {
-	   console.log("APPJS user");
+	   // console.log("APPJS user");
 	   console.log(response);
 	}.bind(undefined));
 
@@ -29109,101 +29109,101 @@
 	// var SearchCard = require("./Children/SearchCard");
 
 	var Main = _react2.default.createClass({
-	   displayName: 'Main',
+	  displayName: 'Main',
 
-	   getInitialState: function getInitialState() {
-	      return { userCards: [] };
-	   },
+	  getInitialState: function getInitialState() {
+	    return { userCards: [] };
+	  },
 
-	   setUser: function setUser(user) {
-	      this.setState({ userCards: user });
-	   },
+	  setUser: function setUser(user) {
+	    this.setState({ userCards: user });
+	  },
 
-	   // setEmail: function(email){
-	   //   this.setState({email: email });
-	   // },
-	   //    return {
+	  // setEmail: function(email){
+	  //   this.setState({email: email });
+	  // },
+	  //    return {
 
-	   //    cards: [{
-	   //    "StoreName": "Walmart",
-	   //    "CardBalance": "$100",
-	   //    "RedemptionCode": "123456789",
-	   //    "RemoveCard": "Blah"
-	   //  }, 
-	   // {
-	   //    "StoreName": "Lesbian Pottert",
-	   //    "CardBalance": "$200",
-	   //    "RedemptionCode": "987654321",
-	   //    "RemoveCard": "Blah"
-	   //  }, 
-	   // {
-	   //    "StoreName": "Home Depot",
-	   //    "CardBalance": "$100",
-	   //    "RedemptionCode": "337879657",
-	   //    "RemoveCard": "Blah"
-	   //  }, 
-	   // {
-	   //    "StoreName": "Apple",
-	   //    "CardBalance": "$50",
-	   //    "RedemptionCode": "657890234",
-	   //    "RemoveCard": "Blah"
-	   //  }, 
-	   //  {
-	   //    "StoreName": "StarBucks",
-	   //    "CardBalance": "$150",
-	   //    "RedemptionCode": "9318790562",
-	   //    "RemoveCard": "Blah"
-	   //  }] 
-	   //    }
+	  //    cards: [{
+	  //    "StoreName": "Walmart",
+	  //    "CardBalance": "$100",
+	  //    "RedemptionCode": "123456789",
+	  //    "RemoveCard": "Blah"
+	  //  }, 
+	  // {
+	  //    "StoreName": "Lesbian Pottert",
+	  //    "CardBalance": "$200",
+	  //    "RedemptionCode": "987654321",
+	  //    "RemoveCard": "Blah"
+	  //  }, 
+	  // {
+	  //    "StoreName": "Home Depot",
+	  //    "CardBalance": "$100",
+	  //    "RedemptionCode": "337879657",
+	  //    "RemoveCard": "Blah"
+	  //  }, 
+	  // {
+	  //    "StoreName": "Apple",
+	  //    "CardBalance": "$50",
+	  //    "RedemptionCode": "657890234",
+	  //    "RemoveCard": "Blah"
+	  //  }, 
+	  //  {
+	  //    "StoreName": "StarBucks",
+	  //    "CardBalance": "$150",
+	  //    "RedemptionCode": "9318790562",
+	  //    "RemoveCard": "Blah"
+	  //  }] 
+	  //    }
 
-	   componentDidMount: function componentDidMount() {
-	      _helpers2.default.getUser().then(function (response) {
+	  componentDidMount: function componentDidMount() {
+	    _helpers2.default.getUser().then(function (response) {
 
-	         // this.setState({email: response.data});
-	         // var email = response;
-	         //  console.log("HERE IS AXIOS EMAIL FROM PARENT");
-	         //  console.log(email)
-	      }.bind(this));
+	      // this.setState({email: response.data});
+	      // var email = response;
+	      //  console.log("HERE IS AXIOS EMAIL FROM PARENT");
+	      //  console.log(email)
+	    }.bind(this));
 
-	      _helpers2.default.getInventory().then(function (response) {
-	         console.log("MAIN getInventory");
-	         console.log(response.data);
-	         this.setState({ userCards: response.data });
+	    _helpers2.default.getInventory().then(function (response) {
+	      // console.log("MAIN getInventory");
+	      // console.log(response.data);
+	      this.setState({ userCards: response.data });
 
-	         // userCard = response;
-	         // cookie.save('userCard', userCard);
-	      }.bind(this));
-	   },
-	   // Here we describe this component's render method
-	   render: function render() {
-	      return _react2.default.createElement(
-	         'div',
-	         { className: 'container', id: 'screen2' },
-	         _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
-	            _react2.default.createElement(
-	               'div',
-	               { className: 'col-md-12' },
-	               _react2.default.createElement(_Inventory2.default, { cards: this.state.userCards })
-	            )
-	         ),
-	         _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
-	            _react2.default.createElement(
-	               'div',
-	               { className: 'col-md-6' },
-	               _react2.default.createElement(_AddCard2.default, null)
-	            ),
-	            _react2.default.createElement(
-	               'div',
-	               { className: 'col-md-6' },
-	               _react2.default.createElement(_SearchCard2.default, null)
-	            )
-	         )
-	      );
-	   }
+	      // userCard = response;
+	      // cookie.save('userCard', userCard);
+	    }.bind(this));
+	  },
+	  // Here we describe this component's render method
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'container', id: 'screen2' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'row' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'col-md-12' },
+	          _react2.default.createElement(_Inventory2.default, { cards: this.state.userCards })
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'row' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'col-md-6' },
+	          _react2.default.createElement(_AddCard2.default, null)
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'col-md-6' },
+	          _react2.default.createElement(_SearchCard2.default, null)
+	        )
+	      )
+	    );
+	  }
 
 	});
 
@@ -31390,7 +31390,7 @@
 	    return axios.get("/getcard", { Card: Card }).then(function (response) {
 	      // console.log("INVENTORY USER EMAIL")
 
-	      console.log("GETINVENTORY RESPONSE");
+	      // console.log("GETINVENTORY RESPONSE");
 	      // console.log(response);
 	      return response;
 	    });
@@ -31401,11 +31401,9 @@
 	    return axios.get('/allcards', function () {});
 	  },
 
-	  tradeCard: function tradeCard(req, res) {
-	    console.log("tradeCard running");
-	    // res.sendFile('trade.html', { root: "public" });
+	  searchTradeCard: function searchTradeCard(req, res) {
 
-	    return axios.get('/trade', function () {});
+	    return axios.get('/searchtrade', function () {});
 	  }
 
 	};
@@ -42856,6 +42854,8 @@
 	var React = __webpack_require__(1);
 	var axios = __webpack_require__(329);
 
+	var cookie = __webpack_require__(354);
+
 	var helpers = __webpack_require__(356);
 
 	// This is the form component. 
@@ -42865,17 +42865,19 @@
 
 	  componentDidMount: function componentDidMount() {},
 
-	  // This function will respond to the user input 
-	  // handleChange: function(event){
+	  handleStoreNameChange: function handleStoreNameChange(e) {
+	    console.log(e.target.value);
 
-	  //     // Here we create syntax to capture any change in text to the query terms (pre-search).
-	  //     // See this Stack Overflow answer for more details: 
-	  //     // http://stackoverflow.com/questions/21029999/react-js-identifying-different-inputs-with-one-onchange-handler
-	  //     var newState = {};
-	  //     newState[event.target.id] = event.target.value;
-	  //     this.setState(newState);
+	    var storeSearch = document.getElementById("storeSearch").value;
+	    console.log("storeSearch is " + storeSearch);
 
-	  // },
+	    cookie.save('storesearch', storeSearch);
+
+	    // console.log("cookie save is running");
+	    var storesearchcookie = cookie.load('storesearch');
+
+	    console.log("the store cookie is " + storesearchcookie);
+	  },
 
 	  // When a user submits... 
 	  handleClick: function handleClick() {
@@ -42883,7 +42885,9 @@
 	    // preventing the form from trying to submit itself
 	    event.preventDefault();
 
-	    helpers.tradeCard();
+	    helpers.searchTradeCard();
+
+	    // return storesearch;   
 	  },
 
 	  // Here we render the function
@@ -42910,7 +42914,7 @@
 	        { className: 'panel-body', id: 'buycardbody' },
 	        React.createElement(
 	          'form',
-	          { action: '/trade' },
+	          null,
 	          React.createElement(
 	            'div',
 	            { className: 'form-group' },
@@ -42922,60 +42926,61 @@
 	            React.createElement('br', null),
 	            React.createElement(
 	              'select',
-	              null,
+	              { id: 'storeSearch', onChange: this.handleStoreNameChange },
+	              React.createElement('option', { selected: true, value: '' }),
 	              React.createElement(
 	                'option',
-	                { value: 'banana-republic' },
+	                { value: 'Banana Republic' },
 	                'Banana Republic'
 	              ),
 	              React.createElement(
 	                'option',
-	                { value: 'barnes-and-noble' },
+	                { value: 'Barnes & Noble' },
 	                'Barnes & Noble'
 	              ),
 	              React.createElement(
 	                'option',
-	                { value: 'best-buy' },
+	                { value: 'Best Buy' },
 	                'Best Buy'
 	              ),
 	              React.createElement(
 	                'option',
-	                { value: 'buffalo-wild-wings' },
+	                { value: 'Buffalo Wild Wings' },
 	                'Buffalo Wild Wings'
 	              ),
 	              React.createElement(
 	                'option',
-	                { value: 'gap' },
+	                { value: 'Gap' },
 	                'GAP'
 	              ),
 	              React.createElement(
 	                'option',
-	                { value: 'home-depot' },
+	                { value: 'Home Depot' },
 	                'Home Depot'
 	              ),
 	              React.createElement(
 	                'option',
-	                { value: 'macys' },
+	                { value: 'Macy\'s' },
 	                'Macy\'s'
 	              ),
 	              React.createElement(
 	                'option',
-	                { value: 'panera-bread' },
+	                { value: 'Panera Bread' },
 	                'Panera Bread'
 	              ),
 	              React.createElement(
 	                'option',
-	                { value: 'starbucks' },
+	                { value: 'Starbucks' },
 	                'Starbucks'
 	              ),
 	              React.createElement(
 	                'option',
-	                { value: 'target' },
+	                { value: 'Target' },
 	                'Target'
 	              ),
 	              React.createElement(
 	                'option',
-	                { value: 'walmart' },
+	                { value: 'Walmart' },
 	                'Walmart'
 	              )
 	            )
@@ -42988,11 +42993,11 @@
 	              { htmlFor: '' },
 	              'Up To What Amount?'
 	            ),
-	            React.createElement('input', { type: 'text', className: 'form-control', id: 'searchBalanceInput', placeholder: '20.00' })
+	            React.createElement('input', { type: 'text', className: 'form-control', id: 'searchBalanceInput', placeholder: '$20' })
 	          ),
 	          React.createElement(
 	            'button',
-	            { type: 'submit', className: 'btn btn-primary', id: 'searchCardBtn' },
+	            { type: 'submit', className: 'btn btn-primary', id: 'searchCardBtn', onClick: this.handleClick },
 	            'Search for Card'
 	          )
 	        )
@@ -52024,7 +52029,7 @@
 	    return axios.get("/getcard", { Card: Card }).then(function (response) {
 	      // console.log("INVENTORY USER EMAIL")
 
-	      console.log("GETINVENTORY RESPONSE");
+	      // console.log("GETINVENTORY RESPONSE");
 	      // console.log(response);
 	      return response;
 	    });
@@ -52035,11 +52040,9 @@
 	    return axios.get('/allcards', function () {});
 	  },
 
-	  tradeCard: function tradeCard(req, res) {
-	    console.log("tradeCard running");
-	    // res.sendFile('trade.html', { root: "public" });
+	  searchTradeCard: function searchTradeCard(req, res) {
 
-	    return axios.get('/trade', function () {});
+	    return axios.get('/searchtrade', function () {});
 	  }
 
 	};
