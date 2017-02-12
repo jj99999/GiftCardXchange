@@ -76,18 +76,27 @@
 
 	var _SignUp2 = _interopRequireDefault(_SignUp);
 
+	var _helpers = __webpack_require__(535);
+
+	var _helpers2 = _interopRequireDefault(_helpers);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// import hashHistory from 'react-router';
-
-
-	// Include the Main React Dependencies
 	var routes = _react2.default.createElement(
-	  _reactRouter.Router,
-	  { history: _reactRouter.browserHistory },
-	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _GiftCard2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: '/signup', component: _SignUp2.default })
+	   _reactRouter.Router,
+	   { history: _reactRouter.browserHistory },
+	   _react2.default.createElement(_reactRouter.Route, { path: '/', component: _GiftCard2.default }),
+	   _react2.default.createElement(_reactRouter.Route, { path: '/signup', component: _SignUp2.default }),
+	   _react2.default.createElement(_reactRouter.Route, { path: '/myaccount', component: _Main2.default })
 	);
+	// import hashHistory from 'react-router';
+	// Include the Main React Dependencies
+
+
+	_helpers2.default.getUser().then(function (response) {
+	   console.log("APPJS user");
+	   console.log(response);
+	}.bind(undefined));
 
 	// var React = require('react');
 	// var ReactDOM = require('react-dom');
@@ -110,9 +119,9 @@
 
 
 	_reactDom2.default.render(_react2.default.createElement(
-	  _MuiThemeProvider2.default,
-	  null,
-	  _react2.default.createElement(_reactRouter.Router, { routes: routes, history: _reactRouter.browserHistory })
+	   _MuiThemeProvider2.default,
+	   null,
+	   _react2.default.createElement(_reactRouter.Router, { routes: routes, history: _reactRouter.browserHistory })
 	), document.getElementById("app"));
 
 /***/ },
@@ -50429,7 +50438,7 @@
 	    { className: 'container' },
 	    _react2.default.createElement(
 	      'form',
-	      { className: 'create-form', action: '/signup', method: 'POST' },
+	      { className: 'create-form', action: '/register', method: 'POST' },
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'row' },
@@ -50491,16 +50500,6 @@
 	            'div',
 	            { className: 'button-line' },
 	            _react2.default.createElement(_RaisedButton2.default, { type: 'submit', label: 'Create New Account', primary: true })
-	          ),
-	          _react2.default.createElement(
-	            _Card.CardText,
-	            null,
-	            'Already have an account? ',
-	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: '/login' },
-	              'Log in'
-	            )
 	          )
 	        ),
 	        _react2.default.createElement('div', { className: 'col-md-4' })
@@ -51824,6 +51823,82 @@
 	} : void 0;
 	exports.default = CardActions;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 535 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _reactCookie = __webpack_require__(354);
+
+	var _reactCookie2 = _interopRequireDefault(_reactCookie);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// Include the axios package for performing HTTP requests (promise based alternative to request)
+	var axios = __webpack_require__(329);
+
+	var email;
+
+
+	var helper = {
+
+	  getUser: function getUser() {
+	    return axios.get("/login").then(function (response) {
+	      // console.log("HERE IS AXIOS EMAIL FROM HELPERS");
+	      email = response.data;
+	      // console.log(email);
+	      _reactCookie2.default.save('email', email);
+	      var cookieLoad = _reactCookie2.default.load('email');
+	      return email;
+	    });
+	  },
+
+	  addCard: function addCard(storeName, cardBalance, redeemCode) {
+
+	    // console.log("ADD CARD function is running");
+	    email = _reactCookie2.default.load('email');
+	    // console.log(email);
+
+	    var addedCard = { email: email, storeName: storeName, cardBalance: cardBalance, redeemCode: redeemCode };
+	    // console.log(newCard);
+	    return axios.post("/addcard", addedCard);
+	    // .then(function(response) {
+	    //   // console.log("axios results", response);
+	    //   // return response;
+	    // }).catch(function(error){
+	    // 	console.log(error);
+	    // });
+	  },
+
+	  getInventory: function getInventory(Card) {
+	    email = _reactCookie2.default.load('email');
+
+	    return axios.get("/getcard", { Card: Card }).then(function (response) {
+	      // console.log("INVENTORY USER EMAIL")
+
+	      console.log("GETINVENTORY RESPONSE");
+	      // console.log(response);
+	      return response;
+	    });
+	  },
+
+	  allCards: function allCards() {
+
+	    return axios.get('/allcards', function () {});
+	  },
+
+	  tradeCard: function tradeCard(req, res) {
+	    console.log("tradeCard running");
+	    // res.sendFile('trade.html', { root: "public" });
+
+	    return axios.get('/trade', function () {});
+	  }
+
+	};
+
+	module.exports = helper;
 
 /***/ }
 /******/ ]);

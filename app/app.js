@@ -8,14 +8,29 @@ import GiftCard from './components/GiftCard';
 import { Router, Route, browserHistory } from 'react-router';
 import SignUp from './Components/SignUp';
 // import hashHistory from 'react-router';
-
+import helpers from './Components/utils/helpers';
 
 const routes = (
 	        <Router history={browserHistory}>
             <Route path="/" component={GiftCard}/>
             <Route path="/signup" component={SignUp} />
+            <Route path="/myaccount" component={Main} />
             </Router>
           );
+
+
+   
+
+ helpers.getUser().then(function(response){
+ console.log("APPJS user");
+ console.log(response);
+    
+
+
+
+
+
+   }.bind(this));
 
 // var React = require('react');
 // var ReactDOM = require('react-dom');
@@ -39,6 +54,8 @@ injectTapEventPlugin();
 
 
 ReactDOM.render(
+
+
     
     <MuiThemeProvider>
     <Router routes={routes} history={browserHistory} />

@@ -31,9 +31,13 @@ const style = {
 const SignUp = () => (
 
 
+
+
  <Card className="container">
- <form className="create-form" action="/signup" method="POST">
-  
+ <form className="create-form" action="/register" method="POST">
+
+
+
 
 <div className="row">
  <div className="col-md-4">
@@ -90,7 +94,6 @@ const SignUp = () => (
         <RaisedButton type="submit" label="Create New Account" primary />
       </div>
 
-        <CardText>Already have an account? <Link to={'/login'}>Log in</Link></CardText>
   </div>
  <div className="col-md-4">
 
