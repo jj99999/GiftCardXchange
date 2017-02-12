@@ -157,22 +157,62 @@ import { RadioButton, RadioButtonGroup } from '../../../node_modules/material-ui
 // Export the component back for use in other files
 // module.exports = AddCard;
 
+
+
 var AddCard = React.createClass({
 
 getInitialState: function(){
  return {dataSource: []};
 },
 
+componentDidUpdate: function(){
+  helpers.getInventory();
+
+},
 
 handleUpdateInput: function(value) {
   this.setState({
     dataSource: [
-    value,
-    value + value,
-    value + value + value,
+    value
     ],
    });
   },
+
+  handleStoreNameChange: function(){
+    var storeName = document.getElementById("storeName").value;
+
+    console.log(storeName);
+
+    this.setState({storeName: storeName});
+
+  },
+
+
+  handleCardBalanceChange: function(){
+    var cardBalance = document.getElementById("cardBalance").value;
+
+    this.setState({cardBalance: cardBalance});
+  },
+
+
+  handleRedeemCodeChange: function(e){
+    var redeemCode = document.getElementById("redeemCode").value;
+
+    this.setState({redeemCode: redeemCode});
+  },  
+
+handleClick: function(){
+
+    // preventing the form from trying to submit itself
+    event.preventDefault();
+
+    console.log("store is "+this.state.storeName);
+
+    // console.log(this.state.storeName+" "+this.state.cardBalance+" "+this.state.redeemCode);
+    helpers.addCard(this.state.storeName, this.state.cardBalance, this.state.redeemCode);
+
+
+  },  
 
 
 render: function(){
@@ -188,14 +228,15 @@ render: function(){
  
     <form>
       <div className="form-group">
-         <div className="container">
+
           <div className="row">
            <div className="col-md-12">
         <AutoComplete
           node="string"
+          id="storeName"
           hintText="Gift Card Name"
           dataSource={this.state.dataSource}
-          onUpdateInput={this.handleUpdateInput}
+          onUpdateInput={this.handleStoreNameChange}
         />
         </div>
       </div>
@@ -203,9 +244,10 @@ render: function(){
            <div className="col-md-12">
         <AutoComplete
           node="string"
+          id="cardBalance"
           hintText="Card Balance"
           dataSource={this.state.dataSource}
-          onUpdateInput={this.handleUpdateInput}
+          onUpdateInput={this.handleCardBalanceChange}
         />
         </div>
         </div>
@@ -213,17 +255,17 @@ render: function(){
         <div className="col-md-12">
         <AutoComplete
           node="string"
+          id="redeemCode"
           hintText="Redemption Code"
           dataSource={this.state.dataSource}
-          onUpdateInput={this.handleUpdateInput}
+          onUpdateInput={this.handleRedeemCodeChange}
         />
         </div>
         </div>
-      </div>
-      </div>
-    </form>
 
-    <a href="#" className="btn btn-info"><span className="glyphicon glyphicon-credit-card"></span> Add Gift Card</a>
+      </div>
+      <button type="submit" className="btn btn-info" id="addCardBtn" onClick={this.handleClick}><span className="glyphicon glyphicon-credit-card"></span> Add Gift Card</button>
+    </form>
 
   </div>
 </div>

@@ -29387,6 +29387,7 @@
 	// Export the component back for use in other files
 	// module.exports = AddCard;
 
+
 	// This is the form component. 
 
 	// var cookie = require('react-cookie');
@@ -29400,10 +29401,45 @@
 	    return { dataSource: [] };
 	  },
 
+	  componentDidUpdate: function componentDidUpdate() {
+	    _helpers2.default.getInventory();
+	  },
+
 	  handleUpdateInput: function handleUpdateInput(value) {
 	    this.setState({
-	      dataSource: [value, value + value, value + value + value]
+	      dataSource: [value]
 	    });
+	  },
+
+	  handleStoreNameChange: function handleStoreNameChange() {
+	    var storeName = document.getElementById("storeName").value;
+
+	    console.log(storeName);
+
+	    this.setState({ storeName: storeName });
+	  },
+
+	  handleCardBalanceChange: function handleCardBalanceChange() {
+	    var cardBalance = document.getElementById("cardBalance").value;
+
+	    this.setState({ cardBalance: cardBalance });
+	  },
+
+	  handleRedeemCodeChange: function handleRedeemCodeChange(e) {
+	    var redeemCode = document.getElementById("redeemCode").value;
+
+	    this.setState({ redeemCode: redeemCode });
+	  },
+
+	  handleClick: function handleClick() {
+
+	    // preventing the form from trying to submit itself
+	    event.preventDefault();
+
+	    console.log("store is " + this.state.storeName);
+
+	    // console.log(this.state.storeName+" "+this.state.cardBalance+" "+this.state.redeemCode);
+	    _helpers2.default.addCard(this.state.storeName, this.state.cardBalance, this.state.redeemCode);
 	  },
 
 	  render: function render() {
@@ -29425,57 +29461,56 @@
 	            { className: 'form-group' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'container' },
+	              { className: 'row' },
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'row' },
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'col-md-12' },
-	                  _react2.default.createElement(_AutoComplete2.default, {
-	                    node: 'string',
-	                    hintText: 'Gift Card Name',
-	                    dataSource: this.state.dataSource,
-	                    onUpdateInput: this.handleUpdateInput
-	                  })
-	                )
-	              ),
+	                { className: 'col-md-12' },
+	                _react2.default.createElement(_AutoComplete2.default, {
+	                  node: 'string',
+	                  id: 'storeName',
+	                  hintText: 'Gift Card Name',
+	                  dataSource: this.state.dataSource,
+	                  onUpdateInput: this.handleStoreNameChange
+	                })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'row' },
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'row' },
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'col-md-12' },
-	                  _react2.default.createElement(_AutoComplete2.default, {
-	                    node: 'string',
-	                    hintText: 'Card Balance',
-	                    dataSource: this.state.dataSource,
-	                    onUpdateInput: this.handleUpdateInput
-	                  })
-	                )
-	              ),
+	                { className: 'col-md-12' },
+	                _react2.default.createElement(_AutoComplete2.default, {
+	                  node: 'string',
+	                  id: 'cardBalance',
+	                  hintText: 'Card Balance',
+	                  dataSource: this.state.dataSource,
+	                  onUpdateInput: this.handleCardBalanceChange
+	                })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'row' },
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'row' },
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'col-md-12' },
-	                  _react2.default.createElement(_AutoComplete2.default, {
-	                    node: 'string',
-	                    hintText: 'Redemption Code',
-	                    dataSource: this.state.dataSource,
-	                    onUpdateInput: this.handleUpdateInput
-	                  })
-	                )
+	                { className: 'col-md-12' },
+	                _react2.default.createElement(_AutoComplete2.default, {
+	                  node: 'string',
+	                  id: 'redeemCode',
+	                  hintText: 'Redemption Code',
+	                  dataSource: this.state.dataSource,
+	                  onUpdateInput: this.handleRedeemCodeChange
+	                })
 	              )
 	            )
+	          ),
+	          _react2.default.createElement(
+	            'button',
+	            { type: 'submit', className: 'btn btn-info', id: 'addCardBtn', onClick: this.handleClick },
+	            _react2.default.createElement('span', { className: 'glyphicon glyphicon-credit-card' }),
+	            ' Add Gift Card'
 	          )
-	        ),
-	        _react2.default.createElement(
-	          'a',
-	          { href: '#', className: 'btn btn-info' },
-	          _react2.default.createElement('span', { className: 'glyphicon glyphicon-credit-card' }),
-	          ' Add Gift Card'
 	        )
 	      )
 	    );
@@ -31382,6 +31417,7 @@
 	    // }).catch(function(error){
 	    // 	console.log(error);
 	    // });
+
 	  },
 
 	  getInventory: function getInventory(Card) {
@@ -52021,6 +52057,7 @@
 	    // }).catch(function(error){
 	    // 	console.log(error);
 	    // });
+
 	  },
 
 	  getInventory: function getInventory(Card) {
