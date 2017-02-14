@@ -60,13 +60,11 @@ var Main = React.createClass({
    
   },
 
-  // componentDidUpdate:  function(){
-  //   helpers.searchTradeCard(this.state.searchCardResults).then(function(data){
-  //     console.log(data);
-  //     this.setState({ searchCardResults: data});
-  //     }.bind(this));
+  componentDidUpdate:  function(){
+    console.log("the props are ");
+    console.log(this.props.cards);
 
-  // },
+  },
 
   // Here we describe this component's render method
   render: function() {

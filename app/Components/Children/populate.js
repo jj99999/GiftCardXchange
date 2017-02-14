@@ -24,11 +24,9 @@ const iconStyle = {
 var Populate = React.createClass({
 
 // componentDidUpdate: function(){
-//   helpers.searchTradeCard().then(function(response){
-//     console.log("in componentDidUpdate, run getInventory, response is "+response.data);
-//     this.setState({ searchCardResults: response.data });
-
-//   });
+//     console.log("the props are ");
+//     console.log(this.props.cards);
+//   },
 
 // },  
 

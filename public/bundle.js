@@ -29137,13 +29137,10 @@
 	    }.bind(this));
 	  },
 
-	  // componentDidUpdate:  function(){
-	  //   helpers.searchTradeCard(this.state.searchCardResults).then(function(data){
-	  //     console.log(data);
-	  //     this.setState({ searchCardResults: data});
-	  //     }.bind(this));
-
-	  // },
+	  componentDidUpdate: function componentDidUpdate() {
+	    console.log("the props are ");
+	    console.log(this.props.cards);
+	  },
 
 	  // Here we describe this component's render method
 	  render: function render() {
@@ -42966,8 +42963,12 @@
 	    helpers.searchTradeCard().then(function (response) {
 	      console.log("search promise");
 	      console.log(response.data);
+
 	      this.setState({ searchCardResults: response.data });
-	      this.props.cards(this.state.searchCardResults);
+
+	      console.log("the state is" + JSON.stringify(this.state.searchCardResults));
+
+	      // this.props.cards(this.state.searchCardResults);
 	      // console.log(this.props.cards);
 	      return response.data;
 	    }.bind(this));
@@ -43151,11 +43152,9 @@
 
 
 	  // componentDidUpdate: function(){
-	  //   helpers.searchTradeCard().then(function(response){
-	  //     console.log("in componentDidUpdate, run getInventory, response is "+response.data);
-	  //     this.setState({ searchCardResults: response.data });
-
-	  //   });
+	  //     console.log("the props are ");
+	  //     console.log(this.props.cards);
+	  //   },
 
 	  // },  
 

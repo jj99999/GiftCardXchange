@@ -55,8 +55,12 @@ var SearchCard  = React.createClass({
     helpers.searchTradeCard().then(function(response){
       console.log("search promise");
       console.log(response.data);
+
       this.setState({searchCardResults: response.data});
-      this.props.cards(this.state.searchCardResults);
+
+      console.log("the state is" + JSON.stringify(this.state.searchCardResults));
+
+      // this.props.cards(this.state.searchCardResults);
       // console.log(this.props.cards);
       return response.data;
     }.bind(this));
