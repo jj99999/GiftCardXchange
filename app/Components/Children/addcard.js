@@ -202,7 +202,7 @@ handleUpdateInput: function(value) {
     this.setState({redeemCode: redeemCode});
   },  
 
-handleClick: function(){
+handleClick: function(event){
 
     // preventing the form from trying to submit itself
     event.preventDefault();

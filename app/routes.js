@@ -152,7 +152,7 @@ module.exports = function(app, passport) {
     // =====================================
     // SEARCH FOR CARDS TO TRADE WITH route
     // =====================================
-    app.get('/searchtrade', function(req, res, error){
+    app.get('/searchtrade', function(req, res){
 
         console.log("/searchtrade route running");
 
@@ -167,6 +167,8 @@ module.exports = function(app, passport) {
 
           // var searchResultsCards = response.json(cards);
           // console.log(json(searchResultsCards));
+
+          // return;
 
         });
     });

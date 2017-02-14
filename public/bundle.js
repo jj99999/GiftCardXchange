@@ -29117,6 +29117,10 @@
 	    this.setState({ userCards: user });
 	  },
 
+	  setSearchCards: function setSearchCards(searchcards) {
+	    this.setState({ searchCardResults: searchcards });
+	  },
+
 	  componentDidMount: function componentDidMount() {
 	    _helpers2.default.getUser().then(function (response) {
 
@@ -29132,6 +29136,15 @@
 	      this.setState({ userCards: response.data });
 	    }.bind(this));
 	  },
+
+	  // componentDidUpdate:  function(){
+	  //   helpers.searchTradeCard(this.state.searchCardResults).then(function(data){
+	  //     console.log(data);
+	  //     this.setState({ searchCardResults: data});
+	  //     }.bind(this));
+
+	  // },
+
 	  // Here we describe this component's render method
 	  render: function render() {
 	    return _react2.default.createElement(
@@ -29162,7 +29175,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'col-md-6' },
-	          _react2.default.createElement(_SearchCard2.default, null)
+	          _react2.default.createElement(_SearchCard2.default, { cards: this.state.searchCardResults })
 	        )
 	      )
 	    );
@@ -29405,7 +29418,7 @@
 	    this.setState({ redeemCode: redeemCode });
 	  },
 
-	  handleClick: function handleClick() {
+	  handleClick: function handleClick(event) {
 
 	    // preventing the form from trying to submit itself
 	    event.preventDefault();
@@ -31410,10 +31423,11 @@
 	    return axios.get('/allcards', function () {});
 	  },
 
-	  searchTradeCard: function searchTradeCard(req, res) {
+	  searchTradeCard: function searchTradeCard(Card) {
 
 	    return axios.get('/searchtrade', { Card: Card }).then(function (response) {
-	      console.log(response);
+	      // console.log(response);
+	      console.log("response is " + response.data);
 	      return response;
 	    });
 	  }
@@ -42912,7 +42926,22 @@
 	  displayName: 'SearchCard',
 
 
+	  getInititalState: function getInititalState() {
+	    return {
+	      searchCardResults: []
+	    };
+	  },
+
 	  componentDidMount: function componentDidMount() {},
+
+	  // componentDidUpdate:  function(){
+	  //   helpers.searchTradeCard().then(function(data){
+	  //   console.log(data);
+	  //   this.setState({ searchCardResults: data});
+	  //   }.bind(this));
+
+	  // },
+
 
 	  handleStoreNameChange: function handleStoreNameChange(e) {
 	    console.log(e.target.value);
@@ -42929,14 +42958,19 @@
 	  },
 
 	  // When a user submits... 
-	  handleClick: function handleClick() {
+	  handleClick: function handleClick(event) {
 
 	    // preventing the form from trying to submit itself
 	    event.preventDefault();
 
-	    helpers.searchTradeCard();
-
-	    // return storesearch;   
+	    helpers.searchTradeCard().then(function (response) {
+	      console.log("search promise");
+	      console.log(response.data);
+	      this.setState({ searchCardResults: response.data });
+	      this.props.cards(this.state.searchCardResults);
+	      // console.log(this.props.cards);
+	      return response.data;
+	    }.bind(this));
 	  },
 
 	  // Here we render the function
@@ -52296,10 +52330,11 @@
 	    return axios.get('/allcards', function () {});
 	  },
 
-	  searchTradeCard: function searchTradeCard(req, res) {
+	  searchTradeCard: function searchTradeCard(Card) {
 
 	    return axios.get('/searchtrade', { Card: Card }).then(function (response) {
-	      console.log(response);
+	      // console.log(response);
+	      console.log("response is " + response.data);
 	      return response;
 	    });
 	  }

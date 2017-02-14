@@ -9,9 +9,26 @@ var helpers = require("../utils/helpers");
 // This is the form component. 
 var SearchCard  = React.createClass({
 
+  getInititalState: function(){
+    return {
+      searchCardResults: []
+    }
+
+  },
+
   componentDidMount: function(){
 
   },
+
+  // componentDidUpdate:  function(){
+  //   helpers.searchTradeCard().then(function(data){
+  //   console.log(data);
+  //   this.setState({ searchCardResults: data});
+  //   }.bind(this));
+
+  // },
+
+
 
   handleStoreNameChange: function(e){
     console.log(e.target.value);
@@ -30,14 +47,19 @@ var SearchCard  = React.createClass({
 
 
   // When a user submits... 
-  handleClick: function(){
+  handleClick: function(event){
 
     // preventing the form from trying to submit itself
     event.preventDefault();
 
-    helpers.searchTradeCard();
-
-    // return storesearch;   
+    helpers.searchTradeCard().then(function(response){
+      console.log("search promise");
+      console.log(response.data);
+      this.setState({searchCardResults: response.data});
+      this.props.cards(this.state.searchCardResults);
+      // console.log(this.props.cards);
+      return response.data;
+    }.bind(this));
     
   },
 
