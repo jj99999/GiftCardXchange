@@ -17,6 +17,7 @@ const routes = (
             <Route path="/signup" component={SignUp} />
             <Route path="/myaccount" component={Main} />
             <Route path="/loginPage" component={LogIn} />
+            <Route path="/logout" component={GiftCard} />
             </Router>
           );
 
