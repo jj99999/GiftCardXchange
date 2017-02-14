@@ -60,8 +60,8 @@ var SearchCard  = React.createClass({
 
       console.log("the state is" + JSON.stringify(this.state.searchCardResults));
 
-      // this.props.cards(this.state.searchCardResults);
-      // console.log(this.props.cards);
+      this.props.searchCards(this.state.searchCardResults);
+      console.log(this.props.searchCards);
       return response.data;
     }.bind(this));
     

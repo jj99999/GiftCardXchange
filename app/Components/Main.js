@@ -62,7 +62,7 @@ var Main = React.createClass({
 
   componentDidUpdate:  function(){
     console.log("the props are ");
-    console.log(this.props.cards);
+    console.log(this.props.searchCards);
 
   },
 
@@ -76,7 +76,7 @@ var Main = React.createClass({
            </div> 
           <div className="col-md-6">
 
-           <Populate cards={this.state.searchCardResults}/>
+           <Populate cards={this.setUser}/>
           </div>
         </div>
 
@@ -86,7 +86,7 @@ var Main = React.createClass({
           </div>
         
           <div className="col-md-6">
-            <SearchCard cards={this.state.searchCardResults}/>
+            <SearchCard searchCards={this.setSearchCards}/>
           </div>    
 
         </div>

@@ -29139,7 +29139,7 @@
 
 	  componentDidUpdate: function componentDidUpdate() {
 	    console.log("the props are ");
-	    console.log(this.props.cards);
+	    console.log(this.props.searchCards);
 	  },
 
 	  // Here we describe this component's render method
@@ -29158,7 +29158,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'col-md-6' },
-	          _react2.default.createElement(_Populate2.default, { cards: this.state.searchCardResults })
+	          _react2.default.createElement(_Populate2.default, { cards: this.setUser })
 	        )
 	      ),
 	      _react2.default.createElement(
@@ -29172,7 +29172,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'col-md-6' },
-	          _react2.default.createElement(_SearchCard2.default, { cards: this.state.searchCardResults })
+	          _react2.default.createElement(_SearchCard2.default, { searchCards: this.setSearchCards })
 	        )
 	      )
 	    );
@@ -42968,8 +42968,8 @@
 
 	      console.log("the state is" + JSON.stringify(this.state.searchCardResults));
 
-	      // this.props.cards(this.state.searchCardResults);
-	      // console.log(this.props.cards);
+	      this.props.searchCards(this.state.searchCardResults);
+	      console.log(this.props.searchCards);
 	      return response.data;
 	    }.bind(this));
 	  },
@@ -43160,32 +43160,22 @@
 
 	  renderCardResults: function renderCardResults() {
 
-	    return this.props.cards.map(function (card, i, e, o, u) {
+	    // return this.props.searchCards.map(function(card,i,e,o,u){
 
-	      return _react2.default.createElement(
-	        'tr',
-	        { className: 'panel', key: i },
-	        _react2.default.createElement(
-	          'td',
-	          { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4', key: e },
-	          _react2.default.createElement(
-	            'h4',
-	            null,
-	            card.storeName
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'td',
-	          { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4', key: o },
-	          _react2.default.createElement(
-	            'h4',
-	            null,
-	            '$',
-	            card.cardBalance
-	          )
-	        )
-	      );
-	    });
+	    //  return(
+
+
+	    //       <tr className="panel" key={i}>
+
+	    //            <td  className="col-lg-4 col-md-4 col-sm-4 col-xs-4" key={e}><h4>{card.storeName}</h4></td>
+	    //            <td  className="col-lg-4 col-md-4 col-sm-4 col-xs-4" key={o}><h4>${card.cardBalance}</h4></td>
+
+
+	    //       </tr>
+
+
+	    //   )
+	    //   });
 	  },
 
 	  render: function render() {
@@ -43241,11 +43231,7 @@
 	                )
 	              )
 	            ),
-	            _react2.default.createElement(
-	              'tbody',
-	              null,
-	              this.renderCardResults()
-	            )
+	            _react2.default.createElement('tbody', null)
 	          )
 	        )
 	      )

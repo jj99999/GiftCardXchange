@@ -32,24 +32,24 @@ var Populate = React.createClass({
 
 renderCardResults: function(){
 
-  return this.props.cards.map(function(card,i,e,o,u){
+  // return this.props.searchCards.map(function(card,i,e,o,u){
   
-   return(
+  //  return(
 
  
 
-        <tr className="panel" key={i}>
+  //       <tr className="panel" key={i}>
 
-             <td  className="col-lg-4 col-md-4 col-sm-4 col-xs-4" key={e}><h4>{card.storeName}</h4></td>
-             <td  className="col-lg-4 col-md-4 col-sm-4 col-xs-4" key={o}><h4>${card.cardBalance}</h4></td>
+  //            <td  className="col-lg-4 col-md-4 col-sm-4 col-xs-4" key={e}><h4>{card.storeName}</h4></td>
+  //            <td  className="col-lg-4 col-md-4 col-sm-4 col-xs-4" key={o}><h4>${card.cardBalance}</h4></td>
            
 
-        </tr>
+  //       </tr>
 
 
 
-    )
-    });
+  //   )
+  //   });
 },
 
 
@@ -88,7 +88,7 @@ renderCardResults: function(){
               </thead>
         
             <tbody>
-                {this.renderCardResults()}
+
             </tbody>
           </table>
 
