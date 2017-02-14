@@ -48,8 +48,8 @@ const GiftCard = () => (
     children={
 
       <div>
-      <Link to="/loginPage"><FlatButton  label="Log In" secondary={true} style={style.margin}/></Link>
-      <Link to="/signup"> <RaisedButton label="Sign Up" secondary={true}  style={style}  /></Link>
+      <Link to="/loginPage"><FlatButton className="slideLeft"  label="Log In" secondary={true} style={style.margin}/></Link>
+      <Link to="/signup"> <RaisedButton className="slideLeft" label="Sign Up" secondary={true}  style={style}  /></Link>
 
      </div>
   }

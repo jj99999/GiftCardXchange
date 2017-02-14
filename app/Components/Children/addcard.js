@@ -180,18 +180,20 @@ render: function(){
 
    return (
 
-<div class="panel panel-primary" id="addcard">
+<div class="panel panel-primary" className="className" id="addcard">
 <AppBar
 
     iconElementLeft={<ActionCardGiftCard style={giftIcon} />}
 
     title="Add Gift Card"
+
+    className="slideRight"
   />
 
-<div className="panel-body" id="addcardbody">
+<div className="panel-body slideRight" id="addcardbody">
  
-    <form>
-      <div className="form-group">
+    <form className="slideRight">
+      <div className="form-group slideRight">
          <div className="container">
           <div className="row">
            <div className="col-md-12">

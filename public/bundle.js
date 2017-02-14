@@ -29188,7 +29188,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'col-md-6' },
-	          _react2.default.createElement(_Populate2.default, { cards: this.state.userCards })
+	          _react2.default.createElement(_Populate2.default, { className: 'slideLeft', cards: this.state.userCards })
 	        )
 	      ),
 	      _react2.default.createElement(
@@ -29424,22 +29424,24 @@
 
 	    return _react2.default.createElement(
 	      'div',
-	      { 'class': 'panel panel-primary', id: 'addcard' },
+	      { 'class': 'panel panel-primary', className: 'className', id: 'addcard' },
 	      _react2.default.createElement(_AppBar2.default, {
 
 	        iconElementLeft: _react2.default.createElement(_cardGiftcard2.default, { style: giftIcon }),
 
-	        title: 'Add Gift Card'
+	        title: 'Add Gift Card',
+
+	        className: 'slideRight'
 	      }),
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'panel-body', id: 'addcardbody' },
+	        { className: 'panel-body slideRight', id: 'addcardbody' },
 	        _react2.default.createElement(
 	          'form',
-	          null,
+	          { className: 'slideRight' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'form-group' },
+	            { className: 'form-group slideRight' },
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'container' },
@@ -44069,13 +44071,13 @@
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: '/loginPage' },
-	          _react2.default.createElement(_FlatButton2.default, { label: 'Log In', secondary: true, style: style.margin })
+	          _react2.default.createElement(_FlatButton2.default, { className: 'slideLeft', label: 'Log In', secondary: true, style: style.margin })
 	        ),
 	        _react2.default.createElement(
 	          _reactRouter.Link,
 	          { to: '/signup' },
 	          ' ',
-	          _react2.default.createElement(_RaisedButton2.default, { label: 'Sign Up', secondary: true, style: style })
+	          _react2.default.createElement(_RaisedButton2.default, { className: 'slideLeft', label: 'Sign Up', secondary: true, style: style })
 	        )
 	      )
 

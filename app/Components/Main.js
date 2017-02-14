@@ -99,7 +99,7 @@ this.setState({ userCards : response.data });
            </div> 
           <div className="col-md-6">
 
-           <Populate cards={this.state.userCards}/>
+           <Populate className="slideLeft" cards={this.state.userCards}/>
           </div>
         </div>
 
@@ -109,7 +109,7 @@ this.setState({ userCards : response.data });
           </div>
         
           <div className="col-md-6">
-            <SearchCard />
+            <SearchCard  />
           </div>    
 
         </div>
