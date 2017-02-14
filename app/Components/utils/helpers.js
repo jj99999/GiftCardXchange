@@ -59,11 +59,13 @@ getUser: function(){
  	  });
   },
 
-  searchTradeCard: function(req, res){
+  searchTradeCard: function(Card){
 
     return axios.get('/searchtrade', {Card: Card}).then(function(response){
-      console.log(response);
+      // console.log(response);
+      console.log("response is "+response.data);
       return response;
+     
     
     });
   }

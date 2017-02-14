@@ -32,6 +32,10 @@ var Main = React.createClass({
     this.setState({ userCards: user});
   },
 
+    setSearchCards: function(searchcards){
+      this.setState({ searchCardResults: searchcards});
+    },
+
 
  
    
@@ -45,16 +49,25 @@ var Main = React.createClass({
    }.bind(this));
 
    helpers.getInventory().then(function(response){
-console.log("MAIN getInventory");
-console.log(response.data);
-this.setState({ userCards : response.data });
+    console.log("MAIN getInventory");
+    console.log(response.data);
+    this.setState({ userCards : response.data });
 
 
        
 
-}.bind(this));
+  }.bind(this));
    
   },
+
+  // componentDidUpdate:  function(){
+  //   helpers.searchTradeCard(this.state.searchCardResults).then(function(data){
+  //     console.log(data);
+  //     this.setState({ searchCardResults: data});
+  //     }.bind(this));
+
+  // },
+
   // Here we describe this component's render method
   render: function() {
     return (
@@ -75,7 +88,7 @@ this.setState({ userCards : response.data });
           </div>
         
           <div className="col-md-6">
-            <SearchCard />
+            <SearchCard cards={this.state.searchCardResults}/>
           </div>    
 
         </div>
