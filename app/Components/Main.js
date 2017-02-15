@@ -94,7 +94,7 @@ var Main = React.createClass({
            </div> 
           <div className="col-md-6">
 
-           <Populate cards={this.setUser}/>
+           <Populate populate={this.state.searchCardResults}/>
           </div>
         </div>
 

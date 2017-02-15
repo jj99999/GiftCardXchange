@@ -29189,7 +29189,7 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'col-md-6' },
-	            _react2.default.createElement(_Populate2.default, { cards: this.setUser })
+	            _react2.default.createElement(_Populate2.default, { populate: this.state.searchCardResults })
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -42937,15 +42937,63 @@
 
 	'use strict';
 
-	var React = __webpack_require__(1);
-	var axios = __webpack_require__(329);
+	var _react = __webpack_require__(1);
 
-	var cookie = __webpack_require__(354);
+	var _react2 = _interopRequireDefault(_react);
 
-	var helpers = __webpack_require__(356);
+	var _axios = __webpack_require__(329);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _reactCookie = __webpack_require__(354);
+
+	var _reactCookie2 = _interopRequireDefault(_reactCookie);
+
+	var _helpers = __webpack_require__(356);
+
+	var _helpers2 = _interopRequireDefault(_helpers);
+
+	var _AutoComplete = __webpack_require__(357);
+
+	var _AutoComplete2 = _interopRequireDefault(_AutoComplete);
+
+	var _MenuItem = __webpack_require__(390);
+
+	var _MenuItem2 = _interopRequireDefault(_MenuItem);
+
+	var _AppBar = __webpack_require__(437);
+
+	var _AppBar2 = _interopRequireDefault(_AppBar);
+
+	var _FontIcon = __webpack_require__(429);
+
+	var _FontIcon2 = _interopRequireDefault(_FontIcon);
+
+	var _colors = __webpack_require__(280);
+
+	var _RadioButton = __webpack_require__(440);
+
+	var _cardGiftcard = __webpack_require__(446);
+
+	var _cardGiftcard2 = _interopRequireDefault(_cardGiftcard);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// var helpers = require("../utils/helpers");
+
+	// var axios = require('axios');
+	var giftIcon = {
+
+	  color: 'white',
+	  margin: 11
+	};
 
 	// This is the form component. 
-	var SearchCard = React.createClass({
+
+	// This is the form component. 
+
+	// var cookie = require('react-cookie');
+	var SearchCard = _react2.default.createClass({
 	  displayName: 'SearchCard',
 
 
@@ -42972,10 +43020,10 @@
 	    var storeSearch = document.getElementById("storeSearch").value;
 	    console.log("storeSearch is " + storeSearch);
 
-	    cookie.save('storesearch', storeSearch);
+	    _reactCookie2.default.save('storesearch', storeSearch);
 
 	    // console.log("cookie save is running");
-	    var storesearchcookie = cookie.load('storesearch');
+	    var storesearchcookie = _reactCookie2.default.load('storesearch');
 
 	    console.log("the store cookie is " + storesearchcookie);
 	  },
@@ -42986,7 +43034,7 @@
 	    // preventing the form from trying to submit itself
 	    event.preventDefault();
 
-	    helpers.searchTradeCard().then(function (response) {
+	    _helpers2.default.searchTradeCard().then(function (response) {
 	      console.log("search promise");
 	      console.log(response.data);
 
@@ -43004,109 +43052,102 @@
 	  // Here we render the function
 	  render: function render() {
 
-	    return React.createElement(
+	    return _react2.default.createElement(
 	      'div',
 	      { className: 'panel panel-primary', id: 'searchcard' },
-	      React.createElement(
-	        'div',
-	        { className: 'panel-heading', id: 'searchcardhead' },
-	        React.createElement(
-	          'h3',
-	          { className: 'panel-title' },
-	          React.createElement(
-	            'b',
-	            null,
-	            'Search for Gift Cards to trade!'
-	          )
-	        )
-	      ),
-	      React.createElement(
+	      _react2.default.createElement(_AppBar2.default, {
+
+	        iconElementLeft: _react2.default.createElement(_cardGiftcard2.default, { style: giftIcon }),
+
+	        title: 'Add Gift Card'
+	      }),
+	      _react2.default.createElement(
 	        'div',
 	        { className: 'panel-body', id: 'buycardbody' },
-	        React.createElement(
+	        _react2.default.createElement(
 	          'form',
 	          null,
-	          React.createElement(
+	          _react2.default.createElement(
 	            'div',
 	            { className: 'form-group' },
-	            React.createElement(
+	            _react2.default.createElement(
 	              'label',
 	              { htmlFor: '' },
 	              'Store Name'
 	            ),
-	            React.createElement('br', null),
-	            React.createElement(
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement(
 	              'select',
 	              { id: 'storeSearch', onChange: this.handleStoreNameChange },
-	              React.createElement('option', { selected: true, value: '' }),
-	              React.createElement(
+	              _react2.default.createElement('option', { selected: true, value: '' }),
+	              _react2.default.createElement(
 	                'option',
 	                { value: 'Banana Republic' },
 	                'Banana Republic'
 	              ),
-	              React.createElement(
+	              _react2.default.createElement(
 	                'option',
 	                { value: 'Barnes & Noble' },
 	                'Barnes & Noble'
 	              ),
-	              React.createElement(
+	              _react2.default.createElement(
 	                'option',
 	                { value: 'Best Buy' },
 	                'Best Buy'
 	              ),
-	              React.createElement(
+	              _react2.default.createElement(
 	                'option',
 	                { value: 'Buffalo Wild Wings' },
 	                'Buffalo Wild Wings'
 	              ),
-	              React.createElement(
+	              _react2.default.createElement(
 	                'option',
 	                { value: 'Gap' },
 	                'GAP'
 	              ),
-	              React.createElement(
+	              _react2.default.createElement(
 	                'option',
 	                { value: 'Home Depot' },
 	                'Home Depot'
 	              ),
-	              React.createElement(
+	              _react2.default.createElement(
 	                'option',
 	                { value: 'Macy\'s' },
 	                'Macy\'s'
 	              ),
-	              React.createElement(
+	              _react2.default.createElement(
 	                'option',
 	                { value: 'Panera Bread' },
 	                'Panera Bread'
 	              ),
-	              React.createElement(
+	              _react2.default.createElement(
 	                'option',
 	                { value: 'Starbucks' },
 	                'Starbucks'
 	              ),
-	              React.createElement(
+	              _react2.default.createElement(
 	                'option',
 	                { value: 'Target' },
 	                'Target'
 	              ),
-	              React.createElement(
+	              _react2.default.createElement(
 	                'option',
 	                { value: 'Walmart' },
 	                'Walmart'
 	              )
 	            )
 	          ),
-	          React.createElement(
+	          _react2.default.createElement(
 	            'div',
 	            { className: 'form-group' },
-	            React.createElement(
+	            _react2.default.createElement(
 	              'label',
 	              { htmlFor: '' },
 	              'Up To What Amount?'
 	            ),
-	            React.createElement('input', { type: 'text', className: 'form-control', id: 'searchBalanceInput', placeholder: '$20' })
+	            _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'searchBalanceInput', placeholder: '$20' })
 	          ),
-	          React.createElement(
+	          _react2.default.createElement(
 	            'button',
 	            { type: 'submit', className: 'btn btn-primary', id: 'searchCardBtn', onClick: this.handleClick },
 	            'Search for Card'
@@ -43185,7 +43226,7 @@
 
 	  // },  
 
-	  renderCardResults: function renderCardResults() {
+	  renderCards: function renderCards() {
 
 	    // return this.props.searchCards.map(function(card,i,e,o,u){
 
@@ -43203,6 +43244,34 @@
 
 	    //   )
 	    //   });
+
+
+	    return this.props.populate.map(function (card, i, e, o, u) {
+
+	      return _react2.default.createElement(
+	        'tr',
+	        { className: 'panel', key: i },
+	        _react2.default.createElement(
+	          'td',
+	          { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4', key: e },
+	          _react2.default.createElement(
+	            'h4',
+	            null,
+	            card.storeName
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'td',
+	          { className: 'col-lg-4 col-md-4 col-sm-4 col-xs-4', key: o },
+	          _react2.default.createElement(
+	            'h4',
+	            null,
+	            '$',
+	            card.cardBalance
+	          )
+	        )
+	      );
+	    });
 	  },
 
 	  render: function render() {
@@ -43258,7 +43327,11 @@
 	                )
 	              )
 	            ),
-	            _react2.default.createElement('tbody', null)
+	            _react2.default.createElement(
+	              'tbody',
+	              null,
+	              this.renderCards()
+	            )
 	          )
 	        )
 	      )
