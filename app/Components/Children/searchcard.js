@@ -1,9 +1,24 @@
-var React = require('react');
-var axios = require('axios');
+import React, {Component} from 'react';
+// var axios = require('axios');
+import axios from 'axios'
+// var cookie = require('react-cookie');
+import cookie from 'react-cookie'
+// var helpers = require("../utils/helpers");
+import helpers from '../utils/helpers'
+// This is the form component. 
+import AutoComplete from '../../../node_modules/material-ui/AutoComplete';
+import MenuItem from '../../../node_modules/material-ui/MenuItem';
+import AppBar from '../../../node_modules/material-ui/AppBar';
+import FontIcon from '../../../node_modules/material-ui/FontIcon';
+import {red500, yellow500, blue500} from '../../../node_modules/material-ui/styles/colors';
+import { RadioButton, RadioButtonGroup } from '../../../node_modules/material-ui/RadioButton'
+import ActionCardGiftCard from '../../../node_modules/material-ui/svg-icons/action/card-giftcard';
 
-var cookie = require('react-cookie');
+const giftIcon = {
 
-var helpers = require("../utils/helpers");
+  color: 'white',
+  margin: 11,
+}
 
 
 // This is the form component. 
@@ -11,8 +26,8 @@ var SearchCard  = React.createClass({
 
   getInititalState: function(){
     return {
-      searchCardResults: []
-    }
+      results: []
+    };
 
   },
 
@@ -56,11 +71,12 @@ var SearchCard  = React.createClass({
       console.log("search promise");
       console.log(response.data);
 
-      this.setState({searchCardResults: response.data});
+      this.setState({results: response.data});
 
-      console.log("the state is" + JSON.stringify(this.state.searchCardResults));
+      console.log("the state is" + JSON.stringify(this.state.results));
 
-      this.props.searchCards(this.state.searchCardResults);
+      this.props.searchCards(this.state.results);
+      console.log("The props are (searchcard) :");
       console.log(this.props.searchCards);
       return response.data;
     }.bind(this));
@@ -75,9 +91,15 @@ var SearchCard  = React.createClass({
     return(
 
         <div className="panel panel-primary" id="searchcard">
-              <div className="panel-heading" id="searchcardhead">
-                  <h3 className="panel-title"><b>Search for Gift Cards to trade!</b></h3>
-              </div>
+
+          <AppBar
+
+    iconElementLeft={<ActionCardGiftCard style={giftIcon} />}
+
+    title="Add Gift Card"
+  />
+
+
               <div className="panel-body" id="buycardbody">
   
 

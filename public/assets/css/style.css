@@ -33,6 +33,11 @@ select{
 	background-color: white;
 }
 
+#buycardbody {
+    background-color: white;
+    height: 228px;
+}
+
 
 #header1 {
 	height:350px;

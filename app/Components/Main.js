@@ -5,12 +5,13 @@
 // var SearchCard = require("./Children/SearchCard");
 
 import React, {Component} from 'react';
-import AddCard from './Children/AddCard'
-import SearchCard from './Children/SearchCard'
-import Populate from './Children/Populate'
-import Inventory from './Children/Inventory'
-import cookie from 'react-cookie'
-import helpers from './utils/helpers'
+import AddCard from './Children/AddCard';
+import SearchCard from './Children/SearchCard';
+import Populate from './Children/Populate';
+import Inventory from './Children/Inventory';
+import Nav from './Children/Nav';
+import cookie from 'react-cookie';
+import helpers from './utils/helpers';
 // This is the form component. 
 import AutoComplete from '../../node_modules/material-ui/AutoComplete';
 import MenuItem from '../../node_modules/material-ui/MenuItem';
@@ -18,6 +19,8 @@ import AppBar from '../../node_modules/material-ui/AppBar';
 import FontIcon from '../../node_modules/material-ui/FontIcon';
 import {red500, yellow500, blue500} from '../../node_modules/material-ui/styles/colors';
 import { RadioButton, RadioButtonGroup } from '../../node_modules/material-ui/RadioButton'
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 // Helper Function
 // import helpers from './utils/helpers';
 
@@ -62,21 +65,36 @@ var Main = React.createClass({
 
   componentDidUpdate:  function(){
     console.log("the props are ");
-    console.log(this.props.searchCards);
+    console.log(this.state.searchCardResults);
 
   },
 
   // Here we describe this component's render method
   render: function() {
     return (
+     
+  <div>
+   <div className="row">
+         <div className="col-md-12" id="screen2nav">
+
+   <Nav/>
+     
+         </div>
+        </div>
+
+
       <div className="container" id="screen2">
+    
+       
+
+
         <div className="row">
           <div className="col-md-6">
             <Inventory cards={this.state.userCards}/>
            </div> 
           <div className="col-md-6">
 
-           <Populate cards={this.setUser}/>
+           <Populate populate={this.state.searchCardResults}/>
           </div>
         </div>
 
@@ -93,6 +111,7 @@ var Main = React.createClass({
            
            
       </div>
+    </div>
    );
 
   },
