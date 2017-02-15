@@ -29158,7 +29158,7 @@
 
 	  componentDidUpdate: function componentDidUpdate() {
 	    console.log("the props are ");
-	    console.log(this.props.searchCards);
+	    console.log(this.state.searchCardResults);
 	  },
 
 	  // Here we describe this component's render method
@@ -42951,7 +42951,7 @@
 
 	  getInititalState: function getInititalState() {
 	    return {
-	      searchCardResults: []
+	      results: []
 	    };
 	  },
 
@@ -42990,11 +42990,12 @@
 	      console.log("search promise");
 	      console.log(response.data);
 
-	      this.setState({ searchCardResults: response.data });
+	      this.setState({ results: response.data });
 
-	      console.log("the state is" + JSON.stringify(this.state.searchCardResults));
+	      console.log("the state is" + JSON.stringify(this.state.results));
 
-	      this.props.searchCards(this.state.searchCardResults);
+	      this.props.searchCards(this.state.results);
+	      console.log("The props are (searchcard) :");
 	      console.log(this.props.searchCards);
 	      return response.data;
 	    }.bind(this));

@@ -11,8 +11,8 @@ var SearchCard  = React.createClass({
 
   getInititalState: function(){
     return {
-      searchCardResults: []
-    }
+      results: []
+    };
 
   },
 
@@ -56,11 +56,12 @@ var SearchCard  = React.createClass({
       console.log("search promise");
       console.log(response.data);
 
-      this.setState({searchCardResults: response.data});
+      this.setState({results: response.data});
 
-      console.log("the state is" + JSON.stringify(this.state.searchCardResults));
+      console.log("the state is" + JSON.stringify(this.state.results));
 
-      this.props.searchCards(this.state.searchCardResults);
+      this.props.searchCards(this.state.results);
+      console.log("The props are (searchcard) :");
       console.log(this.props.searchCards);
       return response.data;
     }.bind(this));

@@ -65,7 +65,7 @@ var Main = React.createClass({
 
   componentDidUpdate:  function(){
     console.log("the props are ");
-    console.log(this.props.searchCards);
+    console.log(this.state.searchCardResults);
 
   },
 
