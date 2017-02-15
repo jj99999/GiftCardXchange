@@ -15,8 +15,8 @@ import FontIcon from '../../../node_modules/material-ui/FontIcon';
 import {red500, yellow500, blue500} from '../../../node_modules/material-ui/styles/colors';
 import { RadioButton, RadioButtonGroup } from '../../../node_modules/material-ui/RadioButton'
 import ActionCardGiftCard from '../../../node_modules/material-ui/svg-icons/action/card-giftcard';
-
-
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
 // var AddCard = React.createClass({
 
 //   componentDidMount: function(){
@@ -155,6 +155,10 @@ const giftIcon = {
   margin: 11,
 }
 
+const style = {
+  marginRight: 20,
+};
+
 // Export the component back for use in other files
 // module.exports = AddCard;
 
@@ -268,7 +272,12 @@ render: function(){
         </div>
 
       </div>
-      <button type="submit" className="btn btn-info" id="addCardBtn" onClick={this.handleClick}><span className="glyphicon glyphicon-credit-card"></span> Add Gift Card</button>
+     
+
+        <FloatingActionButton secondary={true} style={style} onClick={this.handleClick}>
+      <ContentAdd />
+    </FloatingActionButton>
+
     </form>
 
   </div>
