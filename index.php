@@ -1,1 +1,1 @@
-<?php include('public/account.html'); ?>
+<?php include('account.html'); ?>
