@@ -67,6 +67,13 @@ select{
 	color:  #333
 }
 
+#populatebody1 {
+	height:279px;
+	background-color: white;
+    width: 555px;
+    margin-left: 15px;
+}
+
 h2{
 	font-weight: 200;
 	font-size: 32px;

@@ -46,7 +46,7 @@ const LogIn = () => (
 
 <div className="col-md-4">
 
-<h1 className="card-heading" style={style}>Login In</h1>
+<h1 className="card-heading" style={style}>Log In</h1>
 
 
 <div className="field-line">

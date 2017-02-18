@@ -74,7 +74,7 @@ const GiftCard = () => (
       <div className="col-md-6 ">
      <h2 className="add">Keep track of any gift card</h2>
 
- <h4>Have a holiday gift card to a store you never shop at? Wouldn't it be nice to find a marketplace where you can get something you want? Oh wait, you can!</h4>
+ <h4>Have a holiday gift card for a store that you never shop at? Wouldn't it be nice to find a marketplace where you can get something you do want? Oh wait, you can!</h4>
       </div>
       <div className="col-md-3">
 
@@ -105,9 +105,9 @@ const GiftCard = () => (
     <div className="row">
     <div className="col-md-6">
 
-    <h2>Exchange for gift cards you don't want for people who do want them.</h2>
+    <h2>Get what you want!</h2>
   
-    <h4 className="exchange">Go to the marketplace, take unwanted your unwanted cards, and get the ones that you've secretly always wanted but would never tell your gift givers.</h4>
+    <h4 className="exchange">Go to the marketplace. Post your unwanted cards. Get that gift card you've really always wanted but would never tell your gift givers.</h4>
     
    </div>
     <div className="col-md-3">

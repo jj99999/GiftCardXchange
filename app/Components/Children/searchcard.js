@@ -13,6 +13,7 @@ import FontIcon from '../../../node_modules/material-ui/FontIcon';
 import {red500, yellow500, blue500} from '../../../node_modules/material-ui/styles/colors';
 import { RadioButton, RadioButtonGroup } from '../../../node_modules/material-ui/RadioButton'
 import ActionCardGiftCard from '../../../node_modules/material-ui/svg-icons/action/card-giftcard';
+import Search from '../../../node_modules/material-ui/svg-icons/action/search';
 
 const giftIcon = {
 
@@ -94,7 +95,7 @@ var SearchCard  = React.createClass({
 
           <AppBar
 
-    iconElementLeft={<ActionCardGiftCard style={giftIcon} />}
+    iconElementLeft={<Search style={giftIcon} />}
 
     title="Add Gift Card"
   />
