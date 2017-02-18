@@ -8,6 +8,7 @@ import cookie from 'react-cookie';
 import ActionCardGiftCard from '../../../node_modules/material-ui/svg-icons/action/card-giftcard';
 import AppBar from '../../../node_modules/material-ui/AppBar';
 import CardMembersehip from '../../../node_modules/material-ui/svg-icons/action/card-membership';
+import Delete from '../../../node_modules/material-ui/svg-icons/action/delete';
 // var userCard;
 // var Card = require('../../models/card');
 
@@ -37,7 +38,7 @@ renderCards: function(){
 
              <td  className="col-lg-4 col-md-4 col-sm-4 col-xs-4" key={e}><h4>{card.storeName}</h4></td>
              <td  className="col-lg-4 col-md-4 col-sm-4 col-xs-4" key={o}><h4>${card.cardBalance}</h4></td>
-           
+             <td  className="col-lg-4 col-md-4 col-sm-4 col-xs-4"><Delete/></td>
 
         </tr>
 
@@ -90,6 +91,7 @@ renderCards: function(){
               <tr>
                   <th><h3>Store Name</h3></th>
                   <th><h3>Gift Card Balance</h3></th>
+                  <th><h3>Remove</h3></th>
               </tr>
               </thead>
         

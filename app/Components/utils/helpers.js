@@ -52,6 +52,15 @@ getUser: function(){
  },
 
 
+deleteCards: function(Card){
+
+  return axios.delete('/deletecards', {Card: Card}).then(function(response){
+
+   console.log("This card is being deleted!")
+});
+
+},
+
   allCards: function(){
 
  	  return axios.get('/allcards', function(){

@@ -172,6 +172,14 @@ module.exports = function(app, passport) {
 
         });
     });
+
+
+    app.delete('/deletecards', function (req, res) {
+    
+      var storesearch = req.cookies.storesearch;
+
+      Card.delete({"storeName" : storesearch })
+});
       
 };
 
