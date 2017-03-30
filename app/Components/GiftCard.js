@@ -60,7 +60,7 @@ const GiftCard = () => (
     <div className="text-vertical-center">
      <div className="container">
      <div className="col-md-12">
-     <h1 className="hatch">The Virtual Card Marketpace</h1>
+     <h1 className="hatch">The Virtual Card Marketplace</h1>
      </div>
      </div>
 
